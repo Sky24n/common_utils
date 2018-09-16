@@ -3,7 +3,7 @@
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
 
 [common_utils]  is a common tools library for Flutter.
-Contains ScreenUtil, RegexUtil, ObjectUtil, WidgetUtil.
+Contains DateUtil, ScreenUtil, RegexUtil, ObjectUtil, WidgetUtil.
 
 [Example --> SimpleProject/示例工程](https://github.com/Sky24n/flutter_demos)
 
@@ -17,6 +17,38 @@ dependencies:
 
 ### APIs
 
+* #### DateUtil
+```
+enum DateFormat {
+  DEFAULT, //yyyy-MM-dd HH:mm:ss.SSS
+  NORMAL, //yyyy-MM-dd HH:mm:ss
+  YEAR_MONTH_DAY_HOUR_MINUTE, //yyyy-MM-dd HH:mm
+  YEAR_MONTH_DAY, //yyyy-MM-dd
+  YEAR_MONTH, //yyyy-MM
+  MONTH_DAY, //MM-dd
+  MONTH_DAY_HOUR_MINUTE, //MM-dd HH:mm
+  HOUR_MINUTE_SECOND, //HH:mm:ss
+  HOUR_MINUTE, //HH:mm
+
+  ZH_DEFAULT, //yyyy年MM月dd日 HH时mm分ss秒SSS毫秒
+  ZH_NORMAL, //yyyy年MM月dd日 HH时mm分ss秒  /  timeSeparate: ":" --> yyyy年MM月dd日 HH:mm:ss
+  ZH_YEAR_MONTH_DAY_HOUR_MINUTE, //yyyy年MM月dd日 HH时mm分  /  timeSeparate: ":" --> yyyy年MM月dd日 HH:mm
+  ZH_YEAR_MONTH_DAY, //yyyy年MM月dd日
+  ZH_YEAR_MONTH, //yyyy年MM月
+  ZH_MONTH_DAY, //MM月dd日
+  ZH_MONTH_DAY_HOUR_MINUTE, //MM月dd日 HH时mm分  /  timeSeparate: ":" --> MM月dd日 HH:mm
+  ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
+  ZH_HOUR_MINUTE, //HH时mm分
+}
+getDateMillisecondsByTimeStr    : get DateMilliseconds By DateStr.
+getDateStrByTimeStr             : get DateStr By DateStr.
+getDateStrByMilliseconds        : get DateStr By Milliseconds.
+getDateStrByDateTime            : get DateStr By DateTime.
+getWeekDay                      : get WeekDay By DateTime.
+getZHWeekDay                    : get ZH WeekDay By DateTime.
+getWeekDayByMilliseconds        : get WeekDay By Milliseconds.
+getZHWeekDayByMilliseconds      : get ZH WeekDay By Milliseconds.
+```
 * #### ScreenUtil
 ```
 screenWidth
@@ -65,6 +97,12 @@ twoListIsEqual            : Two List Is Equal.
 // Import package
 import 'package:common_utils/common_utils.dart';
 
+//DateUtil example
+String timeNow = DateUtil.getDateStrByDateTime(DateTime.now());//2018-09-16 23:14:56
+String timeNow = DateUtil.getDateStrByDateTime(DateTime.now(),format: DateFormat.ZH_NORMAL);//2018年09月16日 23时16分15秒
+String weekday = DateUtil.getWeekDay(DateTime.parse("2018-09-16"));//Sunday
+String weekdayZh = DateUtil.getZHWeekDay(DateTime.parse("2018-09-16"));//星期日
+
 //First Page init. Notice!!!
 ScreenUtil.getInstance().init(context);
 
@@ -89,7 +127,7 @@ Widget build(BuildContext context) {
     return ;
  }
 
-//Widgets must be rendered completely. Otherwise return Offset.zero.
+//Widgets must be rendered completely. Otherwise return Rect.zero.
 Rect rect = WidgetUtil.getWidgetBounds(context);
 double width = rect.width;
 double height = rect.height;
@@ -98,6 +136,7 @@ double height = rect.height;
 Offset offset = WidgetUtil.getWidgetLocalToGlobal(context);
 double dx = offset.dx  
 double dx = offset.dy
+
 ```
 
 

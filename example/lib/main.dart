@@ -52,12 +52,18 @@ class _HomePageState extends State<HomePage> {
     List listB = ["A", "B", "C"];
     print("Two List Is Equal: " +
         ObjectUtil.twoListIsEqual(listA, listB).toString());
-    DateTime dateTime = DateTime.parse("2012-02-27 13:27:00");
-    print("DateTime: " +
-        new DateTime.fromMillisecondsSinceEpoch(1536720535748).toString() +
+
+    print("thl e getTimeByDateTime: " +
+        DateUtil.getDateStrByDateTime(DateTime.now(),
+            format: DateFormat.ZH_NORMAL, timeSeparate: "") +
         "\n" +
-        "  parse: " +
-        dateTime.toLocal().toString());
+        DateUtil.getZHWeekDay(DateTime.parse("2018-09-16")) +
+        "\n" +
+        DateUtil.getDateStrByDateTime(DateTime.now()) +
+        "\n" +
+        DateUtil.getDateStrByDateTime(DateTime.now(),
+            format: DateFormat.ZH_NORMAL) +
+        "");
 
     return new Scaffold(
         appBar: new AppBar(
@@ -68,7 +74,7 @@ class _HomePageState extends State<HomePage> {
           child: new Text(
             _sampleUrl,
             textAlign: TextAlign.center,
-            style: new TextStyle(fontSize: 16.0,color: Colors.blue),
+            style: new TextStyle(fontSize: 16.0, color: Colors.blue),
           ),
         ));
   }
