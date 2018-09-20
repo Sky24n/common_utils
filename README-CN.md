@@ -20,6 +20,14 @@ dependencies:
 
 ### APIs
 
+* #### NumUtil
+```
+getIntByValueStr            : 数字字符串转int.
+getDoubleByValueStr         : 数字字符串转double.
+getNumByValueStr            : 保留x位小数 by 数字字符串.
+getNumByValueDouble         : 保留x位小数 by double.
+```
+
 * #### DateUtil
 ```
 enum DateFormat {

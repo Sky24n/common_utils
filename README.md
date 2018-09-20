@@ -21,6 +21,14 @@ dependencies:
 
 ### APIs
 
+* #### NumUtil
+```
+getIntByValueStr            : get int By value string.
+getDoubleByValueStr         : get double By value string.
+getNumByValueStr            : Keep [x] decimal places by value string.
+getNumByValueDouble         : Keep [x] decimal places by double.
+```
+
 * #### DateUtil
 ```
 enum DateFormat {
