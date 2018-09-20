@@ -5,6 +5,8 @@
  * @Date: 2018/9/8
  */
 
+import 'package:common_utils/src/data/cu_constant.dart';
+
 ///
 class RegexUtil {
   /// Regex of simple mobile.
@@ -48,6 +50,8 @@ class RegexUtil {
   static final String regexIp =
       "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
 
+  static final Map<String, String> cityMap = new Map();
+
   ///Return whether input matches regex of simple mobile.
   static bool isMobileSimple(String input) {
     return matches(regexMobileSimple, input);
@@ -69,7 +73,7 @@ class RegexUtil {
       return isIDCard15(input);
     }
     if (input != null && input.length == 18) {
-      return isIDCard18(input);
+      return isIDCard18Exact(input);
     }
     return false;
   }
@@ -82,6 +86,47 @@ class RegexUtil {
   /// Return whether input matches regex of id card number which length is 18.
   static bool isIDCard18(String input) {
     return matches(regexIdCard18, input);
+  }
+
+  ///Return whether input matches regex of exact id card number which length is 18.
+  static bool isIDCard18Exact(String input) {
+    if (isIDCard18(input)) {
+      List<int> factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+      List<String> suffix = [
+        '1',
+        '0',
+        'X',
+        '9',
+        '8',
+        '7',
+        '6',
+        '5',
+        '4',
+        '3',
+        '2'
+      ];
+      if (cityMap.isEmpty) {
+        List<String> list = ID_CARD_PROVINCE_DICT;
+        List<MapEntry<String, String>> mapEntryList = new List();
+        for (int i = 0, length = list.length; i < length; i++) {
+          List<String> tokens = list[i].trim().split("=");
+          MapEntry<String, String> mapEntry =
+              new MapEntry(tokens[0], tokens[1]);
+          mapEntryList.add(mapEntry);
+        }
+        cityMap.addEntries(mapEntryList);
+      }
+      if (cityMap[input.substring(0, 2)] != null) {
+        int weightSum = 0;
+        for (int i = 0; i < 17; ++i) {
+          weightSum += (input.codeUnitAt(i) - '0'.codeUnitAt(0)) * factor[i];
+        }
+        int idCardMod = weightSum % 11;
+        String idCardLast = String.fromCharCode(input.codeUnitAt(17));
+        return idCardLast == suffix[idCardMod];
+      }
+    }
+    return false;
   }
 
   /// Return whether input matches regex of email.

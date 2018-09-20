@@ -45,17 +45,14 @@ class _HomePageState extends State<HomePage> {
         ScreenUtil.screenDensity.toString() +
         "");
 
-    String ddd;
-    print("Object is empty: " + ObjectUtil.isEmpty(ddd).toString());
-
-    List listA = ["A", "B", "C"];
-    List listB = ["A", "B", "C"];
+    List<String> listA = ["A", "B", "C"];
+    List<String> listB = ["A", "B", "C"];
     print("Two List Is Equal: " +
         ObjectUtil.twoListIsEqual(listA, listB).toString());
 
     print("thl e getTimeByDateTime: " +
         DateUtil.getDateStrByDateTime(DateTime.now(),
-            format: DateFormat.ZH_NORMAL, timeSeparate: "") +
+            format: DateFormat.ZH_NORMAL, timeSeparate: ":") +
         "\n" +
         DateUtil.getZHWeekDay(DateTime.parse("2018-09-16")) +
         "\n" +
@@ -63,7 +60,14 @@ class _HomePageState extends State<HomePage> {
         "\n" +
         DateUtil.getDateStrByDateTime(DateTime.now(),
             format: DateFormat.ZH_NORMAL) +
+        "\n" +
+        DateUtil.getNowDateStr() +
         "");
+
+    //保留小数点后2位数
+    String tempStr = "1.5561111";
+    double value = NumUtil.getNumByValueStr(tempStr, fractionDigits: 2);
+    print("getDoubleByStr: " + '$value'); //result=1.56
 
     return new Scaffold(
         appBar: new AppBar(

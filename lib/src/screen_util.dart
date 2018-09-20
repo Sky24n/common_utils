@@ -48,4 +48,19 @@ class ScreenUtil {
   static double get statusBarHeight => _statusBarHeight;
 
   static MediaQueryData get mediaQueryData => _mediaQueryData;
+
+  static double getScreenWidth(BuildContext context) {
+    MediaQueryData mediaQuery = MediaQuery.of(context);
+    return mediaQuery.size.width;
+  }
+
+  static double getScreenHeight(BuildContext context) {
+    MediaQueryData mediaQuery = MediaQuery.of(context);
+    return mediaQuery.size.height;
+  }
+
+  static Orientation getOrientation(BuildContext context) {
+    MediaQueryData mediaQuery = MediaQuery.of(context);
+    return mediaQuery.orientation;
+  }
 }

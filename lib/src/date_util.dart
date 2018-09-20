@@ -29,6 +29,16 @@ class DateUtil {
     return dateTime == null ? null : dateTime.millisecondsSinceEpoch;
   }
 
+  ///get Now Date Milliseconds.
+  static int getNowDateMilliseconds() {
+    return DateTime.now().millisecondsSinceEpoch;
+  }
+
+  ///get Now Date Str.(yyyy-MM-dd HH:mm:ss)
+  static String getNowDateStr() {
+    return getDateStrByDateTime(DateTime.now());
+  }
+
   ///get DateStr By DateStr.
   ///dateStr         date String.
   ///format          DateFormat type.
@@ -193,7 +203,7 @@ class DateUtil {
       time = time.replaceFirst(":", "时");
       time = time.replaceFirst(":", "分");
       time = time.replaceFirst(".", "秒");
-      if (timeSeparate != null) time = time + "毫秒";
+      time = time + "毫秒";
     } else {
       time = time.replaceAll(":", timeSeparate);
     }
@@ -288,5 +298,15 @@ class DateUtil {
         break;
     }
     return weekday;
+  }
+
+  ///Return whether it is leap year.
+  static bool isLeapYearByDateTime(DateTime dateTime) {
+    return isLeapYearByYear(dateTime.year);
+  }
+
+  ///Return whether it is leap year.
+  static bool isLeapYearByYear(int year) {
+    return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
   }
 }

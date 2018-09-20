@@ -2,11 +2,15 @@
 
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
 
+## [README of Chinese][readme-cn]
+
 [common_utils]  is a common tools library for Flutter.
-Contains DateUtil, ScreenUtil, RegexUtil, ObjectUtil, WidgetUtil.
+Contains DateUtil, NumUtil, ScreenUtil, RegexUtil, ObjectUtil, WidgetUtil.
 
 [Example --> SimpleProject/示例工程](https://github.com/Sky24n/flutter_demos)
 
+## Android scan code download APK
+- ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
 
 ### Add dependency
 
@@ -40,6 +44,8 @@ enum DateFormat {
   ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
   ZH_HOUR_MINUTE, //HH时mm分
 }
+getNowDateMilliseconds          : get Now Date Milliseconds.
+getNowDateStr                   : get Now DateStr.(yyyy-MM-dd HH:mm:ss)
 getDateMillisecondsByTimeStr    : get DateMilliseconds By DateStr.
 getDateStrByTimeStr             : get DateStr By DateStr.
 getDateStrByMilliseconds        : get DateStr By Milliseconds.
@@ -48,6 +54,7 @@ getWeekDay                      : get WeekDay By DateTime.
 getZHWeekDay                    : get ZH WeekDay By DateTime.
 getWeekDayByMilliseconds        : get WeekDay By Milliseconds.
 getZHWeekDayByMilliseconds      : get ZH WeekDay By Milliseconds.
+isLeapYearByYear                : whether it is leap year.
 ```
 * #### ScreenUtil
 ```
@@ -56,6 +63,9 @@ screenHeight
 screenDensity
 appBarHeight
 statusBarHeight
+getScreenWidth
+getScreenHeight
+getOrientation
 ```
 
 * #### WidgetUtil
@@ -73,6 +83,7 @@ isTel
 isIDCard
 isIDCard15
 isIDCard18
+isIDCard18Exact
 isEmail
 isURL
 isZh

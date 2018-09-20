@@ -1,6 +1,6 @@
 name: common_utils
-description: Flutter common utils library.DateUtil, ScreenUtil, RegexUtil, ObjectUtil, WidgetUtil.
-version: 1.0.0
+description: Flutter common utils library.DateUtil, NumUtil, ScreenUtil, RegexUtil, ObjectUtil, WidgetUtil.
+version: 1.0.1
 author: thl <863764940@qq.com>
 homepage: https://github.com/Sky24n/common_utils
 
