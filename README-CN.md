@@ -9,7 +9,7 @@
 [Example --> SimpleProject/示例工程](https://github.com/Sky24n/flutter_demos)
 
 ## Android扫码下载APK
-- ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
+  ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
 
 ### Add dependency
 
