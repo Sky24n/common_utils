@@ -4,7 +4,7 @@
 
 ## [README of English][readme]
 
-[common_utils] 工具类包含 日期，屏幕，正则，对象, 数字, Widget.
+[common_utils] 工具类包含 日期、屏幕、正则、对象、数字、Widget.
 
 [Example --> SimpleProject/示例工程](https://github.com/Sky24n/flutter_demos)
 
