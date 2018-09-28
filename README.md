@@ -1,15 +1,14 @@
-# common_utils (Flutter common utils library)
+# common_utils (Flutter常用工具类库)
 
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
 
-## [README of Chinese][readme-cn]
+## [README of English][readme-en]
 
-[common_utils]  is a common tools library for Flutter.
-Contains DateUtil, NumUtil, ScreenUtil, RegexUtil, ObjectUtil, WidgetUtil.
+[common_utils] 工具类包含 日期、屏幕、正则、对象、数字、Widget.
 
 ## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
 
-## Android scan code download APK
+## Android扫码下载APK
   ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
 
 ### Screenshot
@@ -26,10 +25,10 @@ dependencies:
 
 * #### NumUtil
 ```
-getIntByValueStr            : get int By value string.
-getDoubleByValueStr         : get double By value string.
-getNumByValueStr            : Keep [x] decimal places by value string.
-getNumByValueDouble         : Keep [x] decimal places by double.
+getIntByValueStr            : 数字字符串转int.
+getDoubleByValueStr         : 数字字符串转double.
+getNumByValueStr            : 保留x位小数 by 数字字符串.
+getNumByValueDouble         : 保留x位小数 by double.
 ```
 
 * #### DateUtil
@@ -55,61 +54,61 @@ enum DateFormat {
   ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
   ZH_HOUR_MINUTE, //HH时mm分
 }
-getNowDateMilliseconds          : get Now Date Milliseconds.
-getNowDateStr                   : get Now DateStr.(yyyy-MM-dd HH:mm:ss)
-getDateMillisecondsByTimeStr    : get DateMilliseconds By DateStr.
-getDateStrByTimeStr             : get DateStr By DateStr.
-getDateStrByMilliseconds        : get DateStr By Milliseconds.
-getDateStrByDateTime            : get DateStr By DateTime.
-getWeekDay                      : get WeekDay By DateTime.
-getZHWeekDay                    : get ZH WeekDay By DateTime.
-getWeekDayByMilliseconds        : get WeekDay By Milliseconds.
-getZHWeekDayByMilliseconds      : get ZH WeekDay By Milliseconds.
-isLeapYearByYear                : whether it is leap year.
+getNowDateMilliseconds          : 获取现在 毫秒.
+getNowDateStr                   : 获取现在 日期字符串.(yyyy-MM-dd HH:mm:ss)
+getDateMillisecondsByTimeStr    : 获取毫秒 By 日期字符串(Format格式输出).
+getDateStrByTimeStr             : 获取日期字符串 By 日期字符串(Format格式输出).
+getDateStrByMilliseconds        : 获取日期字符串 By 毫秒(Format格式输出).
+getDateStrByDateTime            : 获取日期字符串 By DateTime(Format格式输出).
+getWeekDay                      : 获取WeekDay By DateTime.
+getZHWeekDay                    : 获取星期 By DateTime.
+getWeekDayByMilliseconds        : 获取WeekDay By 毫秒.
+getZHWeekDayByMilliseconds      : 获取星期 By 毫秒.
+isLeapYearByYear                : 是否是闰年.
 ```
 * #### ScreenUtil
 ```
-screenWidth
-screenHeight
-screenDensity
-appBarHeight
-statusBarHeight
-getScreenWidth
-getScreenHeight
-getOrientation
+screenWidth               : 获取屏幕宽.
+screenHeight              : 获取屏幕高.
+screenDensity             : 获取屏幕密度.
+appBarHeight              : 获取系统AppBar高度.
+statusBarHeight           : 获取系统状态栏高度.
+getScreenWidth            : 获取当前屏幕宽.
+getScreenHeight           : 获取当前屏幕高.
+getOrientation            : 获取当前屏幕方向.
 ```
 
 * #### WidgetUtil
 ```
-asyncPrepare              : Widget rendering listener.
-getWidgetBounds           : get Widget Bounds (width, height).
-getWidgetLocalToGlobal    : Get the coordinates of the widget on the screen.
+asyncPrepare              : 监听widget宽高变化,callback返回宽高等参数.
+getWidgetBounds           : 获取widget 宽高.
+getWidgetLocalToGlobal    : 获取widget在屏幕上的坐标.
 ```
 
 * #### RegexUtil
 ```
-isMobileSimple
-isMobileExact
-isTel
-isIDCard
-isIDCard15
-isIDCard18
-isIDCard18Exact
-isEmail
-isURL
-isZh
-isDate
-isIP
+isMobileSimple            : 简单验证手机号
+isMobileExact             : 精确验证手机号
+isTel                     : 验证电话号码
+isIDCard                  : 验证身份证号码
+isIDCard15                : 验证身份证号码 15 位
+isIDCard18                : 简单验证身份证号码 18 位
+isIDCard18Exact           : 精确验证身份证号码 18 位
+isEmail                   : 验证邮箱
+isURL                     : 验证 URL
+isZh                      : 验证汉字
+isDate                    : 验证 yyyy-MM-dd 格式的日期校验，已考虑平闰年
+isIP                      : 验证 IP 地址
 ```
 
 * #### ObjectUtil
 ```
-isEmptyString             : String is empty.
-isEmptyList               : List is empty.
-isEmptyMap                : Map Map empty.
-isEmpty                   : Object is empty.(String List Map).
-isNotEmpty                : Object is not empty.(String List Map).
-twoListIsEqual            : Two List Is Equal.
+isEmptyString             : 判断String是否为空.
+isEmptyList               : 判断List是否为空.
+isEmptyMap                : 判断Map是否为空.
+isEmpty                   : 判断对象是否为空.(String List Map).
+isNotEmpty                : 判断对象是否非空.(String List Map).
+twoListIsEqual            : 判断两个List是否相等.
 ```
 
 ### Example
@@ -165,8 +164,10 @@ double dx = offset.dy
 
 
 
-
 [readme]: https://github.com/Sky24n/common_utils
-[readme-cn]: https://github.com/Sky24n/common_utils/blob/master/README-CN.md
+[readme-en]: https://github.com/Sky24n/common_utils/blob/master/README-EN.md
+
+
+
 
 
