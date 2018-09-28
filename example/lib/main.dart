@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
 
     print("thl e getTimeByDateTime: " +
         DateUtil.getDateStrByDateTime(DateTime.now(),
-            format: DateFormat.ZH_NORMAL, timeSeparate: ":") +
+            format: DateFormat.NORMAL, dateSeparate: "/", timeSeparate: ".") +
         "\n" +
         DateUtil.getZHWeekDay(DateTime.parse("2018-09-16")) +
         "\n" +

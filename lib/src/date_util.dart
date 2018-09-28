@@ -214,10 +214,10 @@ class DateUtil {
   static String dateTimeSeparate(
       String time, String dateSeparate, String timeSeparate) {
     if (dateSeparate != null) {
-      time.replaceAll("-", dateSeparate);
+      time = time.replaceAll("-", dateSeparate);
     }
     if (timeSeparate != null) {
-      time.replaceAll(":", timeSeparate);
+      time = time.replaceAll(":", timeSeparate);
     }
     return time;
   }
