@@ -153,6 +153,38 @@ twoListIsEqual            : 判断两个List是否相等.
 // Import package
 import 'package:common_utils/common_utils.dart';
 
+//MoneyUtil example
+String moneyTxt = MoneyUtil.changeFStr2YWithUnit("1160", format: MoneyFormat.NORMAL, unit: MoneyUnit.YUAN_ZH);
+String moneyTxt = MoneyUtil.changeYWithUnit("1.66", unit: MoneyUnit.YUAN_ZH);
+
+//TimerUtil example
+TimerUtil timerUtil;
+  //定时任务test
+  timerUtil = new TimerUtil(mInterval: 1000);
+  //timerUtil.setInterval(1000);
+  timerUtil.setOnTimerTickCallback((int value) {
+      LogUtil.e("TimerTick: " + value.toString());
+  });
+  timerUtil.startTimer();
+  //timerUtil.cancel();
+ 
+TimerUtil timerCountDown;
+     //倒计时test
+    timerCountDown = new TimerUtil(mInterval: 1000, mTotalTime: 3 * 1000);
+//    timerCountDown.setInterval(1000);
+//    timerCountDown.setTotalTime(3 * 1000);
+    timerCountDown.setOnTimerTickCallback((int value) {
+       double tick = (value / 1000);
+       LogUtil.e("CountDown: " + tick.toInt().toString());
+    });
+    timerCountDown.startCountDown();
+    //timerUtil.cancel();
+
+//LogUtil example
+LogUtil.init(isDebug: true, tag: "test");
+LogUtil.e("...log...", tag: "test");
+LogUtil.v("...log...", tag: "test");
+    
 //DateUtil example
 String timeNow = DateUtil.getDateStrByDateTime(DateTime.now());//2018-09-16 23:14:56
 String timeNow = DateUtil.getDateStrByDateTime(DateTime.now(),format: DateFormat.ZH_NORMAL);//2018年09月16日 23时16分15秒

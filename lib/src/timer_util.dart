@@ -97,6 +97,11 @@ class TimerUtil {
     startCountDown();
   }
 
+  ///timer is Active.
+  bool isActive() {
+    return _isActive;
+  }
+
   ///Cancels the timer.
   ///取消计时器.
   void cancel() {
