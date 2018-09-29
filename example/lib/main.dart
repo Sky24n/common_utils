@@ -25,17 +25,53 @@ class _HomePageState extends State<HomePage> {
       "\n" +
       "\n" +
       "https://github.com/Sky24n/flutter_demos";
+  TimerUtil timerUtil;
+  TimerUtil timerCountDown;
 
   @override
   void initState() {
     super.initState();
+    init();
   }
 
   @override
-  Widget build(BuildContext context) {
-    ScreenUtil.getInstance().init(context);
+  void dispose() {
+    super.dispose();
+    if (timerUtil != null) timerUtil.cancel();
+    if (timerCountDown != null) timerCountDown.cancel();
+  }
 
-    print("ScreenUtil screenWidth: " +
+  void init() {
+    /**  ----------------MoneyUtil----------------  */
+    String yuan = '1.66';
+    LogUtil.e(MoneyUtil.changeFStr2YWithUnit("1160",
+            format: MoneyFormat.NORMAL, unit: MoneyUnit.YUAN_ZH) +
+        "\n" +
+        MoneyUtil.changeYWithUnit(yuan, MoneyUnit.YUAN_ZH));
+    /**  ----------------MoneyUtil----------------  */
+
+    /**  ----------------TimerUtil----------------  */
+    //定时任务test
+    timerUtil = new TimerUtil(mInterval: 1000);
+    //timerUtil.setInterval(1000);
+    timerUtil.setOnTimerTickCallback((int value) {
+      LogUtil.e("TimerTick: " + value.toString());
+    });
+    timerUtil.startTimer();
+
+    //倒计时test
+    timerCountDown = new TimerUtil(mInterval: 1000, mTotalTime: 3 * 1000);
+//    timerCountDown.setInterval(1000);
+//    timerCountDown.setTotalTime(3 * 1000);
+    timerCountDown.setOnTimerTickCallback((int value) {
+      double tick = (value / 1000);
+      LogUtil.e("CountDown: " + tick.toInt().toString());
+    });
+    timerCountDown.startCountDown();
+    /**  ----------------TimerUtil----------------  */
+
+    /**  ----------------ScreenUtil----------------  */
+    LogUtil.e("ScreenUtil screenWidth: " +
         ScreenUtil.screenWidth.toString() +
         "   screenHeight: " +
         ScreenUtil.screenHeight.toString() +
@@ -45,14 +81,19 @@ class _HomePageState extends State<HomePage> {
         ScreenUtil.screenDensity.toString() +
         "");
 
+    /**  ----------------ScreenUtil----------------  */
+
+    /**  ----------------ObjectUtil----------------  */
     List<String> listA = ["A", "B", "C"];
     List<String> listB = ["A", "B", "C"];
-    print("Two List Is Equal: " +
+    LogUtil.e("Two List Is Equal: " +
         ObjectUtil.twoListIsEqual(listA, listB).toString());
+    /**  ----------------ObjectUtil----------------  */
 
-    print("thl e getTimeByDateTime: " +
+    /**  ----------------DateUtil----------------  */
+    LogUtil.e("getTimeByDateTime: " +
         DateUtil.getDateStrByDateTime(DateTime.now(),
-            format: DateFormat.NORMAL, dateSeparate: "/", timeSeparate: ".") +
+            format: DateFormat.NORMAL, dateSeparate: "/", timeSeparate: ":") +
         "\n" +
         DateUtil.getZHWeekDay(DateTime.parse("2018-09-16")) +
         "\n" +
@@ -63,11 +104,28 @@ class _HomePageState extends State<HomePage> {
         "\n" +
         DateUtil.getNowDateStr() +
         "");
+    /**  ----------------DateUtil----------------  */
 
+    /**  ----------------NumUtil----------------  */
     //保留小数点后2位数
     String tempStr = "1.5561111";
     double value = NumUtil.getNumByValueStr(tempStr, fractionDigits: 2);
-    print("getDoubleByStr: " + '$value'); //result=1.56
+    LogUtil.e("getDoubleByStr: " + '$value'); //result=1.56
+    /**  ----------------NumUtil----------------  */
+
+    /**  ----------------LogUtil----------------  */
+    LogUtil.init(isDebug: true, tag: "test");
+    LogUtil.e("...log...", tag: "test");
+    LogUtil.v("...log...", tag: "test");
+    /**  ----------------LogUtil----------------  */
+
+    /**  ----------------Util----------------  */
+    /**  ----------------Util----------------  */
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    ScreenUtil.getInstance().init(context);
 
     return new Scaffold(
         appBar: new AppBar(

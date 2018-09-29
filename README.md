@@ -4,8 +4,17 @@
 
 ## [README of English][readme-en]
 
-[common_utils] 工具类包含 日期、屏幕、正则、对象、数字、Widget.
-
+## [common_utils] Flutter常用工具类库. 如果你有好的工具类欢迎PR.
+ 1、TimerUtil    : 倒计时，定时任务.(新)  
+ 2、MoneyUtil    : 分转元，支持格式输出.(新)  
+ 3、LogUtil      : 简单封装打印日志.(新)  
+ 4、DateUtil     : 日期转换格式化输出.  
+ 5、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
+ 6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
+ 7、NumUtil      : 保留x位小数.  
+ 8、WidgetUtil   : 获取Widget宽高，在屏幕上的坐标.  
+ 9、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
+ 
 ## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
 
 ## Android扫码下载APK
@@ -22,6 +31,32 @@ dependencies:
 ```
 
 ### APIs
+
+* #### TimerUtil
+```
+setInterval                 : 设置Timer间隔.
+setTotalTime                : 设置倒计时总时间.
+startTimer()                : 启动定时Timer.
+startCountDown              : 启动倒计时Timer.
+updateTotalTime             : 重设倒计时总时间.
+cancel                      : 取消计时器.
+setOnTimerTickCallback      : 计时器回调.
+```
+
+* #### MoneyUtil
+```
+changeF2Y                   : 分 转 元, format格式输出.
+changeFStr2YWithUnit        : 分字符串 转 元, format 与 unit 格式 输出.
+changeF2YWithUnit           : 分 转 元, format 与 unit 格式 输出.
+changeYWithUnit             : 元, format 与 unit 格式 输出.
+```
+
+* #### LogUtil
+```
+init(isDebug, tag)          : isDebug: 模式, tag 标签.
+e(object, tag)              : 日志e
+v(object, tag)              : 日志v，只在debug模式输出.
+```
 
 * #### NumUtil
 ```

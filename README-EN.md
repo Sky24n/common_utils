@@ -5,7 +5,15 @@
 ## [README of Chinese][readme]
 
 [common_utils]  is a common tools library for Flutter.
-Contains DateUtil, NumUtil, ScreenUtil, RegexUtil, ObjectUtil, WidgetUtil.
+ 1、TimerUtil    : countdown，timer.(new)  
+ 2、MoneyUtil    : fen to yuan, format output.(new)  
+ 3、LogUtil      : simply encapsulate print logs.(new)  
+ 4、DateUtil     : date conversion formatted output.  
+ 5、ScreenUtil   : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
+ 6、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
+ 7、NumUtil      : Keep [x] decimal places.  
+ 8、WidgetUtil   : get Widget width height，coordinates.  
+ 9、ObjectUtil   : Object is empty,Two List is equal.  
 
 ## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
 
@@ -23,6 +31,32 @@ dependencies:
 ```
 
 ### APIs
+
+* #### TimerUtil
+```
+setInterval                 : set Timer interval.
+setTotalTime                : set countdown totalTime.
+startTimer()                : start Timer.
+startCountDown              : start countdown Timer.
+updateTotalTime             : update countdown totalTime.
+cancel                      : cancels the timer.
+setOnTimerTickCallback      : set timer callback.
+```
+
+* #### MoneyUtil
+```
+changeF2Y                   : fen to yuan, format output.
+changeFStr2YWithUnit        : fen str to yuan, format & unit  output.
+changeF2YWithUnit           : fen to yuan, format & unit  output.
+changeYWithUnit             : yuan, format & unit  output.(yuan is int,double,str).
+```
+
+* #### LogUtil
+```
+init(isDebug, tag)          : isDebug , tag.
+e(object, tag)              : Log e.
+v(object, tag)              : Log v. debug output.
+```
 
 * #### NumUtil
 ```
