@@ -41,6 +41,7 @@ startCountDown              : start countdown Timer.
 updateTotalTime             : update countdown totalTime.
 cancel                      : cancels the timer.
 setOnTimerTickCallback      : set timer callback.
+isActive                    : timer is Active.
 ```
 
 * #### MoneyUtil

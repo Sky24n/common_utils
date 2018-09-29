@@ -98,6 +98,7 @@ class TimerUtil {
   }
 
   ///timer is Active.
+  ///Timer是否启动.
   bool isActive() {
     return _isActive;
   }

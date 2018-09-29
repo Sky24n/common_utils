@@ -41,6 +41,7 @@ startCountDown              : 启动倒计时Timer.
 updateTotalTime             : 重设倒计时总时间.
 cancel                      : 取消计时器.
 setOnTimerTickCallback      : 计时器回调.
+isActive                    : Timer是否启动.
 ```
 
 * #### MoneyUtil
