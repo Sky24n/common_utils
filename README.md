@@ -16,7 +16,7 @@
  9、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
  
 ## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
-
+## APK:[点击下载v1.0.1](https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk)
 ## Android扫码下载APK
   ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
 
