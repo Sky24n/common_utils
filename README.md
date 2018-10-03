@@ -196,6 +196,10 @@ twoListIsEqual            : 判断两个List是否相等.
 // Import package
 import 'package:common_utils/common_utils.dart';
 
+//TimelineUtil
+DateTime xxxDateTime = DateTime(2018, 6, 16, 16, 16, 16);
+LogUtil.e("Timeline: " + TimelineUtil.formatByDateTime(xxxDateTime, locale: 'zh_wechat').toString());
+
 //MoneyUtil example
 String moneyTxt = MoneyUtil.changeFStr2YWithUnit("1160", format: MoneyFormat.NORMAL, unit: MoneyUnit.YUAN_ZH);
 String moneyTxt = MoneyUtil.changeYWithUnit("1.66", unit: MoneyUnit.YUAN_ZH);

@@ -107,7 +107,7 @@ class ZHWeChatTimelineInfo implements TimelineInfo {
 
   String suffixAfter() => '后';
 
-  String lessThanTenSecond() => '刚刚';
+  String lessThanTenSecond() => '';
 
   String customYesterday() => '昨天';
 
@@ -135,7 +135,7 @@ class ENWeChatTimelineInfo implements TimelineInfo {
 
   String suffixAfter() => ' after';
 
-  String lessThanTenSecond() => 'just now';
+  String lessThanTenSecond() => '';
 
   String customYesterday() => 'Yesterday';
 
