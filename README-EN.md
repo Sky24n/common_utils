@@ -4,24 +4,21 @@
 
 ## [README of Chinese][readme]
 
-[common_utils]  is a common tools library for Flutter.
- 1、TimerUtil    : countdown，timer.(new)  
- 2、MoneyUtil    : fen to yuan, format output.(new)  
- 3、LogUtil      : simply encapsulate print logs.(new)  
- 4、DateUtil     : date conversion formatted output.  
- 5、ScreenUtil   : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
- 6、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
- 7、NumUtil      : Keep [x] decimal places.  
- 8、WidgetUtil   : get Widget width height，coordinates.  
- 9、ObjectUtil   : Object is empty,Two List is equal.  
+##Update Description
+common_utils: No platform restriction found in primary library.  
+WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars) library.
 
-## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
-
-## Android scan code download APK
-  ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
-
-### Screenshot
-  <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180920-215011.jpg" width="200">" <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-231618.jpg" width="200">  <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-224146.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-224231.jpg" width="200">
+##[common_utils]  is a common tools library for Flutter.  
+ 1、TimelineUtil : timeline util.(new)  
+ 2、TimerUtil    : countdown，timer.(new)  
+ 3、MoneyUtil    : fen to yuan, format output.(new)  
+ 4、LogUtil      : simply encapsulate print logs.(new)  
+ 5、DateUtil     : date conversion formatted output.  
+ 6、ScreenUtil   : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
+ 7、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
+ 8、NumUtil      : Keep [x] decimal places.  
+ 9、WidgetUtil   : get Widget width height，coordinates.  
+ 10、ObjectUtil  : Object is empty,Two List is equal.  
 
 ### Add dependency
 
@@ -31,6 +28,37 @@ dependencies:
 ```
 
 ### APIs
+* #### TimelineUtil
+```
+///(xx)Configurable output.
+enum DayFormat {
+  ///(less than 10s->just now)、x minutes、x hours、(Yesterday)、x days.
+  Common,
+  ///(less than 10s->just now)、x minutes、x hours、[This year:(Yesterday/a day ago)、(two days age)、MM-dd ]、[past years: yyyy-MM-dd]
+  Short,
+  ///(less than 10s->just now)、x minutes、x hours、[This year:(Yesterday HH:mm/a day ago)、(two days age)、MM-dd HH:mm]、[past years: yyyy-MM-dd HH:mm]
+  Detail,
+}
+///Timeline information configuration.
+abstract class TimelineInfo {
+  String suffixAgo(); //suffix ago(后缀 后).
+  String suffixAfter(); //suffix after(后缀 前).
+  String lessThanTenSecond() => ''; //just now(刚刚).
+  String customYesterday() => ''; //Yesterday(昨天).优先级高于keepOneDay
+  bool keepOneDay(); //保持1天,example: true -> 1天前, false -> MM-dd.
+  bool keepTwoDays(); //保持2天,example: true -> 2天前, false -> MM-dd.
+  String oneMinute(int minutes); //a minute(1分钟).
+  String minutes(int minutes); //x minutes(x分钟).
+  String anHour(int hours); //an hour(1小时).
+  String hours(int hours); //x hours(x小时).
+  String oneDay(int days); //a day(1天).
+  String days(int days); //x days(x天).
+  DayFormat dayFormat(); //format.
+}
+setLocaleInfo               : add custom configuration.
+formatByDateTime            : timeline format output by DateTime .
+format                      : timeline format output.
+```
 
 * #### TimerUtil
 ```
@@ -101,6 +129,9 @@ getZHWeekDay                    : get ZH WeekDay By DateTime.
 getWeekDayByMilliseconds        : get WeekDay By Milliseconds.
 getZHWeekDayByMilliseconds      : get ZH WeekDay By Milliseconds.
 isLeapYearByYear                : whether it is leap year.
+yearIsEqual                     : year is equal.
+getDayOfYear                    : get day of year..
+isYesterday                     : is yesterday.
 ```
 * #### ScreenUtil
 ```

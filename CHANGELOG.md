@@ -1,3 +1,7 @@
+## 1.0.4
+
+* TODO: Newly TimelineUtil.DateUtil update.No platform restriction found in primary library. 
+
 ## 1.0.3
 
 * TODO: Newly added TimerUtil, MoneyUtil, LogUtil,Some updates.

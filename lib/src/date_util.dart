@@ -20,6 +20,22 @@ enum DateFormat {
   ZH_HOUR_MINUTE, //HH时mm分
 }
 
+///month->days.
+Map<int, int> MONTH_DAY = {
+  1: 31,
+  2: 28,
+  3: 31,
+  4: 30,
+  5: 31,
+  6: 30,
+  7: 31,
+  8: 31,
+  9: 30,
+  10: 31,
+  11: 30,
+  12: 31,
+};
+
 /**
  * @Author: thl
  * @GitHub: https://github.com/Sky24n
@@ -328,5 +344,62 @@ class DateUtil {
   ///Return whether it is leap year.
   static bool isLeapYearByYear(int year) {
     return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+  }
+
+  ///is yesterday by millis.
+  ///是否是昨天.
+  static bool isYesterdayByMillis(int millis, int locMillis) {
+    return isYesterday(DateTime.fromMillisecondsSinceEpoch(millis),
+        DateTime.fromMillisecondsSinceEpoch(locMillis));
+  }
+
+  ///is yesterday by dateTime.
+  ///是否是昨天.
+  static bool isYesterday(DateTime dateTime, DateTime locDateTime) {
+    if (yearIsEqual(dateTime, locDateTime)) {
+      int spDay =
+          DateUtil.getDayOfYear(locDateTime) - DateUtil.getDayOfYear(dateTime);
+      return spDay == 1;
+    } else {
+      return ((locDateTime.year - dateTime.year == 1) &&
+          dateTime.month == 12 &&
+          locDateTime.month == 1 &&
+          dateTime.day == 31 &&
+          locDateTime.day == 1);
+    }
+  }
+
+  ///get day of year.
+  ///在今年的第几天.
+  static int getDayOfYearByMillis(int millis) {
+    return getDayOfYear(DateTime.fromMillisecondsSinceEpoch(millis));
+  }
+
+  ///get day of year.
+  ///在今年的第几天.
+  static int getDayOfYear(DateTime dateTime) {
+    int year = dateTime.year;
+    int month = dateTime.month;
+    int days = dateTime.day;
+    for (int i = 1; i < month; i++) {
+      days = days + MONTH_DAY[i];
+    }
+    if (isLeapYearByYear(year) && month > 2) {
+      days = days + 1;
+    }
+    return days;
+  }
+
+  ///year is equal.
+  ///是否同年.
+  static bool yearIsEqualByMillis(int millis, int locMillis) {
+    return yearIsEqual(DateTime.fromMillisecondsSinceEpoch(millis),
+        DateTime.fromMillisecondsSinceEpoch(locMillis));
+  }
+
+  ///year is equal.
+  ///是否同年.
+  static bool yearIsEqual(DateTime dateTime, DateTime locDateTime) {
+    return dateTime.year == locDateTime.year;
   }
 }

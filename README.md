@@ -4,24 +4,30 @@
 
 ## [README of English][readme-en]
 
+##更新说明
+common_utils库没有平台限制.
+WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
+
 ## [common_utils] Flutter常用工具类库. 如果你有好的工具类欢迎PR.
- 1、TimerUtil    : 倒计时，定时任务.(新)  
- 2、MoneyUtil    : 分转元，支持格式输出.(新)  
- 3、LogUtil      : 简单封装打印日志.(新)  
- 4、DateUtil     : 日期转换格式化输出.  
- 5、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
- 6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
- 7、NumUtil      : 保留x位小数.  
- 8、WidgetUtil   : 获取Widget宽高，在屏幕上的坐标.  
- 9、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
+ 1、TimelineUtil : 时间轴.(新)  
+ 2、TimerUtil    : 倒计时，定时任务.(新)  
+ 3、MoneyUtil    : 分转元，支持格式输出.(新)  
+ 4、LogUtil      : 简单封装打印日志.(新)  
+ 5、DateUtil     : 日期转换格式化输出.  
+ 6、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
+ 7、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
+ 8、NumUtil      : 保留x位小数.  
+ 9、WidgetUtil   : 获取Widget宽高，在屏幕上的坐标.  
+ 10、ObjectUtil  : 判断对象是否为空(String List Map),判断两个List是否相等.  
  
 ## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
-## APK:[点击下载v1.0.1](https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk)
+## APK: [点击下载v1.0.2](https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk)
 ## Android扫码下载APK
   ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
 
 ### Screenshot
-<img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180930-012431.jpg" width="200">  <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-231618.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180926-144840.png" width="200"> 
+<img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20181003-234414.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20181003-211011.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">  
+<img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180930-012431.jpg" width="200">  <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-231618.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180926-144840.png" width="200">  
 <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-224204.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-224146.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-224231.jpg" width="200">   
 
 ### Add dependency
@@ -32,6 +38,38 @@ dependencies:
 ```
 
 ### APIs
+
+* #### TimelineUtil
+```
+///(xx)为可配置输出
+enum DayFormat {
+  ///(小于10s->刚刚)、x分钟、x小时、(昨天)、x天.
+  Common,
+  ///(小于10s->刚刚)、x分钟、x小时、[今年: (昨天/1天前)、(2天前)、MM-dd],[往年: yyyy-MM-dd].
+  Short,
+  ///小于10s->刚刚)、x分钟、x小时、[今年: (昨天 HH:mm/1天前)、(2天前)、MM-dd HH:mm],[往年: yyyy-MM-dd HH:mm].
+  Detail,
+}
+///Timeline信息配置.
+abstract class TimelineInfo {
+  String suffixAgo(); //suffix ago(后缀 后).
+  String suffixAfter(); //suffix after(后缀 前).
+  String lessThanTenSecond() => ''; //just now(刚刚).
+  String customYesterday() => ''; //Yesterday(昨天).优先级高于keepOneDay
+  bool keepOneDay(); //保持1天,example: true -> 1天前, false -> MM-dd.
+  bool keepTwoDays(); //保持2天,example: true -> 2天前, false -> MM-dd.
+  String oneMinute(int minutes); //a minute(1分钟).
+  String minutes(int minutes); //x minutes(x分钟).
+  String anHour(int hours); //an hour(1小时).
+  String hours(int hours); //x hours(x小时).
+  String oneDay(int days); //a day(1天).
+  String days(int days); //x days(x天).
+  DayFormat dayFormat(); //format.
+}
+setLocaleInfo               : 自定义设置配置信息.
+formatByDateTime            : 格式输出时间轴信息 by DateTime .
+format                      : 格式输出时间轴信息.
+```
 
 * #### TimerUtil
 ```
@@ -102,6 +140,9 @@ getZHWeekDay                    : 获取星期 By DateTime.
 getWeekDayByMilliseconds        : 获取WeekDay By 毫秒.
 getZHWeekDayByMilliseconds      : 获取星期 By 毫秒.
 isLeapYearByYear                : 是否是闰年.
+yearIsEqual                     : 是否同年.
+getDayOfYear                    : 在今年的第几天.
+isYesterday                     : 是否是昨天.
 ```
 * #### ScreenUtil
 ```
