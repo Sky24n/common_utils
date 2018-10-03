@@ -4,9 +4,9 @@
 
 ## [README of Chinese][readme]
 
-##Update Description
+## Update Description  
 common_utils: No platform restriction found in primary library.  
-WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars) library.
+  WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars) library.
 
 ##[common_utils]  is a common tools library for Flutter.  
  1、TimelineUtil : timeline util.(new)  

@@ -4,8 +4,8 @@
 
 ## [README of English][readme-en]
 
-##更新说明
-common_utils库没有平台限制.
+## 更新说明  
+common_utils库没有平台限制.  
 WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
 
 ## [common_utils] Flutter常用工具类库. 如果你有好的工具类欢迎PR.
