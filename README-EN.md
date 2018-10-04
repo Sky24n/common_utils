@@ -8,7 +8,7 @@
 common_utils: No platform restriction found in primary library.  
 WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars) library.  
 
-##[common_utils]  is a dart common tools library.  
+## [common_utils] is a dart common tools library.  
 ### [common_utils](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : timeline util.(new)  
  2、TimerUtil    : countdown，timer.(new)  
