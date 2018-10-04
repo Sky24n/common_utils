@@ -18,7 +18,7 @@ WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
  6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
  7、NumUtil      : 保留x位小数.  
  8、ObjectUtil  : 判断对象是否为空(String List Map),判断两个List是否相等.  
-### [flustars Flutter工具类库](https://github.com/Sky24n/flustars)  
+### Flutter工具类库[flustars](https://github.com/Sky24n/flustars)  
  1、SpUtil       : SharedPreferences 工具类.  
  2、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
  3、WidgetUtil   : 获取Widget宽高，在屏幕上的坐标.  
