@@ -1,4 +1,4 @@
-# common_utils (Flutter常用工具类库)
+# common_utils (Dart常用工具类库, Flutter, web, other)
 
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
 
@@ -9,7 +9,7 @@ common_utils库不再有平台限制.
 WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
 
 ## [common_utils] Flutter常用工具类库. 如果你有好的工具类欢迎PR.
-### [common_utils](https://github.com/Sky24n/common_utils)  
+### [common_utils Flutter, web, other](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : 时间轴.(新)  
  2、TimerUtil    : 倒计时，定时任务.(新)  
  3、MoneyUtil    : 分转元，支持格式输出.(新)  
@@ -18,7 +18,7 @@ WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
  6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
  7、NumUtil      : 保留x位小数.  
  8、ObjectUtil  : 判断对象是否为空(String List Map),判断两个List是否相等.  
-### [flustars](https://github.com/Sky24n/flustars)  
+### [flustars Flutter](https://github.com/Sky24n/flustars)  
  1、SpUtil       : SharedPreferences 工具类.  
  2、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
  3、WidgetUtil   : 获取Widget宽高，在屏幕上的坐标.  
