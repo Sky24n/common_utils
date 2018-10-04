@@ -5,20 +5,23 @@
 ## [README of English][readme-en]
 
 ## 更新说明  
-common_utils库没有平台限制.  
+common_utils库不再有平台限制.  
 WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
 
 ## [common_utils] Flutter常用工具类库. 如果你有好的工具类欢迎PR.
+### [common_utils](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : 时间轴.(新)  
  2、TimerUtil    : 倒计时，定时任务.(新)  
  3、MoneyUtil    : 分转元，支持格式输出.(新)  
  4、LogUtil      : 简单封装打印日志.(新)  
  5、DateUtil     : 日期转换格式化输出.  
- 6、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
- 7、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
- 8、NumUtil      : 保留x位小数.  
- 9、WidgetUtil   : 获取Widget宽高，在屏幕上的坐标.  
- 10、ObjectUtil  : 判断对象是否为空(String List Map),判断两个List是否相等.  
+ 6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
+ 7、NumUtil      : 保留x位小数.  
+ 8、ObjectUtil  : 判断对象是否为空(String List Map),判断两个List是否相等.  
+### [flustars](https://github.com/Sky24n/flustars)  
+ 1、SpUtil       : SharedPreferences 工具类.  
+ 2、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
+ 3、WidgetUtil   : 获取Widget宽高，在屏幕上的坐标.  
  
 ## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
 ## APK: [点击下载v1.0.2](https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk)
@@ -44,11 +47,11 @@ dependencies:
 ///(xx)为可配置输出
 enum DayFormat {
   ///(小于10s->刚刚)、x分钟、x小时、(昨天)、x天.
-  Common,
+  Simple,
   ///(小于10s->刚刚)、x分钟、x小时、[今年: (昨天/1天前)、(2天前)、MM-dd],[往年: yyyy-MM-dd].
-  Short,
+  Common,
   ///小于10s->刚刚)、x分钟、x小时、[今年: (昨天 HH:mm/1天前)、(2天前)、MM-dd HH:mm],[往年: yyyy-MM-dd HH:mm].
-  Detail,
+  Full,
 }
 ///Timeline信息配置.
 abstract class TimelineInfo {
@@ -198,7 +201,7 @@ import 'package:common_utils/common_utils.dart';
 
 //TimelineUtil
 DateTime xxxDateTime = DateTime(2018, 6, 16, 16, 16, 16);
-LogUtil.e("Timeline: " + TimelineUtil.formatByDateTime(xxxDateTime, locale: 'zh_wechat').toString());
+LogUtil.e("Timeline: " + TimelineUtil.formatByDateTime(xxxDateTime, locale: 'zh').toString());
 
 //MoneyUtil example
 String moneyTxt = MoneyUtil.changeFStr2YWithUnit("1160", format: MoneyFormat.NORMAL, unit: MoneyUnit.YUAN_ZH);

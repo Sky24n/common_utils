@@ -8,17 +8,20 @@
 common_utils: No platform restriction found in primary library.  
   WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars) library.
 
-##[common_utils]  is a common tools library for Flutter.  
+##[common_utils]  is a common tools library for Flutter.
+### [common_utils](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : timeline util.(new)  
  2、TimerUtil    : countdown，timer.(new)  
  3、MoneyUtil    : fen to yuan, format output.(new)  
  4、LogUtil      : simply encapsulate print logs.(new)  
  5、DateUtil     : date conversion formatted output.  
- 6、ScreenUtil   : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
- 7、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
- 8、NumUtil      : Keep [x] decimal places.  
- 9、WidgetUtil   : get Widget width height，coordinates.  
- 10、ObjectUtil  : Object is empty,Two List is equal.  
+ 6、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
+ 7、NumUtil      : Keep [x] decimal places.  
+ 8、ObjectUtil  : Object is empty,Two List is equal.  
+### [flustars](https://github.com/Sky24n/flustars)  
+ 1、SpUtil       : SharedPreferences Util.  
+ 2、ScreenUtil   : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
+ 3、WidgetUtil   : get Widget width height，coordinates. 
 
 ### Add dependency
 
@@ -33,11 +36,11 @@ dependencies:
 ///(xx)Configurable output.
 enum DayFormat {
   ///(less than 10s->just now)、x minutes、x hours、(Yesterday)、x days.
-  Common,
+  Simple,
   ///(less than 10s->just now)、x minutes、x hours、[This year:(Yesterday/a day ago)、(two days age)、MM-dd ]、[past years: yyyy-MM-dd]
-  Short,
+  Common,
   ///(less than 10s->just now)、x minutes、x hours、[This year:(Yesterday HH:mm/a day ago)、(two days age)、MM-dd HH:mm]、[past years: yyyy-MM-dd HH:mm]
-  Detail,
+  Full,
 }
 ///Timeline information configuration.
 abstract class TimelineInfo {

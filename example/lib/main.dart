@@ -6,9 +6,9 @@ void main() {
   /// https://github.com/Sky24n/flutter_demos
 
   /**  ----------------TimelineUtil----------------  */
-  DateTime xxxDateTime = DateTime(2018, 6, 16, 16, 16, 16);
+  DateTime xxxDateTime = DateTime(2018, 10, 3, 16, 16, 16);
   LogUtil.e("Timeline: " +
-      TimelineUtil.formatByDateTime(xxxDateTime, locale: 'zh_wechat')
+      TimelineUtil.formatByDateTime(xxxDateTime, locale: 'zh')
           .toString());
   /**  ----------------TimelineUtil----------------  */
 
