@@ -60,9 +60,9 @@ class ZhCommonInfo implements TimelineInfo {
 
   bool keepTwoDays() => true;
 
-  String oneMinute(int minutes) => '$minutes分';
+  String oneMinute(int minutes) => '$minutes分钟';
 
-  String minutes(int minutes) => '$minutes分';
+  String minutes(int minutes) => '$minutes分钟';
 
   String anHour(int hours) => '$hours小时';
 
@@ -116,9 +116,9 @@ class ZhSimpleInfo implements TimelineInfo {
 
   bool keepTwoDays() => true;
 
-  String oneMinute(int minutes) => '$minutes分';
+  String oneMinute(int minutes) => '$minutes分钟';
 
-  String minutes(int minutes) => '$minutes分';
+  String minutes(int minutes) => '$minutes分钟';
 
   String anHour(int hours) => '$hours小时';
 
@@ -172,9 +172,9 @@ class ZhFullInfo implements TimelineInfo {
 
   bool keepTwoDays() => false;
 
-  String oneMinute(int minutes) => '$minutes分';
+  String oneMinute(int minutes) => '$minutes分钟';
 
-  String minutes(int minutes) => '$minutes分';
+  String minutes(int minutes) => '$minutes分钟';
 
   String anHour(int hours) => '$hours小时';
 

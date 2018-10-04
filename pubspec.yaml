@@ -1,6 +1,6 @@
 name: common_utils
 description: Flutter common utils library.Contain DateUtil,TimelineUtil,RegexUtil,TimerUtil,MoneyUtil,NumUtil,ObjectUtil,LogUtil.
-version: 1.0.5
+version: 1.0.6
 author: thl <863764940@qq.com>
 homepage: https://github.com/Sky24n/common_utils
 
