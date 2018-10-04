@@ -9,7 +9,7 @@ common_utils: No platform restriction found in primary library.
   WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars) library.
 
 ##[common_utils]  is a dart common tools library.
-### [common_utils Flutter, web, other](https://github.com/Sky24n/common_utils)  
+### [common_utils](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : timeline util.(new)  
  2、TimerUtil    : countdown，timer.(new)  
  3、MoneyUtil    : fen to yuan, format output.(new)  
@@ -18,7 +18,7 @@ common_utils: No platform restriction found in primary library.
  6、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
  7、NumUtil      : Keep [x] decimal places.  
  8、ObjectUtil  : Object is empty,Two List is equal.  
-### [flustars Flutter](https://github.com/Sky24n/flustars)  
+### [flustars](https://github.com/Sky24n/flustars)  
  1、SpUtil       : SharedPreferences Util.  
  2、ScreenUtil   : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
  3、WidgetUtil   : get Widget width height，coordinates. 
