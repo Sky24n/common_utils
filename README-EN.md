@@ -18,7 +18,7 @@ WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars)
  6、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
  7、NumUtil      : Keep [x] decimal places.  
  8、ObjectUtil  : Object is empty,Two List is equal.  
-### [flustars](https://github.com/Sky24n/flustars)  
+### [flustars  Flutter library](https://github.com/Sky24n/flustars)  
  1、SpUtil       : SharedPreferences Util.  
  2、ScreenUtil   : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
  3、WidgetUtil   : get Widget width height，coordinates. 
