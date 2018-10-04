@@ -147,24 +147,6 @@ yearIsEqual                     : 是否同年.
 getDayOfYear                    : 在今年的第几天.
 isYesterday                     : 是否是昨天.
 ```
-* #### ScreenUtil
-```
-screenWidth               : 获取屏幕宽.
-screenHeight              : 获取屏幕高.
-screenDensity             : 获取屏幕密度.
-appBarHeight              : 获取系统AppBar高度.
-statusBarHeight           : 获取系统状态栏高度.
-getScreenWidth            : 获取当前屏幕宽.
-getScreenHeight           : 获取当前屏幕高.
-getOrientation            : 获取当前屏幕方向.
-```
-
-* #### WidgetUtil
-```
-asyncPrepare              : 监听widget宽高变化,callback返回宽高等参数.
-getWidgetBounds           : 获取widget 宽高.
-getWidgetLocalToGlobal    : 获取widget在屏幕上的坐标.
-```
 
 * #### RegexUtil
 ```

@@ -136,24 +136,6 @@ yearIsEqual                     : year is equal.
 getDayOfYear                    : get day of year..
 isYesterday                     : is yesterday.
 ```
-* #### ScreenUtil
-```
-screenWidth
-screenHeight
-screenDensity
-appBarHeight
-statusBarHeight
-getScreenWidth
-getScreenHeight
-getOrientation
-```
-
-* #### WidgetUtil
-```
-asyncPrepare              : Widget rendering listener.
-getWidgetBounds           : get Widget Bounds (width, height).
-getWidgetLocalToGlobal    : Get the coordinates of the widget on the screen.
-```
 
 * #### RegexUtil
 ```
