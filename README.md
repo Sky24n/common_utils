@@ -1,4 +1,4 @@
-# common_utils (Dart常用工具类库, Flutter, web, other)
+# common_utils (Dart常用工具类库,平台: Flutter, web, other)
 
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
 
@@ -8,7 +8,7 @@
 common_utils库不再有平台限制.  
 WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
 
-## [common_utils] Flutter常用工具类库. 如果你有好的工具类欢迎PR.
+## [common_utils] Dart常用工具类库. 如果你有好的工具类欢迎PR.
 ### [common_utils Flutter, web, other](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : 时间轴.(新)  
  2、TimerUtil    : 倒计时，定时任务.(新)  
