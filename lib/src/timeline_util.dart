@@ -153,8 +153,8 @@ class EnNormalInfo implements TimelineInfo {
 Map<String, TimelineInfo> _timelineInfoMap = {
   'zh': ZhInfo(),
   'en': EnInfo(),
-  'zh_normal': ZhNormalInfo(),//keepTwoDays() => false
-  'en_normal': EnNormalInfo(),//keepTwoDays() => false
+  'zh_normal': ZhNormalInfo(), //keepTwoDays() => false
+  'en_normal': EnNormalInfo(), //keepTwoDays() => false
 };
 
 ///add custom configuration.
@@ -177,11 +177,11 @@ class TimelineUtil {
   /// locDateTime: current time or schedule time.
   /// locale: output key.
   static String formatByDateTime(DateTime dateTime,
-      {DateTime locDateTime, String locale, DateFormat dateFormat}) {
+      {DateTime locDateTime, String locale, DayFormat dayFormat}) {
     int _locDateTime =
         (locDateTime == null ? null : locDateTime.millisecondsSinceEpoch);
     return format(dateTime.millisecondsSinceEpoch,
-        locTimeMillis: _locDateTime, locale: locale, dateFormat: dateFormat);
+        locTimeMillis: _locDateTime, locale: locale, dayFormat: dayFormat);
   }
 
   /// format time by millis.
@@ -189,11 +189,11 @@ class TimelineUtil {
   /// locDateTime: current time or schedule time. millis.
   /// locale: output key.
   static String format(int timeMillis,
-      {int locTimeMillis, String locale, DateFormat dateFormat}) {
+      {int locTimeMillis, String locale, DayFormat dayFormat}) {
     int _locTimeMillis = locTimeMillis ?? DateTime.now().millisecondsSinceEpoch;
     String _locale = locale ?? 'zh';
     TimelineInfo _info = _timelineInfoMap[_locale] ?? ZhInfo();
-    DayFormat _dayFormat = dateFormat ?? DayFormat.Common;
+    DayFormat _dayFormat = dayFormat ?? DayFormat.Common;
 
     int elapsed = _locTimeMillis - timeMillis;
     String suffix;
