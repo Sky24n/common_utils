@@ -98,7 +98,7 @@ class EnInfo implements TimelineInfo {
   String days(int days) => '$days days';
 }
 
-class ZhFullInfo implements TimelineInfo {
+class ZhNormalInfo implements TimelineInfo {
   String suffixAgo() => '前';
 
   String suffixAfter() => '后';
@@ -124,7 +124,7 @@ class ZhFullInfo implements TimelineInfo {
   String days(int days) => '$days天';
 }
 
-class EnFullInfo implements TimelineInfo {
+class EnNormalInfo implements TimelineInfo {
   String suffixAgo() => ' ago';
 
   String suffixAfter() => ' after';
@@ -153,8 +153,8 @@ class EnFullInfo implements TimelineInfo {
 Map<String, TimelineInfo> _timelineInfoMap = {
   'zh': ZhInfo(),
   'en': EnInfo(),
-  'zh_full': ZhFullInfo(),
-  'en_full': EnFullInfo(),
+  'zh_normal': ZhNormalInfo(),//keepTwoDays() => false
+  'en_normal': EnNormalInfo(),//keepTwoDays() => false
 };
 
 ///add custom configuration.
