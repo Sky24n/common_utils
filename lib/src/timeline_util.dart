@@ -44,10 +44,9 @@ abstract class TimelineInfo {
 
   String days(int days); //x days(x天).
 
-  DayFormat dayFormat(); //format.
 }
 
-class ZhCommonInfo implements TimelineInfo {
+class ZhInfo implements TimelineInfo {
   String suffixAgo() => '前';
 
   String suffixAfter() => '后';
@@ -71,11 +70,9 @@ class ZhCommonInfo implements TimelineInfo {
   String oneDay(int days) => '$days天';
 
   String days(int days) => '$days天';
-
-  DayFormat dayFormat() => DayFormat.Common;
 }
 
-class EnCommonInfo implements TimelineInfo {
+class EnInfo implements TimelineInfo {
   String suffixAgo() => ' ago';
 
   String suffixAfter() => ' after';
@@ -99,64 +96,6 @@ class EnCommonInfo implements TimelineInfo {
   String oneDay(int days) => 'a day';
 
   String days(int days) => '$days days';
-
-  DayFormat dayFormat() => DayFormat.Common;
-}
-
-class ZhSimpleInfo implements TimelineInfo {
-  String suffixAgo() => '前';
-
-  String suffixAfter() => '后';
-
-  String lessThanTenSecond() => '';
-
-  String customYesterday() => '昨天';
-
-  bool keepOneDay() => true;
-
-  bool keepTwoDays() => true;
-
-  String oneMinute(int minutes) => '$minutes分钟';
-
-  String minutes(int minutes) => '$minutes分钟';
-
-  String anHour(int hours) => '$hours小时';
-
-  String hours(int hours) => '$hours小时';
-
-  String oneDay(int days) => '$days天';
-
-  String days(int days) => '$days天';
-
-  DayFormat dayFormat() => DayFormat.Simple;
-}
-
-class EnSimpleInfo implements TimelineInfo {
-  String suffixAgo() => ' ago';
-
-  String suffixAfter() => ' after';
-
-  String lessThanTenSecond() => '';
-
-  String customYesterday() => 'Yesterday';
-
-  bool keepOneDay() => true;
-
-  bool keepTwoDays() => true;
-
-  String oneMinute(int minutes) => 'a minute';
-
-  String minutes(int minutes) => '$minutes minutes';
-
-  String anHour(int hours) => 'an hour';
-
-  String hours(int hours) => '${hours} hours';
-
-  String oneDay(int days) => 'a day';
-
-  String days(int days) => '$days days';
-
-  DayFormat dayFormat() => DayFormat.Simple;
 }
 
 class ZhFullInfo implements TimelineInfo {
@@ -183,8 +122,6 @@ class ZhFullInfo implements TimelineInfo {
   String oneDay(int days) => '$days天';
 
   String days(int days) => '$days天';
-
-  DayFormat dayFormat() => DayFormat.Full;
 }
 
 class EnFullInfo implements TimelineInfo {
@@ -211,15 +148,11 @@ class EnFullInfo implements TimelineInfo {
   String oneDay(int days) => 'a day';
 
   String days(int days) => '$days days';
-
-  DayFormat dayFormat() => DayFormat.Full;
 }
 
 Map<String, TimelineInfo> _timelineInfoMap = {
-  'zh': ZhCommonInfo(),
-  'en': EnCommonInfo(),
-  'zh_simple': ZhSimpleInfo(),
-  'en_simple': EnSimpleInfo(),
+  'zh': ZhInfo(),
+  'en': EnInfo(),
   'zh_full': ZhFullInfo(),
   'en_full': EnFullInfo(),
 };
@@ -244,22 +177,23 @@ class TimelineUtil {
   /// locDateTime: current time or schedule time.
   /// locale: output key.
   static String formatByDateTime(DateTime dateTime,
-      {DateTime locDateTime, String locale}) {
+      {DateTime locDateTime, String locale, DateFormat dateFormat}) {
     int _locDateTime =
         (locDateTime == null ? null : locDateTime.millisecondsSinceEpoch);
     return format(dateTime.millisecondsSinceEpoch,
-        locTimeMillis: _locDateTime, locale: locale);
+        locTimeMillis: _locDateTime, locale: locale, dateFormat: dateFormat);
   }
 
   /// format time by millis.
   /// dateTime : millis.
   /// locDateTime: current time or schedule time. millis.
   /// locale: output key.
-  static String format(int timeMillis, {int locTimeMillis, String locale}) {
+  static String format(int timeMillis,
+      {int locTimeMillis, String locale, DateFormat dateFormat}) {
     int _locTimeMillis = locTimeMillis ?? DateTime.now().millisecondsSinceEpoch;
     String _locale = locale ?? 'zh';
-    TimelineInfo _info = _timelineInfoMap[_locale] ?? ZhCommonInfo();
-    DayFormat _dayFormat = _info.dayFormat();
+    TimelineInfo _info = _timelineInfoMap[_locale] ?? ZhInfo();
+    DayFormat _dayFormat = dateFormat ?? DayFormat.Common;
 
     int elapsed = _locTimeMillis - timeMillis;
     String suffix;
