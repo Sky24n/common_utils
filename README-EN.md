@@ -16,7 +16,7 @@ WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars)
  4、LogUtil      : simply encapsulate print logs.(new)  
  5、DateUtil     : date conversion formatted output.  
  6、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
- 7、NumUtil      : Keep [x] decimal places.  
+ 7、NumUtil      : Keep [x] decimal places,add subtract multiply divide without loosing precision.  
  8、ObjectUtil  : Object is empty,Two List is equal.  
 ### Flutter Library [flustars](https://github.com/Sky24n/flustars)  
  1、SpUtil       : SharedPreferences Util.  
@@ -96,6 +96,15 @@ getIntByValueStr            : get int By value string.
 getDoubleByValueStr         : get double By value string.
 getNumByValueStr            : Keep [x] decimal places by value string.
 getNumByValueDouble         : Keep [x] decimal places by double.
+add                         : add (without loosing precision).
+subtract                    : subtract (without loosing precision).
+multiply                    : multiply (without loosing precision).
+divide                      : divide (without loosing precision).
+remainder                   : 余.
+lessThan                    : < .
+thanOrEqual                 : <= .
+greaterThan                 : > .
+greaterOrEqual              : >= .
 ```
 
 * #### DateUtil
@@ -121,16 +130,16 @@ enum DateFormat {
   ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
   ZH_HOUR_MINUTE, //HH时mm分
 }
-getNowDateMilliseconds          : get Now Date Milliseconds.
+getNowDateMs                    : get Now Date Milliseconds.
 getNowDateStr                   : get Now DateStr.(yyyy-MM-dd HH:mm:ss)
-getDateMillisecondsByTimeStr    : get DateMilliseconds By DateStr.
+getDateMsByTimeStr              : get DateMilliseconds By DateStr.
 getDateStrByTimeStr             : get DateStr By DateStr.
-getDateStrByMilliseconds        : get DateStr By Milliseconds.
+getDateStrByMs                  : get DateStr By Milliseconds.
 getDateStrByDateTime            : get DateStr By DateTime.
 getWeekDay                      : get WeekDay By DateTime.
 getZHWeekDay                    : get ZH WeekDay By DateTime.
-getWeekDayByMilliseconds        : get WeekDay By Milliseconds.
-getZHWeekDayByMilliseconds      : get ZH WeekDay By Milliseconds.
+getWeekDayByMs                  : get WeekDay By Milliseconds.
+getZHWeekDayByMs                : get ZH WeekDay By Milliseconds.
 isLeapYearByYear                : whether it is leap year.
 yearIsEqual                     : year is equal.
 getDayOfYear                    : get day of year..

@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:common_utils/common_utils.dart';
 
 void main() {
@@ -8,8 +10,7 @@ void main() {
   /**  ----------------TimelineUtil----------------  */
   DateTime xxxDateTime = DateTime(2018, 10, 3, 16, 16, 16);
   LogUtil.e("Timeline: " +
-      TimelineUtil.formatByDateTime(xxxDateTime, locale: 'zh')
-          .toString());
+      TimelineUtil.formatByDateTime(xxxDateTime, locale: 'zh').toString());
   /**  ----------------TimelineUtil----------------  */
 
   /**  ----------------MoneyUtil----------------  */
@@ -81,5 +82,27 @@ void main() {
   /**  ----------------LogUtil----------------  */
 
   /**  ----------------Util----------------  */
+
+  double a = 0.1;
+  double b = 0.2;
+
+  double c = 70.59;
+  double d = 10.0;
+
+  LogUtil.e("add    a+b : " +
+      (a + b).toString() +
+      "    add: " +
+      NumUtil.add(a, b).toString()); // a+b : 0.30000000000000004    add: 0.3
+  LogUtil.e("mul    c*d : " +
+      (c * d).toString() +
+      "    mul: " +
+      NumUtil.multiply(c, d).toString() +
+      "    greaterThan: " +
+      NumUtil.greaterThan(a, b)
+          .toString()); //c*d : 705.9000000000001    mul: 705.9    greaterThan: false
+
+  LogUtil.e("DayOfYear: " +
+      DateUtil.getDayOfYear(new DateTime(2012, 3, 1)).toString());
+
   /**  ----------------Util----------------  */
 }

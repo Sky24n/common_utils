@@ -16,12 +16,12 @@ WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
  4、LogUtil      : 简单封装打印日志.(新)  
  5、DateUtil     : 日期转换格式化输出.  
  6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
- 7、NumUtil      : 保留x位小数.  
- 8、ObjectUtil  : 判断对象是否为空(String List Map),判断两个List是否相等.  
+ 7、NumUtil      : 保留x位小数,(精确加、减、乘、除, 防止精度丢失).  
+ 8、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
 ### Flutter工具类库 [flustars](https://github.com/Sky24n/flustars)  
  1、SpUtil       : SharedPreferences 工具类.  
  2、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
- 3、WidgetUtil   : 获取Widget宽高，在屏幕上的坐标.  
+ 3、WidgetUtil   : Widget渲染监听，获取Widget宽高，在屏幕上的坐标.  
  
 ## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
 ## APK: [点击下载v1.0.2](https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk)
@@ -107,6 +107,15 @@ getIntByValueStr            : 数字字符串转int.
 getDoubleByValueStr         : 数字字符串转double.
 getNumByValueStr            : 保留x位小数 by 数字字符串.
 getNumByValueDouble         : 保留x位小数 by double.
+add                         : 加(精确相加,防止精度丢失).
+subtract                    : 减(精确相减,防止精度丢失).
+multiply                    : 乘(精确相乘,防止精度丢失).
+divide                      : 除(精确相除,防止精度丢失).
+remainder                   : 余.
+lessThan                    : < .
+thanOrEqual                 : <= .
+greaterThan                 : > .
+greaterOrEqual              : >= .
 ```
 
 * #### DateUtil
@@ -132,16 +141,16 @@ enum DateFormat {
   ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
   ZH_HOUR_MINUTE, //HH时mm分
 }
-getNowDateMilliseconds          : 获取现在 毫秒.
+getNowDateMs                    : 获取现在 毫秒.
 getNowDateStr                   : 获取现在 日期字符串.(yyyy-MM-dd HH:mm:ss)
-getDateMillisecondsByTimeStr    : 获取毫秒 By 日期字符串(Format格式输出).
+getDateMsByTimeStr              : 获取毫秒 By 日期字符串(Format格式输出).
 getDateStrByTimeStr             : 获取日期字符串 By 日期字符串(Format格式输出).
-getDateStrByMilliseconds        : 获取日期字符串 By 毫秒(Format格式输出).
+getDateStrByMs                  : 获取日期字符串 By 毫秒(Format格式输出).
 getDateStrByDateTime            : 获取日期字符串 By DateTime(Format格式输出).
 getWeekDay                      : 获取WeekDay By DateTime.
 getZHWeekDay                    : 获取星期 By DateTime.
-getWeekDayByMilliseconds        : 获取WeekDay By 毫秒.
-getZHWeekDayByMilliseconds      : 获取星期 By 毫秒.
+getWeekDayByMs                  : 获取WeekDay By 毫秒.
+getZHWeekDayByMs                : 获取星期 By 毫秒.
 isLeapYearByYear                : 是否是闰年.
 yearIsEqual                     : 是否同年.
 getDayOfYear                    : 在今年的第几天.

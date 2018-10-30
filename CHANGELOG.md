@@ -1,3 +1,7 @@
+## 1.0.9
+
+* TODO: NumUtil updates(add subtract multiply divide without loosing precision). 
+
 ## 1.0.8
 
 * TODO: Some updates. 

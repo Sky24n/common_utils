@@ -52,7 +52,7 @@ class DateUtil {
   }
 
   ///get DateTime By Milliseconds.
-  static DateTime getDateTimeByMilliseconds(int milliseconds,
+  static DateTime getDateTimeByMs(int milliseconds,
       {bool isUtc: false}) {
     DateTime dateTime =
         new DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
@@ -60,13 +60,13 @@ class DateUtil {
   }
 
   ///get DateMilliseconds By DateStr.
-  static int getDateMillisecondsByTimeStr(String dateStr) {
+  static int getDateMsByTimeStr(String dateStr) {
     DateTime dateTime = DateTime.tryParse(dateStr);
     return dateTime == null ? null : dateTime.millisecondsSinceEpoch;
   }
 
   ///get Now Date Milliseconds.
-  static int getNowDateMilliseconds() {
+  static int getNowDateMs() {
     return DateTime.now().millisecondsSinceEpoch;
   }
 
@@ -95,12 +95,12 @@ class DateUtil {
   ///format          DateFormat type.
   ///dateSeparate    date separate.
   ///timeSeparate    time separate.
-  static String getDateStrByMilliseconds(int milliseconds,
+  static String getDateStrByMs(int milliseconds,
       {DateFormat format: DateFormat.NORMAL,
       String dateSeparate,
       String timeSeparate,
       bool isUtc: false}) {
-    DateTime dateTime = getDateTimeByMilliseconds(milliseconds, isUtc: isUtc);
+    DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getDateStrByDateTime(dateTime,
         format: format, dateSeparate: dateSeparate, timeSeparate: timeSeparate);
   }
@@ -259,16 +259,16 @@ class DateUtil {
   }
 
   ///get WeekDay By Milliseconds.
-  static String getWeekDayByMilliseconds(int milliseconds,
+  static String getWeekDayByMs(int milliseconds,
       {bool isUtc: false}) {
-    DateTime dateTime = getDateTimeByMilliseconds(milliseconds, isUtc: isUtc);
+    DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getWeekDay(dateTime);
   }
 
   ///get ZH WeekDay By Milliseconds.
-  static String getZHWeekDayByMilliseconds(int milliseconds,
+  static String getZHWeekDayByMs(int milliseconds,
       {bool isUtc: false}) {
-    DateTime dateTime = getDateTimeByMilliseconds(milliseconds, isUtc: isUtc);
+    DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getZHWeekDay(dateTime);
   }
 

@@ -1,8 +1,11 @@
 name: common_utils
-description: Flutter common utils library.Contain DateUtil,TimelineUtil,RegexUtil,TimerUtil,MoneyUtil,NumUtil,ObjectUtil,LogUtil.
-version: 1.0.8
+description: Dart common utils library.Contain DateUtil,TimelineUtil,RegexUtil,TimerUtil,MoneyUtil,NumUtil,ObjectUtil,LogUtil.
+version: 1.0.9
 author: thl <863764940@qq.com>
 homepage: https://github.com/Sky24n/common_utils
 
 environment:
     sdk: ">=1.19.0 <3.0.0"
+dependencies:
+  # https://github.com/a14n/dart-decimal
+  decimal: ^0.3.2
