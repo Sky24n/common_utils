@@ -5,6 +5,7 @@
 ## [README of English][readme-en]
 
 ## 更新说明  
+NumUtil更新, 精确加、减、乘、除, 防止精度丢失.(2018.10.31)  
 common_utils库不再有平台限制.  
 WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
 
