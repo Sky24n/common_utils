@@ -25,7 +25,7 @@ WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
  3、WidgetUtil   : Widget渲染监听，获取Widget宽高，在屏幕上的坐标.  
  
 ## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
-## APK: [点击下载v1.0.2](https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk)
+## APK: [点击下载v1.0.4](https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk)
 ## Android扫码下载APK
   ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
 
