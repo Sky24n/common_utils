@@ -38,97 +38,121 @@ class NumUtil {
     return double.tryParse(valueStr);
   }
 
-  /// 加(精确相加,防止精度丢失).
+  /// 加 (精确相加,防止精度丢失).
   /// add (without loosing precision).
-  static Decimal add(num a, num b) {
-    return addDec(a.toString(), b.toString());
+  static double add(num a, num b) {
+    return addDec(a, b).toDouble();
   }
 
-  /// 减(精确相减,防止精度丢失).
+  /// 减 (精确相减,防止精度丢失).
   /// subtract (without loosing precision).
-  static Decimal subtract(num a, num b) {
-    return subtractDec(a.toString(), b.toString());
+  static double subtract(num a, num b) {
+    return subtractDec(a, b).toDouble();
   }
 
-  /// 乘(精确相乘,防止精度丢失).
+  /// 乘 (精确相乘,防止精度丢失).
   /// multiply (without loosing precision).
-  static Decimal multiply(num a, num b) {
-    return multiplyDec(a.toString(), b.toString());
+  static double multiply(num a, num b) {
+    return multiplyDec(a, b).toDouble();
   }
 
-  /// 除(精确相除,防止精度丢失).
+  /// 除 (精确相除,防止精度丢失).
   /// divide (without loosing precision).
-  static Decimal divide(num a, num b) {
-    return divideDec(a.toString(), b.toString());
+  static double divide(num a, num b) {
+    return divideDec(a, b).toDouble();
+  }
+
+  /// 加 (精确相加,防止精度丢失).
+  /// add (without loosing precision).
+  static Decimal addDec(num a, num b) {
+    return addDecStr(a.toString(), b.toString());
+  }
+
+  /// 减 (精确相减,防止精度丢失).
+  /// subtract (without loosing precision).
+  static Decimal subtractDec(num a, num b) {
+    return subtractDecStr(a.toString(), b.toString());
+  }
+
+  /// 乘 (精确相乘,防止精度丢失).
+  /// multiply (without loosing precision).
+  static Decimal multiplyDec(num a, num b) {
+    return multiplyDecStr(a.toString(), b.toString());
+  }
+
+  /// 除 (精确相除,防止精度丢失).
+  /// divide (without loosing precision).
+  static Decimal divideDec(num a, num b) {
+    return divideDecStr(a.toString(), b.toString());
   }
 
   /// 余数
   static Decimal remainder(num a, num b) {
-    return remainderDec(a.toString(), b.toString());
+    return remainderDecStr(a.toString(), b.toString());
   }
 
   /// Relational less than operator.
   static bool lessThan(num a, num b) {
-    return lessThanDec(a.toString(), b.toString());
+    return lessThanDecStr(a.toString(), b.toString());
   }
 
   /// Relational less than or equal operator.
   static bool thanOrEqual(num a, num b) {
-    return thanOrEqualDec(a.toString(), b.toString());
+    return thanOrEqualDecStr(a.toString(), b.toString());
   }
 
   /// Relational greater than operator.
   static bool greaterThan(num a, num b) {
-    return greaterThanDec(a.toString(), b.toString());
+    return greaterThanDecStr(a.toString(), b.toString());
   }
 
   /// Relational greater than or equal operator.
   static bool greaterOrEqual(num a, num b) {
-    return greaterOrEqualDec(a.toString(), b.toString());
+    return greaterOrEqualDecStr(a.toString(), b.toString());
   }
 
   /// 加
-  static Decimal addDec(String a, String b) {
+  static Decimal addDecStr(String a, String b) {
     return Decimal.parse(a) + Decimal.parse(b);
   }
 
   /// 减
-  static Decimal subtractDec(String a, String b) {
+  static Decimal subtractDecStr(String a, String b) {
     return Decimal.parse(a) - Decimal.parse(b);
   }
 
   /// 乘
-  static Decimal multiplyDec(String a, String b) {
+  static Decimal multiplyDecStr(String a, String b) {
     return Decimal.parse(a) * Decimal.parse(b);
   }
 
   /// 除
-  static Decimal divideDec(String a, String b) {
+  static Decimal divideDecStr(String a, String b) {
     return Decimal.parse(a) / Decimal.parse(b);
   }
 
   /// 余数
-  static Decimal remainderDec(String a, String b) {
+  static Decimal remainderDecStr(String a, String b) {
     return Decimal.parse(a) % Decimal.parse(b);
   }
 
   /// Relational less than operator.
-  static bool lessThanDec(String a, String b) {
+  static bool lessThanDecStr(String a, String b) {
     return Decimal.parse(a) < Decimal.parse(b);
   }
 
   /// Relational less than or equal operator.
-  static bool thanOrEqualDec(String a, String b) {
+  static bool thanOrEqualDecStr(String a, String b) {
     return Decimal.parse(a) <= Decimal.parse(b);
   }
 
   /// Relational greater than operator.
-  static bool greaterThanDec(String a, String b) {
+  static bool greaterThanDecStr(String a, String b) {
     return Decimal.parse(a) > Decimal.parse(b);
   }
 
   /// Relational greater than or equal operator.
-  static bool greaterOrEqualDec(String a, String b) {
+  static bool greaterOrEqualDecStr(String a, String b) {
     return Decimal.parse(a) >= Decimal.parse(b);
   }
 }

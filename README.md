@@ -5,7 +5,10 @@
 ## [README of English][readme-en]
 
 ## 更新说明  
-NumUtil更新, 精确加、减、乘、除, 防止精度丢失.(2018.10.31)  
+(2018.10.31)  
+NumUtil更新, 精确加、减、乘、除, 防止精度丢失.  
+MoneyUtil更新, 精确转换, 防止精度丢失.  
+  
 common_utils库不再有平台限制.  
 WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
 
@@ -13,7 +16,7 @@ WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
 ### [common_utils](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : 时间轴.(新)  
  2、TimerUtil    : 倒计时，定时任务.(新)  
- 3、MoneyUtil    : 分转元，支持格式输出.(新)  
+ 3、MoneyUtil    : 精确转换，元转分，分转元，支持格式输出.(新)  
  4、LogUtil      : 简单封装打印日志.(新)  
  5、DateUtil     : 日期转换格式化输出.  
  6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
@@ -87,12 +90,13 @@ setOnTimerTickCallback      : 计时器回调.
 isActive                    : Timer是否启动.
 ```
 
-* #### MoneyUtil
+* #### MoneyUtil 精确转换,防止精度丢失
 ```
 changeF2Y                   : 分 转 元, format格式输出.
 changeFStr2YWithUnit        : 分字符串 转 元, format 与 unit 格式 输出.
 changeF2YWithUnit           : 分 转 元, format 与 unit 格式 输出.
 changeYWithUnit             : 元, format 与 unit 格式 输出.
+changeY2F                   : 元 转 分.
 ```
 
 * #### LogUtil

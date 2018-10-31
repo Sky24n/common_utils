@@ -81,6 +81,7 @@ changeF2Y                   : fen to yuan, format output.
 changeFStr2YWithUnit        : fen str to yuan, format & unit  output.
 changeF2YWithUnit           : fen to yuan, format & unit  output.
 changeYWithUnit             : yuan, format & unit  output.(yuan is int,double,str).
+changeY2F                   : fen to yuan.
 ```
 
 * #### LogUtil

@@ -83,16 +83,16 @@ void main() {
 
   /**  ----------------Util----------------  */
 
-  double a = 0.1;
-  double b = 0.2;
+  double a = 59.89;
+  int b = 10000;
 
   double c = 70.59;
   double d = 10.0;
 
   LogUtil.e("add    a+b : " +
-      (a + b).toString() +
+      (a / b).toString() +
       "    add: " +
-      NumUtil.add(a, b).toString()); // a+b : 0.30000000000000004    add: 0.3
+      NumUtil.divide(a, b).toString()); // a+b : 0.30000000000000004    add: 0.3
   LogUtil.e("mul    c*d : " +
       (c * d).toString() +
       "    mul: " +

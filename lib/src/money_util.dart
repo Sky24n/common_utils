@@ -1,3 +1,5 @@
+import 'package:common_utils/src/num_util.dart';
+
 enum MoneyUnit {
   NORMAL, // 6.00
   YUAN, // ¥6.00
@@ -26,9 +28,9 @@ class MoneyUtil {
   /// 分 转 元, format格式输出.
   static String changeF2Y(int amount,
       {MoneyFormat format: MoneyFormat.NORMAL}) {
-    if (amount == null) return "";
+    if (amount == null) return null;
     String moneyTxt;
-    double yuan = amount / 100;
+    double yuan = NumUtil.divide(amount, 100);
     switch (format) {
       case MoneyFormat.NORMAL:
         moneyTxt = yuan.toStringAsFixed(2);
@@ -76,19 +78,26 @@ class MoneyUtil {
   /// 元, format 与 unit 格式 输出.
   static String changeYWithUnit(Object yuan, MoneyUnit unit,
       {MoneyFormat format}) {
-    if (yuan == null) return "";
+    if (yuan == null) return null;
     String yuanTxt = yuan.toString();
     if (format != null) {
-      double amount = double.tryParse(yuanTxt) * 100;
+      int amount = changeY2F(yuan);
       yuanTxt = changeF2Y(amount.toInt(), format: format);
     }
     return _withUnit(yuanTxt, unit);
   }
 
+  /// yuan to fen.
+  /// 元 转 分，
+  static int changeY2F(Object yuan) {
+    if (yuan == null) return null;
+    return NumUtil.multiplyDecStr(yuan.toString(), '100').toInt();
+  }
+
   /// with unit.
   /// 拼接单位.
   static String _withUnit(String moneyTxt, MoneyUnit unit) {
-    if (moneyTxt == null || moneyTxt.isEmpty) return "";
+    if (moneyTxt == null || moneyTxt.isEmpty) return null;
     switch (unit) {
       case MoneyUnit.YUAN:
         moneyTxt = YUAN + moneyTxt;
