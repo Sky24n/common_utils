@@ -12,8 +12,7 @@ MoneyUtil更新, 精确转换, 防止精度丢失.
 common_utils库不再有平台限制.  
 WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
 
-## [common_utils] Dart常用工具类库. 如果你有好的工具类欢迎PR.
-### [common_utils](https://github.com/Sky24n/common_utils)  
+### Dart常用工具类库 [common_utils](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : 时间轴.(新)  
  2、TimerUtil    : 倒计时，定时任务.(新)  
  3、MoneyUtil    : 精确转换，元转分，分转元，支持格式输出.(新)  
