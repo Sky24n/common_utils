@@ -10,7 +10,12 @@ NumUtil更新, 精确加、减、乘、除, 防止精度丢失.
 MoneyUtil更新, 精确转换, 防止精度丢失.  
   
 common_utils库不再有平台限制.  
-WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库.
+WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库。
+
+## 关于示例
+本项目中不包含示例，所有示例均在[flutter_demos](https://github.com/Sky24n/flutter_demos)项目中。  
+
+完整项目[flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)，包含启动页，引导页，主题色切换，应用国际化多语言，版本更新等功能。欢迎体验！  
 
 ### Dart常用工具类库 [common_utils](https://github.com/Sky24n/common_utils)  
  1、TimelineUtil : 时间轴.(新)  
