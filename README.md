@@ -6,7 +6,7 @@
 
 ## Dart常用工具类库。如果你有好的工具类欢迎PR.
 
-## [flustars][flustars_github] Flutter工具类库 更新说明
+## Flutter工具类库[flustars][flustars_github]更新说明
 v0.1.6(2018.12.20)  
 新增网络请求工具DioUtil, 单例模式，可输出请求日志。详细请求+解析请参考[flutter_wanandroid][flutter_wanandroid_github]项目。
 ```
