@@ -7,6 +7,9 @@
 ## Dart常用工具类库。如果你有好的工具类欢迎PR.
 
 ## 更新说明  
+(2018.12.20)   
+[flustars][flustars_github] 新开源网络工具类DioUtil，单例请求，可输出请求日志，欢迎使用。
+
 (2018.10.31)  
 NumUtil更新, 精确加、减、乘、除, 防止精度丢失.  
 MoneyUtil更新, 精确转换, 防止精度丢失.  
@@ -284,7 +287,7 @@ double dx = offset.dy
 ```
 
 ## Donations
- 如果您觉得该库不错的话，欢迎随意打赏，请作者喝杯咖啡～。
+ 如果您觉得该库不错的话，欢迎随意打赏，请作者喝杯咖啡～。  
  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/alipay.png" width="240">  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/wechat.png" width="240">    
  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/alipay_reward.png" width="240">
 
