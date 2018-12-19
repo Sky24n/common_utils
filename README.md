@@ -26,15 +26,17 @@ WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库�
  6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
  7、NumUtil      : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
  8、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
-### Flutter工具类库 [flustars](https://github.com/Sky24n/flustars)  
- 1、SpUtil       : SharedPreferences 工具类.  
- 2、ScreenUtil   : 获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
- 3、WidgetUtil   : Widget渲染监听，获取Widget宽高，在屏幕上的坐标.  
  
-## Demo: [flutter_demos](https://github.com/Sky24n/flutter_demos).
-## APK: [点击下载v1.0.4](https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk)
-## Android扫码下载APK
-  ![](https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png)
+### Flutter工具类库 [flustars](https://github.com/Sky24n/flustars)  
+ 1、DioUtil      : Dio 工具类. 
+ 2、SpUtil       : SharedPreferences 工具类.  
+ 3、ScreenUtil   : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
+ 4、WidgetUtil   : Widget渲染监听，获取Widget宽高，在屏幕上的坐标.  
+ 
+## Demo : [flutter_wanandroid][flutter_wanandroid_github]  [flutter_demos][flutter_demos_github]
+## 点击下载APK : [v0.1.2][flutter_wanandroid_apk]  [v1.0.4][flutter_demos_apk]
+## 扫码下载APK :
+  ![flutter_demos][flutter_wanandroid_qr]      ![flutter_demos][flutter_demos_qr]
 
 ### Screenshot
 <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20181003-234414.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20181003-211011.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">  
@@ -284,7 +286,13 @@ double dx = offset.dy
 [readme]: https://github.com/Sky24n/common_utils
 [readme-en]: https://github.com/Sky24n/common_utils/blob/master/README-EN.md
 
+[flutter_wanandroid_github]: https://github.com/Sky24n/flutter_wanandroid
+[flutter_wanandroid_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_wanandroid.apk
+[flutter_wanandroid_qr]: https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_wanandroid/qrcode.png
 
+[flutter_demos_github]: https://github.com/Sky24n/flutter_demos
+[flutter_demos_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk
+[flutter_demos_qr]: https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png
 
 
 
