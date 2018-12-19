@@ -285,8 +285,7 @@ double dx = offset.dy
 
 ## Donations
  如果您觉得该库不错的话，欢迎随意打赏，请作者喝杯咖啡～。
- ![支付宝][alipay_qr]        ![微信][wechat_qr]  
-   
+ <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/alipay.png" width="240">  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/wechat.png" width="240">    
  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/alipay_reward.png" width="240">
 
 
@@ -304,7 +303,4 @@ double dx = offset.dy
 [common_utils_github]: https://github.com/Sky24n/common_utils
 
 [flustars_github]: https://github.com/Sky24n/flustars
-
-[alipay_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/alipay.png
-[wechat_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/wechat.png
 
