@@ -33,10 +33,10 @@ WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库�
  3、ScreenUtil   : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
  4、WidgetUtil   : Widget渲染监听，获取Widget宽高，在屏幕上的坐标.  
  
-## Demo : [<flutter_wanandroid>][flutter_wanandroid_github] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<flutter_demos>][flutter_demos_github]
+## Demo Github: [<flutter_wanandroid>][flutter_wanandroid_github] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<flutter_demos>][flutter_demos_github]
 ## 点击下载APK : [v0.1.2][flutter_wanandroid_apk] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [v1.0.4][flutter_demos_apk]
 ## 扫码下载APK :
-  ![flutter_demos][flutter_wanandroid_qr]      ![flutter_demos][flutter_demos_qr]
+  ![flutter_demos][flutter_wanandroid_qr] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![flutter_demos][flutter_demos_qr]
 
 ### Screenshot
 <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20181003-234414.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20181003-211011.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">  
