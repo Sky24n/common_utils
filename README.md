@@ -6,10 +6,56 @@
 
 ## Dart常用工具类库。如果你有好的工具类欢迎PR.
 
-## 更新说明  
-(2018.12.20)   
-[flustars][flustars_github] 新开源网络工具类DioUtil，单例请求，可输出请求日志，欢迎使用。
+## [flustars][flustars_github] Flutter工具类库 更新说明
+v0.1.6(2018.12.20)  
+新增网络请求工具DioUtil, 单例模式，可输出请求日志。详细请求+解析请参考[flutter_wanandroid][flutter_wanandroid_github]项目。
+```
+// 打开debug模式.
+DioUtil.openDebug(); 
+  
+// 两种单例请求方式.
+DioUtil().request<List>(Method.get, "banner/json");
+DioUtil.getInstance().request(Method.get, "banner/json");
+  
+//示例
+LoginReq req = new LoginReq('username', 'password');
+DioUtil().request(Method.post, "user/login",data: req.toJson());
+  
+//示例
+FormData formData = new FormData.from({
+      "username": "username",
+      "password": "password",
+    });
+DioUtil().requestR(Method.post, "user/login",data: rformData);
+  
+// 网络请求日志  
+I/flutter ( 5922): ----------------Http Log----------------
+I/flutter ( 5922): [statusCode]:   200
+I/flutter ( 5922): [request   ]:   method: GET  baseUrl: http://www.wanandroid.com/  path: lg/collect/list/0/json
+I/flutter ( 5922): [reqdata   ]:   null
+I/flutter ( 5922): [response  ]:   {data: {curPage: 1, datas: [], offset: 0, over: true, pageCount: 0, size: 20, total: 0}, errorCode: 0, errorMsg: }
+```
 
+v0.1.5(2018.12.14)  
+ScreenUtil 新增屏幕适配。不依赖context。
+```
+//如果设计稿尺寸默认配置一致，无需该设置。  配置设计稿尺寸 默认 360.0 / 640.0 / 3.0
+setDesignWHD(_designW,_designH,_designD);
+
+//返回根据屏幕宽适配后尺寸（单位 dp or pt）
+ScreenUtil.getInstance().getWidth(100.0);  
+ScreenUtil().getWidth(100.0); 
+
+//返回根据屏幕高适配后尺寸（单位 dp or pt）
+ScreenUtil.getInstance().getHeight(100.0); 
+ScreenUtil().getHeight(100.0);  
+
+//返回根据屏幕宽适配后字体尺寸
+ScreenUtil.getInstance().getSp(12.0); 
+ScreenUtil().getSp(100.0);   
+```
+
+## 更新说明  
 (2018.10.31)  
 NumUtil更新, 精确加、减、乘、除, 防止精度丢失.  
 MoneyUtil更新, 精确转换, 防止精度丢失.  
