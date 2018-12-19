@@ -37,7 +37,7 @@ I/flutter ( 5922): [response  ]:   {data: {curPage: 1, datas: [], offset: 0, ove
 ```
 
 v0.1.5(2018.12.14)  
-ScreenUtil 新增屏幕适配。不依赖context。
+ScreenUtil 新增屏幕适配，不依赖context。
 ```
 //如果设计稿尺寸默认配置一致，无需该设置。  配置设计稿尺寸 默认 360.0 / 640.0 / 3.0
 setDesignWHD(_designW,_designH,_designD);
