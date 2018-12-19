@@ -1,6 +1,6 @@
 # common_utils (Dart常用工具类库,平台: Flutter, web, other)
 
-[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)][common_utils_github]
+[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
 
 ## [README of English][readme-en]
 
