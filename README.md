@@ -1,8 +1,10 @@
 # common_utils (Dart常用工具类库,平台: Flutter, web, other)
 
-[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
+[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)][common_utils_github]
 
 ## [README of English][readme-en]
+
+## Dart常用工具类库。如果你有好的工具类欢迎PR.
 
 ## 更新说明  
 (2018.10.31)  
@@ -10,14 +12,14 @@ NumUtil更新, 精确加、减、乘、除, 防止精度丢失.
 MoneyUtil更新, 精确转换, 防止精度丢失.  
   
 common_utils库不再有平台限制.  
-WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库。
+WidgetUtil,ScreenUtil迁移至[flustars][flustars_github]库。
 
 ## 关于示例
-本项目中不包含示例，所有示例均在[flutter_demos](https://github.com/Sky24n/flutter_demos)项目中。  
+本项目中不包含示例，所有示例均在[flutter_demos][flutter_demos_github]项目中。  
 
-完整项目[flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)，包含启动页，引导页，主题色切换，应用国际化多语言，版本更新等功能。欢迎体验！  
+完整项目[flutter_wanandroid][flutter_wanandroid_github]，包含启动页，引导页，主题色切换，应用国际化多语言，版本更新等功能。欢迎体验！  
 
-### Dart常用工具类库 [common_utils](https://github.com/Sky24n/common_utils)  
+### Dart常用工具类库 [common_utils][common_utils_github]  
  1、TimelineUtil : 时间轴.(新)  
  2、TimerUtil    : 倒计时，定时任务.(新)  
  3、MoneyUtil    : 精确转换，元转分，分转元，支持格式输出.(新)  
@@ -27,21 +29,23 @@ WidgetUtil,ScreenUtil迁移至[flustars](https://github.com/Sky24n/flustars)库�
  7、NumUtil      : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
  8、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
  
-### Flutter工具类库 [flustars](https://github.com/Sky24n/flustars)  
- 1、DioUtil      : Dio 工具类. 
- 2、SpUtil       : SharedPreferences 工具类.  
+### Flutter工具类库 [flustars][flustars_github]  
+ 1、DioUtil      : Dio 工具类.   
+ 2、SpUtil       : 单例"同步" SharedPreferences 工具类.  
  3、ScreenUtil   : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
  4、WidgetUtil   : Widget渲染监听，获取Widget宽高，在屏幕上的坐标.  
  
-## Demo Github: [<flutter_wanandroid>][flutter_wanandroid_github] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<flutter_demos>][flutter_demos_github]
-## 点击下载APK : [v0.1.2][flutter_wanandroid_apk] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [v1.0.4][flutter_demos_apk]
+## Demo Github:  
+ [flutter_wanandroid][flutter_wanandroid_github] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [flutter_demos][flutter_demos_github]
+## 点击下载APK :  
+ [v0.1.2][flutter_wanandroid_apk] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [v1.0.4][flutter_demos_apk]
 ## 扫码下载APK :
-  ![flutter_demos][flutter_wanandroid_qr] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![flutter_demos][flutter_demos_qr]
+  ![flutter_wanandroid][flutter_wanandroid_qr] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![flutter_demos][flutter_demos_qr]
 
 ### Screenshot
-<img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20181003-234414.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20181003-211011.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">  
-<img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180930-012431.jpg" width="200">  <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-231618.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180926-144840.png" width="200">  
-<img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-224204.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-224146.jpg" width="200">   <img src="https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/Screenshot_20180919-224231.jpg" width="200">   
+<img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20181003-234414.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20181003-211011.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">  
+<img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180930-012431.jpg" width="200">  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-231618.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180926-144840.png" width="200">  
+<img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224204.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224146.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224231.jpg" width="200">   
 
 ### Add dependency
 
@@ -279,8 +283,11 @@ double dx = offset.dy
 
 ```
 
-
-
+## Donations
+ 如果您觉得该库不错的话，欢迎随意打赏，请作者喝杯咖啡～。
+ ![支付宝][alipay_qr]        ![微信][wechat_qr]  
+   
+ <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/alipay_reward.png" width="240">
 
 
 [readme]: https://github.com/Sky24n/common_utils
@@ -288,11 +295,16 @@ double dx = offset.dy
 
 [flutter_wanandroid_github]: https://github.com/Sky24n/flutter_wanandroid
 [flutter_wanandroid_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_wanandroid.apk
-[flutter_wanandroid_qr]: https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_wanandroid/qrcode.png
+[flutter_wanandroid_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_wanandroid/qrcode.png
 
 [flutter_demos_github]: https://github.com/Sky24n/flutter_demos
 [flutter_demos_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk
-[flutter_demos_qr]: https://github.com/Sky24n/LDocuments/blob/master/AppImgs/flutter_demos/qrcode.png
+[flutter_demos_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/qrcode.png
 
+[common_utils_github]: https://github.com/Sky24n/common_utils
 
+[flustars_github]: https://github.com/Sky24n/flustars
+
+[alipay_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/alipay.png
+[wechat_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/wechat.png
 
