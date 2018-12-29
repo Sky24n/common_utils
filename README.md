@@ -7,7 +7,7 @@
 ## Dart常用工具类库。如果你有好的工具类欢迎PR.
 
 ## Flutter工具类库[flustars][flustars_github]更新说明
-v0.1.8(2018.12.29)   
+#### v0.1.8(2018.12.29)   
 ScreenUtil 屏幕适配更新。  
 方案一、不依赖context
 ```
@@ -58,7 +58,7 @@ ScreenUtil.getScaleW(context, size); //返回根据屏幕宽适配后尺寸（�
 ScreenUtil.getScaleH(context, size); //返回根据屏幕高适配后尺寸 （单位 dp or pt）
 ScreenUtil.getScaleSp(context, size) ;//返回根据屏幕宽适配后字体尺寸
 ```
-v0.1.6(2018.12.20)  
+#### v0.1.6(2018.12.20)  
 新增网络请求工具DioUtil, 单例模式，可输出请求日志。详细请求+解析请参考[flutter_wanandroid][flutter_wanandroid_github]项目。
 ```
 // 打开debug模式.
@@ -93,7 +93,7 @@ I/flutter ( 5922): [reqdata   ]:   null
 I/flutter ( 5922): [response  ]:   {data: {curPage: 1, datas: [], offset: 0, over: true, pageCount: 0, size: 20, total: 0}, errorCode: 0, errorMsg: }
 ```
 
-v0.1.5(2018.12.14)  
+#### v0.1.5(2018.12.14)  
 ScreenUtil 新增屏幕适配，不依赖context。
 ```
 //如果设计稿尺寸默认配置一致，无需该设置。  配置设计稿尺寸 默认 360.0 / 640.0 / 3.0
