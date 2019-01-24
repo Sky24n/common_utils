@@ -392,6 +392,12 @@ double dx = offset.dy
 ## 关于作者，欢迎关注～
  [![jianshu][jianshuSvg]][jianshu]   [![juejin][juejinSvg]][juejin]  
 
+### 关于使用本开源库
+如果您是用于公司项目，请随意使用～  
+如果您是用于开源项目，希望您能直接使用本库(common_utils: ^1.0.9)，不要直接copy出去啦，顺便帮作者推荐一下，不胜感激～
+
+### 最后，如果您觉得本项目不错的话，来个star支持下作者吧！ 
+
 
 [readme]: https://github.com/Sky24n/common_utils
 [readme-en]: https://github.com/Sky24n/common_utils/blob/master/README-EN.md
