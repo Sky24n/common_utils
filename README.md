@@ -6,6 +6,15 @@
 
 ## Dart常用工具类库。如果你有好的工具类欢迎PR.
 
+### 关于使用本开源库
+如果您是用于公司项目，请随意使用～  
+如果您是用于开源项目，未经本人许可，请勿copy源码到您的项目使用！  
+使用方式：
+```yaml
+dependencies:
+  common_utils: 1.0.9  
+```
+
 ## Flutter工具类库[flustars][flustars_github]更新说明
 #### v0.1.8(2018.12.29)   
 ScreenUtil 屏幕适配更新。  
