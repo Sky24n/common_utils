@@ -14,7 +14,7 @@
 使用方式：
 ```yaml
 dependencies:
-  common_utils: 1.0.9  
+  common_utils: ^1.0.9  
 ```
 
 ### Dart常用工具类库 [common_utils][common_utils_github]  
