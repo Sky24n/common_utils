@@ -6,11 +6,10 @@ import 'package:decimal/decimal.dart';
  * @Description: Num Util.
  * @Date: 2018/9/18
  */
+
+/// Num Util.
 class NumUtil {
-  /**
-   *  * The parameter [fractionDigits] must be an integer satisfying:
-   * `0 <= fractionDigits <= 20`.
-   */
+  /// The parameter [fractionDigits] must be an integer satisfying: `0 <= fractionDigits <= 20`.
   static num getNumByValueStr(String valueStr, {int fractionDigits}) {
     double value = double.tryParse(valueStr);
     return fractionDigits == null
@@ -18,10 +17,7 @@ class NumUtil {
         : getNumByValueDouble(value, fractionDigits);
   }
 
-  /**
-   *  The parameter [fractionDigits] must be an integer satisfying:
-   * `0 <= fractionDigits <= 20`.
-   */
+  /// The parameter [fractionDigits] must be an integer satisfying: `0 <= fractionDigits <= 20`.
   static num getNumByValueDouble(double value, int fractionDigits) {
     if (value == null) return null;
     String valueStr = value.toStringAsFixed(fractionDigits);
@@ -30,10 +26,12 @@ class NumUtil {
         : double.tryParse(valueStr);
   }
 
+  /// get int by value str.
   static int getIntByValueStr(String valueStr) {
     return int.tryParse(valueStr);
   }
 
+  /// get double by value str.
   static double getDoubleByValueStr(String valueStr) {
     return double.tryParse(valueStr);
   }

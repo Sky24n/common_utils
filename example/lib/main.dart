@@ -71,7 +71,7 @@ void main() {
   /**  ----------------NumUtil----------------  */
   //保留小数点后2位数
   String tempStr = "1.5561111";
-  double value = NumUtil.getNumByValueStr(tempStr, fractionDigits: 2);
+  num value = NumUtil.getNumByValueStr(tempStr, fractionDigits: 0);
   LogUtil.e("getDoubleByStr: " + '$value'); //result=1.56
   /**  ----------------NumUtil----------------  */
 

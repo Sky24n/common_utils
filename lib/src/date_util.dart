@@ -1,3 +1,11 @@
+/**
+ * @Author: thl
+ * @GitHub: https://github.com/Sky24n
+ * @Description: Date Util.
+ * @Date: 2018/9/8
+ */
+
+/// DateFormat.
 enum DateFormat {
   DEFAULT, //yyyy-MM-dd HH:mm:ss.SSS
   NORMAL, //yyyy-MM-dd HH:mm:ss
@@ -36,14 +44,7 @@ Map<int, int> MONTH_DAY = {
   12: 31,
 };
 
-/**
- * @Author: thl
- * @GitHub: https://github.com/Sky24n
- * @Description: Date Util.
- * @Date: 2018/9/8
- */
-
-///
+/// Date Util.
 class DateUtil {
   ///get DateTime By DateStr.
   static DateTime getDateTime(String dateStr) {
@@ -52,8 +53,7 @@ class DateUtil {
   }
 
   ///get DateTime By Milliseconds.
-  static DateTime getDateTimeByMs(int milliseconds,
-      {bool isUtc: false}) {
+  static DateTime getDateTimeByMs(int milliseconds, {bool isUtc = false}) {
     DateTime dateTime =
         new DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
     return dateTime;
@@ -82,7 +82,7 @@ class DateUtil {
   ///timeSeparate    time separate.
   static String getDateStrByTimeStr(
     String dateStr, {
-    DateFormat format: DateFormat.NORMAL,
+    DateFormat format = DateFormat.NORMAL,
     String dateSeparate,
     String timeSeparate,
   }) {
@@ -96,10 +96,10 @@ class DateUtil {
   ///dateSeparate    date separate.
   ///timeSeparate    time separate.
   static String getDateStrByMs(int milliseconds,
-      {DateFormat format: DateFormat.NORMAL,
+      {DateFormat format = DateFormat.NORMAL,
       String dateSeparate,
       String timeSeparate,
-      bool isUtc: false}) {
+      bool isUtc = false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getDateStrByDateTime(dateTime,
         format: format, dateSeparate: dateSeparate, timeSeparate: timeSeparate);
@@ -111,7 +111,7 @@ class DateUtil {
   ///dateSeparate    date separate.
   ///timeSeparate    time separate.
   static String getDateStrByDateTime(DateTime dateTime,
-      {DateFormat format: DateFormat.NORMAL,
+      {DateFormat format = DateFormat.NORMAL,
       String dateSeparate,
       String timeSeparate}) {
     if (dateTime == null) return null;
@@ -259,15 +259,13 @@ class DateUtil {
   }
 
   ///get WeekDay By Milliseconds.
-  static String getWeekDayByMs(int milliseconds,
-      {bool isUtc: false}) {
+  static String getWeekDayByMs(int milliseconds, {bool isUtc: false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getWeekDay(dateTime);
   }
 
   ///get ZH WeekDay By Milliseconds.
-  static String getZHWeekDayByMs(int milliseconds,
-      {bool isUtc: false}) {
+  static String getZHWeekDayByMs(int milliseconds, {bool isUtc: false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getZHWeekDay(dateTime);
   }
@@ -401,5 +399,15 @@ class DateUtil {
   ///是否同年.
   static bool yearIsEqual(DateTime dateTime, DateTime locDateTime) {
     return dateTime.year == locDateTime.year;
+  }
+
+  ///year is today.
+  ///是否今天.
+  static bool isToday(int milliseconds, {bool isUtc = false}) {
+    if (milliseconds == null || milliseconds == 0) return false;
+    DateTime old =
+        DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
+    DateTime now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
+    return old.year == now.year && old.month == now.month && old.day == now.day;
   }
 }

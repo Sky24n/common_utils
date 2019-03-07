@@ -5,7 +5,7 @@
  * @Date: 2018/9/8
  */
 
-///
+/// Object Util.
 class ObjectUtil {
   /// Returns true if the string is null or 0-length.
   static bool isEmptyString(String str) {
@@ -52,5 +52,19 @@ class ObjectUtil {
       }
     }
     return true;
+  }
+
+  /// get length.
+  static int getLength(Object value) {
+    if (value == null) return 0;
+    if (value is String) {
+      return value.length;
+    } else if (value is List) {
+      return value.length;
+    } else if (value is Map) {
+      return value.length;
+    } else {
+      return 0;
+    }
   }
 }

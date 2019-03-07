@@ -270,21 +270,12 @@ double dx = offset.dy
 
 ```
 
-## 关于作者，欢迎关注～
- [![jianshu][jianshuSvg]][jianshu]   [![juejin][juejinSvg]][juejin]  
-
-
-### 最后，如果您觉得本项目不错的话，来个star支持下作者吧！ 
-
 ## 关于示例
-本项目中不包含示例，所有示例均在[flutter_demos][flutter_demos_github]项目中。  
-
 完整项目[flutter_wanandroid][flutter_wanandroid_github]，包含启动页，引导页，主题色切换，应用国际化多语言，版本更新等功能。欢迎体验！  
 
 ## Demo Github :  
- [flutter_wanandroid][flutter_wanandroid_github] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [flutter_demos][flutter_demos_github]
-## 点击下载APK :  
- [v0.1.2][flutter_wanandroid_apk] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [v1.0.4][flutter_demos_apk]
+ [flutter_wanandroid][flutter_wanandroid_github]
+## 点击下载APK : [v0.1.x][flutter_wanandroid_apk] 
 ## 扫码下载APK :
   ![flutter_wanandroid][flutter_wanandroid_qr] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![flutter_demos][flutter_demos_qr]
 
@@ -293,6 +284,14 @@ double dx = offset.dy
 <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180930-012431.jpg" width="200">  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-231618.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180926-144840.png" width="200">  
 <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224204.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224146.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224231.jpg" width="200">  
 
+### 关于作者
+GitHub : [Sky24n](https://github.com/Sky24n)  
+简书 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://www.jianshu.com/u/cbf2ad25d33a)  
+掘金 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://juejin.im/user/5b9e8a92e51d453df0440422/posts)  
+Pub &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://pub.flutter-io.cn/packages?q=email%3A863764940%40qq.com)    
+Email &nbsp;&nbsp;: 863764940@qq.com  
+
+如果您觉得本项目不错的话，来个star支持下作者吧！  
 
 [readme]: https://github.com/Sky24n/common_utils
 [readme-en]: https://github.com/Sky24n/common_utils/blob/master/README-EN.md

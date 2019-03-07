@@ -10,7 +10,7 @@ typedef void OnTimerTickCallback(int millisUntilFinished);
  * @Date: 2018/9/28
  */
 
-///
+/// TimerUtil.
 class TimerUtil {
   TimerUtil({this.mInterval: Duration.millisecondsPerSecond, this.mTotalTime});
 

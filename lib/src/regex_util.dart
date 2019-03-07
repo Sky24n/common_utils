@@ -1,3 +1,10 @@
+/**
+ * @Author: thl
+ * @GitHub: https://github.com/Sky24n
+ * @Description: Regex Util.
+ * @Date: 2018/9/8
+ */
+
 const List<String> ID_CARD_PROVINCE_DICT = const [
   '11=北京',
   '12=天津',
@@ -36,14 +43,7 @@ const List<String> ID_CARD_PROVINCE_DICT = const [
   '91=国外',
 ];
 
-/**
- * @Author: thl
- * @GitHub: https://github.com/Sky24n
- * @Description: Regex Util.
- * @Date: 2018/9/8
- */
-
-///
+/// Regex Util.
 class RegexUtil {
   /// Regex of simple mobile.
   static final String regexMobileSimple = "^[1]\\d{10}\$";

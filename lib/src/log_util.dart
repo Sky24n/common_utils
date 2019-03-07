@@ -5,7 +5,7 @@
  * @Date: 2018/9/29
  */
 
-///
+/// Log Util.
 class LogUtil {
   static const String _TAG_DEF = "###common_utils###";
 

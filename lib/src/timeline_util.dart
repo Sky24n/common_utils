@@ -1,5 +1,12 @@
 import 'package:common_utils/src/date_util.dart';
 
+/**
+ * @Author: thl
+ * @GitHub: https://github.com/Sky24n
+ * @Description: Timeline Util.
+ * @Date: 2018/10/3
+ */
+
 ///(xx)Configurable output.
 ///(xx)为可配置输出.
 enum DayFormat {
@@ -163,14 +170,8 @@ void setLocaleInfo(String locale, TimelineInfo timelineInfo) {
   assert(timelineInfo != null, '[timelineInfo] must not be null');
   _timelineInfoMap[locale] = timelineInfo;
 }
-/**
- * @Author: thl
- * @GitHub: https://github.com/Sky24n
- * @Description: Timeline Util.
- * @Date: 2018/10/3
- */
 
-///
+/// TimelineUtil
 class TimelineUtil {
   /// format time by DateTime.
   /// dateTime
@@ -278,8 +279,8 @@ class TimelineUtil {
             : timelineInfo.days(days.round()));
         break;
       case DayFormat.Common:
-        timeline = DateUtil.getDateStrByMs(timeMillis,
-            format: DateFormat.MONTH_DAY);
+        timeline =
+            DateUtil.getDateStrByMs(timeMillis, format: DateFormat.MONTH_DAY);
         break;
       case DayFormat.Full:
         timeline = DateUtil.getDateStrByMs(timeMillis,

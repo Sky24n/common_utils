@@ -1,3 +1,7 @@
+## 1.1.0
+
+* TODO: Some updates. 
+
 ## 1.0.9
 
 * TODO: NumUtil updates(add subtract multiply divide without loosing precision). MoneyUtil precise conversion.
