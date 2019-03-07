@@ -268,7 +268,7 @@ class TimelineUtil {
     return "";
   }
 
-  ///format Days.
+  /// format Days.
   static String _formatDays(int timeMillis, num days, TimelineInfo timelineInfo,
       DayFormat dayFormat) {
     String timeline;

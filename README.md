@@ -14,7 +14,7 @@
 使用方式：
 ```yaml
 dependencies:
-  common_utils: ^1.0.9  
+  common_utils: ^1.1.0  
 ```
 
 ### Dart常用工具类库 [common_utils][common_utils_github]  
@@ -157,6 +157,7 @@ isLeapYearByYear                : 是否是闰年.
 yearIsEqual                     : 是否同年.
 getDayOfYear                    : 在今年的第几天.
 isYesterday                     : 是否是昨天.
+isToday                         : 是否是今天.
 ```
 
 * #### RegexUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/ui/pages/demos/regex_page.dart)

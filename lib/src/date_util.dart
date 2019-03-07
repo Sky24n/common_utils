@@ -28,7 +28,7 @@ enum DateFormat {
   ZH_HOUR_MINUTE, //HH时mm分
 }
 
-///month->days.
+/// month->days.
 Map<int, int> MONTH_DAY = {
   1: 31,
   2: 28,
@@ -46,40 +46,40 @@ Map<int, int> MONTH_DAY = {
 
 /// Date Util.
 class DateUtil {
-  ///get DateTime By DateStr.
+  /// get DateTime By DateStr.
   static DateTime getDateTime(String dateStr) {
     DateTime dateTime = DateTime.tryParse(dateStr);
     return dateTime;
   }
 
-  ///get DateTime By Milliseconds.
+  /// get DateTime By Milliseconds.
   static DateTime getDateTimeByMs(int milliseconds, {bool isUtc = false}) {
     DateTime dateTime =
         new DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
     return dateTime;
   }
 
-  ///get DateMilliseconds By DateStr.
+  /// get DateMilliseconds By DateStr.
   static int getDateMsByTimeStr(String dateStr) {
     DateTime dateTime = DateTime.tryParse(dateStr);
     return dateTime == null ? null : dateTime.millisecondsSinceEpoch;
   }
 
-  ///get Now Date Milliseconds.
+  /// get Now Date Milliseconds.
   static int getNowDateMs() {
     return DateTime.now().millisecondsSinceEpoch;
   }
 
-  ///get Now Date Str.(yyyy-MM-dd HH:mm:ss)
+  /// get Now Date Str.(yyyy-MM-dd HH:mm:ss)
   static String getNowDateStr() {
     return getDateStrByDateTime(DateTime.now());
   }
 
-  ///get DateStr By DateStr.
-  ///dateStr         date String.
-  ///format          DateFormat type.
-  ///dateSeparate    date separate.
-  ///timeSeparate    time separate.
+  /// get DateStr By DateStr.
+  /// dateStr         date String.
+  /// format          DateFormat type.
+  /// dateSeparate    date separate.
+  /// timeSeparate    time separate.
   static String getDateStrByTimeStr(
     String dateStr, {
     DateFormat format = DateFormat.NORMAL,
@@ -90,11 +90,11 @@ class DateUtil {
         format: format, dateSeparate: dateSeparate, timeSeparate: timeSeparate);
   }
 
-  ///get DateStr By Milliseconds.
-  ///milliseconds    milliseconds.
-  ///format          DateFormat type.
-  ///dateSeparate    date separate.
-  ///timeSeparate    time separate.
+  /// get DateStr By Milliseconds.
+  /// milliseconds    milliseconds.
+  /// format          DateFormat type.
+  /// dateSeparate    date separate.
+  /// timeSeparate    time separate.
   static String getDateStrByMs(int milliseconds,
       {DateFormat format = DateFormat.NORMAL,
       String dateSeparate,
@@ -105,11 +105,11 @@ class DateUtil {
         format: format, dateSeparate: dateSeparate, timeSeparate: timeSeparate);
   }
 
-  ///get DateStr By DateTime.
-  ///dateTime        dateTime.
-  ///format          DateFormat type.
-  ///dateSeparate    date separate.
-  ///timeSeparate    time separate.
+  /// get DateStr By DateTime.
+  /// dateTime        dateTime.
+  /// format          DateFormat type.
+  /// dateSeparate    date separate.
+  /// timeSeparate    time separate.
   static String getDateStrByDateTime(DateTime dateTime,
       {DateFormat format = DateFormat.NORMAL,
       String dateSeparate,
@@ -124,9 +124,9 @@ class DateUtil {
     return dateStr;
   }
 
-  ///format ZH DateTime.
-  ///time            time string.
-  ///format          DateFormat type.
+  /// format ZH DateTime.
+  /// time            time string.
+  /// format          DateFormat type.
   ///timeSeparate    time separate.
   static String formatZHDateTime(
       String time, DateFormat format, String timeSeparate) {
@@ -177,11 +177,11 @@ class DateUtil {
     return time;
   }
 
-  ///format DateTime.
-  ///time            time string.
-  ///format          DateFormat type.
-  ///dateSeparate    date separate.
-  ///timeSeparate    time separate.
+  /// format DateTime.
+  /// time            time string.
+  /// format          DateFormat type.
+  /// dateSeparate    date separate.
+  /// timeSeparate    time separate.
   static String formatDateTime(String time, DateFormat format,
       String dateSeparate, String timeSeparate) {
     switch (format) {
@@ -217,7 +217,7 @@ class DateUtil {
     return time;
   }
 
-  ///is format to ZH DateTime String
+  /// is format to ZH DateTime String
   static bool isZHFormat(DateFormat format) {
     return format == DateFormat.ZH_DEFAULT ||
         format == DateFormat.ZH_NORMAL ||
@@ -230,7 +230,7 @@ class DateUtil {
         format == DateFormat.ZH_HOUR_MINUTE;
   }
 
-  ///convert To ZH DateTime String
+  /// convert To ZH DateTime String
   static String convertToZHDateTimeString(String time, String timeSeparate) {
     time = time.replaceFirst("-", "年");
     time = time.replaceFirst("-", "月");
@@ -246,7 +246,7 @@ class DateUtil {
     return time;
   }
 
-  ///date Time Separate.
+  /// date Time Separate.
   static String dateTimeSeparate(
       String time, String dateSeparate, String timeSeparate) {
     if (dateSeparate != null) {
@@ -258,19 +258,19 @@ class DateUtil {
     return time;
   }
 
-  ///get WeekDay By Milliseconds.
+  /// get WeekDay By Milliseconds.
   static String getWeekDayByMs(int milliseconds, {bool isUtc: false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getWeekDay(dateTime);
   }
 
-  ///get ZH WeekDay By Milliseconds.
+  /// get ZH WeekDay By Milliseconds.
   static String getZHWeekDayByMs(int milliseconds, {bool isUtc: false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getZHWeekDay(dateTime);
   }
 
-  ///get WeekDay.
+  /// get WeekDay.
   static String getWeekDay(DateTime dateTime) {
     if (dateTime == null) return null;
     String weekday;
@@ -302,7 +302,7 @@ class DateUtil {
     return weekday;
   }
 
-  ///get ZH WeekDay.
+  /// get ZH WeekDay.
   static String getZHWeekDay(DateTime dateTime) {
     if (dateTime == null) return null;
     String weekday;
@@ -334,25 +334,25 @@ class DateUtil {
     return weekday;
   }
 
-  ///Return whether it is leap year.
+  /// Return whether it is leap year.
   static bool isLeapYearByDateTime(DateTime dateTime) {
     return isLeapYearByYear(dateTime.year);
   }
 
-  ///Return whether it is leap year.
+  /// Return whether it is leap year.
   static bool isLeapYearByYear(int year) {
     return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
   }
 
-  ///is yesterday by millis.
-  ///是否是昨天.
+  /// is yesterday by millis.
+  /// 是否是昨天.
   static bool isYesterdayByMillis(int millis, int locMillis) {
     return isYesterday(DateTime.fromMillisecondsSinceEpoch(millis),
         DateTime.fromMillisecondsSinceEpoch(locMillis));
   }
 
-  ///is yesterday by dateTime.
-  ///是否是昨天.
+  /// is yesterday by dateTime.
+  /// 是否是昨天.
   static bool isYesterday(DateTime dateTime, DateTime locDateTime) {
     if (yearIsEqual(dateTime, locDateTime)) {
       int spDay =
@@ -367,14 +367,14 @@ class DateUtil {
     }
   }
 
-  ///get day of year.
-  ///在今年的第几天.
+  /// get day of year.
+  /// 在今年的第几天.
   static int getDayOfYearByMillis(int millis) {
     return getDayOfYear(DateTime.fromMillisecondsSinceEpoch(millis));
   }
 
-  ///get day of year.
-  ///在今年的第几天.
+  /// get day of year.
+  /// 在今年的第几天.
   static int getDayOfYear(DateTime dateTime) {
     int year = dateTime.year;
     int month = dateTime.month;
@@ -388,21 +388,21 @@ class DateUtil {
     return days;
   }
 
-  ///year is equal.
-  ///是否同年.
+  /// year is equal.
+  /// 是否同年.
   static bool yearIsEqualByMillis(int millis, int locMillis) {
     return yearIsEqual(DateTime.fromMillisecondsSinceEpoch(millis),
         DateTime.fromMillisecondsSinceEpoch(locMillis));
   }
 
-  ///year is equal.
-  ///是否同年.
+  /// year is equal.
+  /// 是否同年.
   static bool yearIsEqual(DateTime dateTime, DateTime locDateTime) {
     return dateTime.year == locDateTime.year;
   }
 
-  ///year is today.
-  ///是否今天.
+  /// year is today.
+  /// 是否是今天.
   static bool isToday(int milliseconds, {bool isUtc = false}) {
     if (milliseconds == null || milliseconds == 0) return false;
     DateTime old =
