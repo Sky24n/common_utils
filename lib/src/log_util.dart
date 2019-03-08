@@ -12,7 +12,7 @@ class LogUtil {
   static bool debuggable = false; //是否是debug模式,true: log v 不输出.
   static String TAG = _TAG_DEF;
 
-  static void init({bool isDebug: false, String tag: _TAG_DEF}) {
+  static void init({bool isDebug = false, String tag = _TAG_DEF}) {
     debuggable = isDebug;
     TAG = tag;
   }

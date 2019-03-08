@@ -259,13 +259,13 @@ class DateUtil {
   }
 
   /// get WeekDay By Milliseconds.
-  static String getWeekDayByMs(int milliseconds, {bool isUtc: false}) {
+  static String getWeekDayByMs(int milliseconds, {bool isUtc = false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getWeekDay(dateTime);
   }
 
   /// get ZH WeekDay By Milliseconds.
-  static String getZHWeekDayByMs(int milliseconds, {bool isUtc: false}) {
+  static String getZHWeekDayByMs(int milliseconds, {bool isUtc = false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
     return getZHWeekDay(dateTime);
   }

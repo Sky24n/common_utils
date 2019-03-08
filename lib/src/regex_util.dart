@@ -5,6 +5,7 @@
  * @Date: 2018/9/8
  */
 
+/// id card province dict.
 const List<String> ID_CARD_PROVINCE_DICT = const [
   '11=北京',
   '12=天津',
