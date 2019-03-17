@@ -27,7 +27,7 @@ dependencies:
  7、NumUtil      : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
  8、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
  
-### [Flutter工具类库 flustars][flustars_github]   
+### Flutter工具类库 [flustars][flustars_github]   
  1、SpUtil       : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。  
  2、ScreenUtil   : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
  3、WidgetUtil   : 监听Widget渲染状态，获取Widget宽高，在屏幕上的坐标，获取网络/本地图片尺寸.  
