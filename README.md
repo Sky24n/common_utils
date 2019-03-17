@@ -1,12 +1,10 @@
-# common_utils (Dart常用工具类库,平台: Flutter, web, other)
+# common_utils (Dart常用工具类库)
 
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
 
 ## [README of English][readme-en]
 
-## Dart常用工具类库。如果你有好的工具类欢迎PR.
-
-## [更新说明](doc/UPDATELOG.md)
+## Dart常用工具类库。包含日期，正则，倒计时，定时任务，时间轴等工具类。如果你有好的工具类欢迎PR.
 
 ### 关于使用本开源库
 如果您是用于公司项目，请随意使用～  
@@ -16,6 +14,8 @@
 dependencies:
   common_utils: ^1.1.1  
 ```
+
+### [更新说明](doc/UPDATELOG.md)
 
 ### Dart常用工具类库 [common_utils][common_utils_github]  
  1、TimelineUtil : 时间轴.(新)  
@@ -27,13 +27,12 @@ dependencies:
  7、NumUtil      : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
  8、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
  
-### Flutter工具类库 [flustars][flustars_github]  
- 1、DioUtil      : Dio 工具类.   
- 2、SpUtil       : 单例"同步" SharedPreferences 工具类.  
- 3、ScreenUtil   : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
- 4、WidgetUtil   : Widget渲染监听，获取Widget宽高，在屏幕上的坐标.  
+### [Flutter工具类库 flustars][flustars_github]   
+ 1、SpUtil       : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。  
+ 2、ScreenUtil   : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
+ 3、WidgetUtil   : 监听Widget渲染状态，获取Widget宽高，在屏幕上的坐标，获取网络/本地图片尺寸.  
+ 4、DioUtil      : 单例Dio网络工具类(已迁移至此处[DioUtil](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/data/net/dio_util.dart))。 
  
-
 ### Add dependency
 ```yaml
 dependencies:
@@ -42,7 +41,7 @@ dependencies:
 
 ### APIs
 
-* #### TimelineUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/ui/pages/demos/timeline_page.dart)
+* #### TimelineUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timeline_page.dart)
 ```
 ///(xx)为可配置输出
 enum DayFormat {
@@ -74,7 +73,7 @@ formatByDateTime            : 格式输出时间轴信息 by DateTime .
 format                      : 格式输出时间轴信息.
 ```
 
-* #### TimerUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/ui/pages/demos/timer_page.dart)
+* #### TimerUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timer_page.dart)
 ```
 setInterval                 : 设置Timer间隔.
 setTotalTime                : 设置倒计时总时间.
@@ -86,7 +85,7 @@ setOnTimerTickCallback      : 计时器回调.
 isActive                    : Timer是否启动.
 ```
 
-* #### MoneyUtil 精确转换,防止精度丢失 -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/ui/pages/demos/money_page.dart)
+* #### MoneyUtil 精确转换,防止精度丢失 -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/money_page.dart)
 ```
 changeF2Y                   : 分 转 元, format格式输出.
 changeFStr2YWithUnit        : 分字符串 转 元, format 与 unit 格式 输出.
@@ -102,7 +101,7 @@ e(object, tag)              : 日志e
 v(object, tag)              : 日志v，只在debug模式输出.
 ```
 
-* #### NumUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/ui/pages/demos/num_util_page.dart)
+* #### NumUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/num_util_page.dart)
 ```
 getIntByValueStr            : 数字字符串转int.
 getDoubleByValueStr         : 数字字符串转double.
@@ -119,7 +118,7 @@ greaterThan                 : > .
 greaterOrEqual              : >= .
 ```
 
-* #### DateUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/ui/pages/demos/date_page.dart)
+* #### DateUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/date_page.dart)
 ```
 enum DateFormat {
   DEFAULT, //yyyy-MM-dd HH:mm:ss.SSS
@@ -160,7 +159,7 @@ isYesterday                     : 是否是昨天.
 isToday                         : 是否是今天.
 ```
 
-* #### RegexUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/ui/pages/demos/regex_page.dart)
+* #### RegexUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/regex_page.dart)
 ```
 isMobileSimple            : 简单验证手机号
 isMobileExact             : 精确验证手机号
@@ -176,7 +175,7 @@ isDate                    : 验证 yyyy-MM-dd 格式的日期校验，已考虑�
 isIP                      : 验证 IP 地址
 ```
 
-* #### ObjectUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/ui/pages/demos/object_util_page.dart)
+* #### ObjectUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/object_util_page.dart)
 ```
 isEmptyString             : 判断String是否为空.
 isEmptyList               : 判断List是否为空.
@@ -271,14 +270,23 @@ double dx = offset.dy
 
 ```
 
-## 关于示例
-完整项目[flutter_wanandroid][flutter_wanandroid_github]，包含启动页，引导页，主题色切换，应用国际化多语言，版本更新等功能。欢迎体验！  
+### [Flutter Demos](https://github.com/Sky24n/flutter_wanandroid/tree/master/lib/demos)   
+ 
+>- |--demos
+>    - |-- city_select_page.dart 城市列表(索引&悬停)示例
+>    - |-- date_page.dart 日期格式化示例
+>    - |-- image_size_page.dart 获取网络/本地图片尺寸示例
+>    - |-- money_page.dart 金额(元转分/分转元)示例
+>    - |-- pinyin_page.dart 汉字转拼音示例
+>    - |-- regex_page.dart 正则工具类示例
+>    - |-- round_portrait_page.dart 圆形圆角头像示例
+>    - |-- timeline_page.dart 时间轴示例
+>    - |-- timer_page.dart 倒计时/定时任务示例
+>    - |-- widget_page.dart 获取Widget尺寸/屏幕坐标示例
 
-## Demo Github :  
- [flutter_wanandroid][flutter_wanandroid_github]
 ## 点击下载APK : [v0.1.x][flutter_wanandroid_apk] 
 ## 扫码下载APK :
-  ![flutter_wanandroid][flutter_wanandroid_qr] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![flutter_demos][flutter_demos_qr]
+  ![flutter_wanandroid][flutter_wanandroid_qr] 
 
 ### Screenshot
 <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20181003-234414.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20181003-211011.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">  
