@@ -9,6 +9,7 @@
 ### 关于使用本开源库
 如果您是用于公司项目，请随意使用～  
 如果您是用于开源项目，未经本人许可，请勿copy源码到您的项目使用！  
+
 使用方式：
 ```yaml
 dependencies:
@@ -40,6 +41,15 @@ dependencies:
 ```
 
 ### APIs
+* #### SpUtil
+强大的SharedPreferences工具类，详细使用请参考原仓库[flustars][flustars_github]。
+```dart
+/// 等待Sp初始化完成。
+await SpUtil.getInstance();
+/// 同步使用Sp。
+String name = SpUtil.putString("key_username", "Sky24n");
+bool isShow = SpUtil.getBool("key_show", defValue: true);
+```
 
 * #### TimelineUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timeline_page.dart)
 ```
@@ -292,6 +302,12 @@ double dx = offset.dy
 <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20181003-234414.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20181003-211011.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">  
 <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180930-012431.jpg" width="200">  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-231618.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180926-144840.png" width="200">  
 <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224204.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224146.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224231.jpg" width="200">  
+
+### Big Thanks
+本库部分源码参考，正则，时间轴。  
+Blankj [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode) 强大易用的安卓工具类库。   
+Andres Araujo [timeago](https://github.com/andresaraujo/timeago.dart) Dart时间轴库。   
+a14n [decimal](https://github.com/a14n/dart-decimal) 精确运算，避免精度丢失。
 
 ### 关于作者
 GitHub : [Sky24n](https://github.com/Sky24n)  

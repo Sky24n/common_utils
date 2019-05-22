@@ -28,10 +28,16 @@ class LogUtil {
   }
 
   static void _printLog(String tag, String stag, Object object) {
-    StringBuffer sb = new StringBuffer();
-    sb.write((tag == null || tag.isEmpty) ? TAG : tag);
-    sb.write(stag);
-    sb.write(object);
-    print(sb.toString());
+    String da = object.toString();
+    String _tag = (tag == null || tag.isEmpty) ? TAG : tag;
+    while (da.isNotEmpty) {
+      if (da.length > 512) {
+        print("$_tag $stag ${da.substring(0, 512)}");
+        da = da.substring(512, da.length);
+      } else {
+        print("$_tag $stag $da");
+        da = "";
+      }
+    }
   }
 }
