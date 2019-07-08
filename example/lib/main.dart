@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:common_utils/common_utils.dart';
 
 void main() {
@@ -76,7 +74,8 @@ void main() {
   /**  ----------------NumUtil----------------  */
 
   /**  ----------------LogUtil----------------  */
-  LogUtil.init(isDebug: true, tag: "test");
+//  LogUtil.init(isDebug: true, tag: "test");
+  LogUtil.init(isDebug: true);
   LogUtil.e("...log...", tag: "test");
   LogUtil.v("...log...", tag: "test");
   /**  ----------------LogUtil----------------  */
@@ -105,4 +104,9 @@ void main() {
       DateUtil.getDayOfYear(new DateTime(2012, 3, 1)).toString());
 
   /**  ----------------Util----------------  */
+  StringBuffer sb = new StringBuffer();
+  for (int i = 0; i < 1000; i++) {
+    sb.write('$i,');
+  }
+  LogUtil.e(sb.toString());
 }

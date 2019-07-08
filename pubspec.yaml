@@ -9,3 +9,5 @@ environment:
 dependencies:
   # https://github.com/a14n/dart-decimal
   decimal: ">=0.1.0 <1.0.0"
+  # https://github.com/dart-lang/crypto
+  crypto: ">=2.0.6 <3.0.0"

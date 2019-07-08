@@ -4,7 +4,7 @@ import 'dart:async';
 typedef void OnTimerTickCallback(int millisUntilFinished);
 
 /**
- * @Author: thl
+ * @Author: Sky24n
  * @GitHub: https://github.com/Sky24n
  * @Description: Timer Util.
  * @Date: 2018/9/28

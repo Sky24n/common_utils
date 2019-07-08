@@ -1,5 +1,5 @@
 /**
- * @Author: thl
+ * @Author: Sky24n
  * @GitHub: https://github.com/Sky24n
  * @Description: Object Util.
  * @Date: 2018/9/8

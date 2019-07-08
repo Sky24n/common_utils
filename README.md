@@ -11,28 +11,41 @@
 如果您是用于开源项目，未经本人许可，请勿copy源码到您的项目使用！  
 
 使用方式：
+1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
 dependencies:
   common_utils: ^1.1.1  
 ```
-
+2、如果您是Flutter项目，请使用Flutter工具类库 [flustars][flustars_github]，该库依赖于本项目。  
+[flustars][flustars_github]库为大家提供更多的常用工具类，例如SpUtil，ScreenUtil等等。
+```yaml
+dependencies:
+  flustars: ^0.2.6+1  
+```
 ### [更新说明](doc/UPDATELOG.md)
+v1.1.2 (2019.07.08) 暂未发布到pub。 
+1、新增EnDecodeUtil md5加密，Base64加/解密.  
+2、LogUtil 支持输出超长log。  
+3、RegexUtil 支持199号段。
+
 
 ### Dart常用工具类库 [common_utils][common_utils_github]  
- 1、TimelineUtil : 时间轴.(新)  
- 2、TimerUtil    : 倒计时，定时任务.(新)  
- 3、MoneyUtil    : 精确转换，元转分，分转元，支持格式输出.(新)  
- 4、LogUtil      : 简单封装打印日志.(新)  
- 5、DateUtil     : 日期转换格式化输出.  
- 6、RegexUtil    : 正则验证手机号，身份证，邮箱等等.  
- 7、NumUtil      : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
- 8、ObjectUtil   : 判断对象是否为空(String List Map),判断两个List是否相等.  
+ 1、TimelineUtil     : 时间轴.  
+ 2、TimerUtil        : 倒计时，定时任务.  
+ 3、MoneyUtil        : 精确转换，元转分，分转元，支持格式输出.  
+ 4、LogUtil          : 简单封装打印日志. 
+ 5、DateUtil         : 日期转换格式化输出.  
+ 6、RegexUtil        : 正则验证手机号，身份证，邮箱等等.  
+ 7、NumUtil          : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
+ 8、ObjectUtil       : 判断对象是否为空(String List Map),判断两个List是否相等.  
+ 9、EnDecodeUtil     : md5加密，Base64加/解密.  
  
 ### Flutter工具类库 [flustars][flustars_github]   
- 1、SpUtil       : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。  
- 2、ScreenUtil   : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
- 3、WidgetUtil   : 监听Widget渲染状态，获取Widget宽高，在屏幕上的坐标，获取网络/本地图片尺寸.  
- 4、DioUtil      : 单例Dio网络工具类(已迁移至此处[DioUtil](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/data/net/dio_util.dart))。 
+ 1、SpUtil           : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。  
+ 2、ScreenUtil       : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
+ 3、WidgetUtil       : 监听Widget渲染状态，获取Widget宽高，在屏幕上的坐标，获取网络/本地图片尺寸.  
+ 4、DirectoryUtil    : 文件目录工具类.  
+ 5、DioUtil          : 单例Dio网络工具类(已迁移至此处[DioUtil](https://github.com/Sky24n/FlutterRepos/blob/master/base_library/lib/src/data/net/dio_util.dart))。 
  
 ### Add dependency
 ```yaml
@@ -45,10 +58,38 @@ dependencies:
 强大的SharedPreferences工具类，详细使用请参考原仓库[flustars][flustars_github]。
 ```dart
 /// 等待Sp初始化完成。
-await SpUtil.getInstance();
-/// 同步使用Sp。
+await SpUtil.getInstance();  
+  
+/// 同步使用Sp。支付默认值。
 String name = SpUtil.putString("key_username", "Sky24n");
 bool isShow = SpUtil.getBool("key_show", defValue: true);
+  
+/// save object example.
+/// 存储实体对象示例。
+City city = new City();
+city.name = "成都市";
+SpUtil.putObject("loc_city", city);
+    
+City hisCity = SpUtil.getObj("loc_city", (v) => City.fromJson(v));
+print("City: " + (hisCity == null ? "null" : hisCit.toString()));
+  
+
+/// save object list example.
+/// 存储实体对象list示例。
+List<City> list = new List();
+list.add(new City(name: "成都市"));
+list.add(new City(name: "北京市"));
+SpUtil.putObjectList("loc_city_list", list);
+    
+List<City> _cityList = SpUtil.getObjList("loc_city_list", (v) => City.fromJson(v));
+print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
+```
+
+* #### EnDecodeUtil
+```
+encodeMd5                   : md5 加密.
+encodeBase64                : Base64加密.
+decodeBase64()              : Base64解密.
 ```
 
 * #### TimelineUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timeline_page.dart)
@@ -318,8 +359,6 @@ Email &nbsp;&nbsp;: 863764940@qq.com
 
 如果您觉得本项目不错的话，来个star支持下作者吧！  
 
-Flutter全局屏幕适配 [auto_size](https://github.com/flutterchina/auto_size)  
-  
 [![GitHub stars](https://img.shields.io/github/stars/flutterchina/auto_size.svg?style=social&label=Star)](https://github.com/flutterchina/auto_size) [![GitHub forks](https://img.shields.io/github/forks/flutterchina/auto_size.svg?style=social&label=Fork)](https://github.com/flutterchina/auto_size) [![GitHub watchers](https://img.shields.io/github/watchers/flutterchina/auto_size.svg?style=social&label=Watch)](https://github.com/flutterchina/auto_size)  
     
 Flutter版玩安卓 [flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)  

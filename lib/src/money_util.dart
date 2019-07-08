@@ -12,7 +12,7 @@ enum MoneyFormat {
   YUAN_INTEGER, //整元(6.00元 -> 6元)
 }
 /**
- * @Author: thl
+ * @Author: Sky24n
  * @GitHub: https://github.com/Sky24n
  * @Description: Money Util.
  * @Date: 2018/9/29

@@ -1,7 +1,7 @@
 import 'package:decimal/decimal.dart';
 
 /**
- * @Author: thl
+ * @Author: Sky24n
  * @GitHub: https://github.com/Sky24n
  * @Description: Num Util.
  * @Date: 2018/9/18
