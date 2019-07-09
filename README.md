@@ -10,21 +10,21 @@
 如果您是用于公司项目，请随意使用～  
 如果您是用于开源项目，未经本人许可，请勿copy源码到您的项目使用！  
 
-使用方式：
+使用方式：  
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
 dependencies:
   common_utils: ^1.1.2  
 ```
 2、如果您是Flutter项目，请使用Flutter工具类库 [flustars][flustars_github]，该库依赖于本项目。  
-[flustars][flustars_github]库为大家提供更多的常用工具类，例如SpUtil，ScreenUtil等等。
+[flustars][flustars_github]库为大家提供更多的常用工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
 ```yaml
 dependencies:
   flustars: ^0.2.6+1  
 ```
 ### [更新说明](doc/UPDATELOG.md)
 v1.1.2 (2019.07.10)   
-1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等. 
+1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.   
 2、新增EnDecodeUtil md5加密，Base64加/解密.   
 3、DateUtil 新增日期格式化，支持自定义格式输出。  
 4、LogUtil 支持输出超长log。  

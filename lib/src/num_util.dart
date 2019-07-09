@@ -27,13 +27,13 @@ class NumUtil {
   }
 
   /// get int by value str.
-  static int getIntByValueStr(String valueStr) {
-    return int.tryParse(valueStr);
+  static int getIntByValueStr(String valueStr, {int defValue = 0}) {
+    return int.tryParse(valueStr) ?? defValue;
   }
 
   /// get double by value str.
-  static double getDoubleByValueStr(String valueStr) {
-    return double.tryParse(valueStr);
+  static double getDoubleByValueStr(String valueStr, {double defValue = 0}) {
+    return double.tryParse(valueStr) ?? defValue;
   }
 
   ///isZero
