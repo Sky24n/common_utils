@@ -14,7 +14,7 @@
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
 dependencies:
-  common_utils: ^1.1.1  
+  common_utils: ^1.1.2  
 ```
 2、如果您是Flutter项目，请使用Flutter工具类库 [flustars][flustars_github]，该库依赖于本项目。  
 [flustars][flustars_github]库为大家提供更多的常用工具类，例如SpUtil，ScreenUtil等等。
@@ -23,12 +23,24 @@ dependencies:
   flustars: ^0.2.6+1  
 ```
 ### [更新说明](doc/UPDATELOG.md)
-v1.1.2 (2019.07.08) 暂未发布到pub。 
-1、新增EnDecodeUtil md5加密，Base64加/解密.  
-2、LogUtil 支持输出超长log。  
-3、RegexUtil 支持199号段。
+v1.1.2 (2019.07.10)   
+1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等. 
+2、新增EnDecodeUtil md5加密，Base64加/解密.   
+3、DateUtil 新增日期格式化，支持自定义格式输出。  
+4、LogUtil 支持输出超长log。  
+5、RegexUtil 支持199号段。
+```dart
+/// DateUtil
+DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
+DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
+  
+/// TextUtil
+String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
+String num     = TextUtil.formatComma3("1234"); // 123,4
+String phoneNo = TextUtil.hidePhone("15845678910")// 158****8910
 
-
+```
 ### Dart常用工具类库 [common_utils][common_utils_github]  
  1、TimelineUtil     : 时间轴.  
  2、TimerUtil        : 倒计时，定时任务.  
@@ -39,6 +51,7 @@ v1.1.2 (2019.07.08) 暂未发布到pub。
  7、NumUtil          : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
  8、ObjectUtil       : 判断对象是否为空(String List Map),判断两个List是否相等.  
  9、EnDecodeUtil     : md5加密，Base64加/解密.  
+10、TextUtil         : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.  
  
 ### Flutter工具类库 [flustars][flustars_github]   
  1、SpUtil           : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。  
@@ -84,12 +97,26 @@ SpUtil.putObjectList("loc_city_list", list);
 List<City> _cityList = SpUtil.getObjList("loc_city_list", (v) => City.fromJson(v));
 print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
 ```
+* #### TextUtil
+```
+isEmpty                     : isEmpty.(新)
+formatSpace4                : 每隔4位加空格，格式化银行卡.(新)
+formatComma3                : 每隔3三位加逗号.(新)
+hidePhone                   : 隐藏手机号.(新)
+replace                     : replace.(新)
+split                       : split.(新)
+  
+/// example
+String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
+String num     = TextUtil.formatComma3("1234"); // 123,4
+String phoneNo = TextUtil.hidePhone("15845678910")// 158****8910
+```
 
 * #### EnDecodeUtil
 ```
-encodeMd5                   : md5 加密.
-encodeBase64                : Base64加密.
-decodeBase64()              : Base64解密.
+encodeMd5                   : md5 加密.(新)
+encodeBase64                : Base64加密.(新)
+decodeBase64()              : Base64解密.(新)
 ```
 
 * #### TimelineUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timeline_page.dart)
@@ -158,6 +185,7 @@ getIntByValueStr            : 数字字符串转int.
 getDoubleByValueStr         : 数字字符串转double.
 getNumByValueStr            : 保留x位小数 by 数字字符串.
 getNumByValueDouble         : 保留x位小数 by double.
+isZero                      : 是否为0.
 add                         : 加(精确相加,防止精度丢失).
 subtract                    : 减(精确相减,防止精度丢失).
 multiply                    : 乘(精确相乘,防止精度丢失).
@@ -193,6 +221,9 @@ enum DateFormat {
   ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
   ZH_HOUR_MINUTE, //HH时mm分
 }
+formatDate                      : 格式化日期 DateTime.(新)
+formatDateStr                   : 格式化日期 字符串.(新)
+formatDateMs                    : 格式化日期 毫秒.(新)
 getNowDateMs                    : 获取现在 毫秒.
 getNowDateStr                   : 获取现在 日期字符串.(yyyy-MM-dd HH:mm:ss)
 getDateMsByTimeStr              : 获取毫秒 By 日期字符串(Format格式输出).
@@ -208,6 +239,12 @@ yearIsEqual                     : 是否同年.
 getDayOfYear                    : 在今年的第几天.
 isYesterday                     : 是否是昨天.
 isToday                         : 是否是今天.
+isWeek                          : 是否是本周.(新)
+  
+// example
+DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
+DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
 ```
 
 * #### RegexUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/regex_page.dart)

@@ -36,6 +36,11 @@ class NumUtil {
     return double.tryParse(valueStr);
   }
 
+  ///isZero
+  static bool isZero(num value) {
+    return value == null || value == 0;
+  }
+
   /// 加 (精确相加,防止精度丢失).
   /// add (without loosing precision).
   static double add(num a, num b) {

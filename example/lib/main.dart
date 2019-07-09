@@ -109,4 +109,18 @@ void main() {
     sb.write('$i,');
   }
   LogUtil.e(sb.toString());
+
+  LogUtil.e(DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch,
+      format: DataFormats.full));
+  LogUtil.e(
+      DateUtil.formatDateStr("2019-07-09 16:51:14", format: DataFormats.full));
+  LogUtil.e(DateUtil.formatDateStr("2019-07-09 16:51:14",
+      format: "yyyy/M/d HH:mm:ss"));
+  LogUtil.e(DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss"));
+
+  String phoneNo = TextUtil.formatSpace4("15845678910");
+  LogUtil.e(phoneNo);
+  LogUtil.e("phoneNo: " + TextUtil.replace(phoneNo, ' ', ''));
+
+  LogUtil.e(TextUtil.hidePhone("15845678910"));
 }

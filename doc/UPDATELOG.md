@@ -1,3 +1,30 @@
+## 更新说明  
+v1.1.2 (2019.07.08) 暂未发布到pub。   
+1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等. 
+2、新增EnDecodeUtil md5加密，Base64加/解密.   
+3、DateUtil 新增日期格式化，支持自定义格式输出。  
+4、LogUtil 支持输出超长log。  
+5、RegexUtil 支持199号段。
+```dart
+/// DateUtil
+DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
+DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
+  
+/// TextUtil
+String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
+String num     = TextUtil.formatComma3("1234"); // 123,4
+String phoneNo = TextUtil.hidePhone("15845678910")// 158****8910
+
+```
+(2018.10.31)  
+NumUtil更新, 精确加、减、乘、除, 防止精度丢失.  
+MoneyUtil更新, 精确转换, 防止精度丢失.  
+  
+common_utils库不再有平台限制.  
+WidgetUtil,ScreenUtil迁移至[flustars][flustars_github]库。
+
+
 ## Flutter工具类库[flustars][flustars_github]更新说明
 #### v0.1.8(2018.12.29)   
 ScreenUtil 屏幕适配更新。  
@@ -104,13 +131,7 @@ ScreenUtil.getInstance().getHeight(100.0);
 ScreenUtil.getInstance().getSp(12.0); 
 ```
 
-## 更新说明  
-(2018.10.31)  
-NumUtil更新, 精确加、减、乘、除, 防止精度丢失.  
-MoneyUtil更新, 精确转换, 防止精度丢失.  
-  
-common_utils库不再有平台限制.  
-WidgetUtil,ScreenUtil迁移至[flustars][flustars_github]库。
+
 
 
 [flutter_wanandroid_github]: https://github.com/Sky24n/flutter_wanandroid

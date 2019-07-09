@@ -5,31 +5,90 @@
 ## [README of Chinese][readme]
 
 ## Update Description  
-common_utils: No platform restriction found in primary library.  
-WidgetUtil, ScreenUtil migrate to [flustars](https://github.com/Sky24n/flustars) library.  
+```dart
+/// DateUtil
+DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
+DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
+  
+/// TextUtil
+String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
+String num     = TextUtil.formatComma3("1234"); // 123,4
+String phoneNo = TextUtil.hidePhone("15845678910")// 158****8910
+
+```
 
 ## [common_utils] is a dart common tools library.  
 ### [common_utils](https://github.com/Sky24n/common_utils)  
- 1、TimelineUtil : timeline util.(new)  
- 2、TimerUtil    : countdown，timer.(new)  
- 3、MoneyUtil    : fen to yuan, format output.(new)  
- 4、LogUtil      : simply encapsulate print logs.(new)  
- 5、DateUtil     : date conversion formatted output.  
- 6、RegexUtil    : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
- 7、NumUtil      : Keep [x] decimal places,add subtract multiply divide without loosing precision.  
- 8、ObjectUtil  : Object is empty,Two List is equal.  
+ 1、TimelineUtil     : timeline util.(new)  
+ 2、TimerUtil        : countdown，timer.(new)  
+ 3、MoneyUtil        : fen to yuan, format output.(new)  
+ 4、LogUtil          : simply encapsulate print logs.(new)  
+ 5、DateUtil         : date conversion formatted output.  
+ 6、RegexUtil        : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
+ 7、NumUtil          : Keep [x] decimal places,add subtract multiply divide without loosing precision.  
+ 8、ObjectUtil       : Object is empty,Two List is equal.  
+ 9、EnDecodeUtil     : md5 ，Base64.  
+10、TextUtil         : hide phoneNo.  
 ### Flutter Library [flustars](https://github.com/Sky24n/flustars)  
- 1、SpUtil       : SharedPreferences Util.  
- 2、ScreenUtil   : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
- 3、WidgetUtil   : get Widget width height，coordinates. 
-
+ 1、SpUtil           : SharedPreferences Util.  
+ 2、ScreenUtil       : get screen width height density, appBarHeight, statusBarHeight, Orientation.  
+ 3、WidgetUtil       : get Widget width height，coordinates. 
+ 4、DirectoryUtil    : Directory Util.  
+ 5、DioUtil          : Dio Util(move to[DioUtil](https://github.com/Sky24n/FlutterRepos/blob/master/base_library/lib/src/data/net/dio_util.dart))。 
 ### Add dependency
 
 ```yaml
 dependencies:
   common_utils: x.x.x  #latest version
 ```
+### APIs
+* #### SpUtil
+强大的SharedPreferences工具类，详细使用请参考原仓库[flustars][flustars_github]。
+```dart
+/// 等待Sp初始化完成。
+await SpUtil.getInstance();  
+  
+/// 同步使用Sp。支付默认值。
+String name = SpUtil.putString("key_username", "Sky24n");
+bool isShow = SpUtil.getBool("key_show", defValue: true);
+  
+/// save object example.
+/// 存储实体对象示例。
+City city = new City();
+city.name = "成都市";
+SpUtil.putObject("loc_city", city);
+    
+City hisCity = SpUtil.getObj("loc_city", (v) => City.fromJson(v));
+print("City: " + (hisCity == null ? "null" : hisCit.toString()));
+  
 
+/// save object list example.
+/// 存储实体对象list示例。
+List<City> list = new List();
+list.add(new City(name: "成都市"));
+list.add(new City(name: "北京市"));
+SpUtil.putObjectList("loc_city_list", list);
+    
+List<City> _cityList = SpUtil.getObjList("loc_city_list", (v) => City.fromJson(v));
+print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
+```
+* #### TextUtil
+```
+isEmpty                     : isEmpty.(new)
+formatSpace4                : 每隔4位加空格.(new)
+formatComma3                : 每隔3三位加逗号.(new)
+hidePhone                   : 隐藏手机号，例如：158****8910.(new)
+replace                     : replace.(new)
+split                       : split.(new)
+```
+
+* #### EnDecodeUtil
+```
+encodeMd5                   : md5 加密.(new)
+encodeBase64                : Base64加密.(new)
+decodeBase64()              : Base64解密.(new)
+```
 ### APIs
 * #### TimelineUtil
 ```
@@ -97,6 +156,7 @@ getIntByValueStr            : get int By value string.
 getDoubleByValueStr         : get double By value string.
 getNumByValueStr            : Keep [x] decimal places by value string.
 getNumByValueDouble         : Keep [x] decimal places by double.
+isZero                      : is Zero.
 add                         : add (without loosing precision).
 subtract                    : subtract (without loosing precision).
 multiply                    : multiply (without loosing precision).
@@ -131,11 +191,14 @@ enum DateFormat {
   ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
   ZH_HOUR_MINUTE, //HH时mm分
 }
-getNowDateMs                    : get Now Date Milliseconds.
+formatDate                      : format Date DateTime.(new)
+formatDateStr                   : format Date DateStr.(new)
+formatDateMs                    : format Date milliseconds.(new)
+getNowDateMs                    : get Now Date milliseconds.
 getNowDateStr                   : get Now DateStr.(yyyy-MM-dd HH:mm:ss)
 getDateMsByTimeStr              : get DateMilliseconds By DateStr.
 getDateStrByTimeStr             : get DateStr By DateStr.
-getDateStrByMs                  : get DateStr By Milliseconds.
+getDateStrByMs                  : get DateStr By milliseconds.
 getDateStrByDateTime            : get DateStr By DateTime.
 getWeekDay                      : get WeekDay By DateTime.
 getZHWeekDay                    : get ZH WeekDay By DateTime.
@@ -145,6 +208,8 @@ isLeapYearByYear                : whether it is leap year.
 yearIsEqual                     : year is equal.
 getDayOfYear                    : get day of year..
 isYesterday                     : is yesterday.
+isToday                         : is Today.
+isWeek                          : is Week.(new)
 ```
 
 * #### RegexUtil
