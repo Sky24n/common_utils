@@ -4,6 +4,8 @@
  * @Description: Text Util.
  * @Date: 2019/7/9
  */
+
+/// TextUtil.
 class TextUtil {
   /// isEmpty
   static bool isEmpty(String text) {
@@ -30,7 +32,10 @@ class TextUtil {
   /// 每隔3三位加逗号
   /// num 数字或数字字符串。int型。
   static String formatComma3(Object num) {
-    return formatDigitPattern(num?.toString(), digit: 3, pattern: ',');
+    String temp = reverse(num?.toString());
+    temp = formatDigitPattern(temp, digit: 3, pattern: ',');
+    temp = reverse(temp);
+    return temp;
   }
 
   /// hidePhone
@@ -46,8 +51,18 @@ class TextUtil {
 
   /// split
   static List<String> split(String text, Pattern pattern,
-      {List<String> defValue: const []}) {
+      {List<String> defValue = const []}) {
     List<String> list = text?.split(pattern);
     return list ?? defValue;
+  }
+
+  /// reverse
+  static String reverse(String text) {
+    if (isEmpty(text)) return '';
+    StringBuffer sb = StringBuffer();
+    for (int i = text.length - 1; i >= 0; i--) {
+      sb.writeCharCode(text.codeUnitAt(i));
+    }
+    return sb.toString();
   }
 }

@@ -9,6 +9,8 @@ import 'package:crypto/crypto.dart';
  * @Description: EnDecode Util.
  * @Date: 2019/7/02
  */
+
+/// EnDecode Util.
 class EnDecodeUtil {
   /// md5 加密
   static String encodeMd5(String data) {

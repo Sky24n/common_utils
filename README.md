@@ -37,7 +37,7 @@ DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/
   
 /// TextUtil
 String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
-String num     = TextUtil.formatComma3("1234"); // 123,4
+String num     = TextUtil.formatComma3("12345678"); // 123,456,78
 String phoneNo = TextUtil.hidePhone("15845678910")// 158****8910
 
 ```

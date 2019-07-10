@@ -121,6 +121,10 @@ void main() {
   String phoneNo = TextUtil.formatSpace4("15845678910");
   LogUtil.e(phoneNo);
   LogUtil.e("phoneNo: " + TextUtil.replace(phoneNo, ' ', ''));
+  LogUtil.e(TextUtil.formatDigitPattern("1234567",
+      digit: 3, pattern: ',')); //1,234,567
+  LogUtil.e(TextUtil.formatComma3(1234567)); //1,234,567
+  LogUtil.e(TextUtil.reverse("1234567")); //7654321
 
   LogUtil.e(TextUtil.hidePhone("15845678910"));
 }
