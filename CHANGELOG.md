@@ -1,4 +1,4 @@
-## 1.1.2
+## 1.1.3
 
 * TODO: TextUtil, EnDecodeUtil, Some updates. 
 ## 1.1.1

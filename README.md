@@ -14,7 +14,7 @@
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
 dependencies:
-  common_utils: ^1.1.2  
+  common_utils: ^1.1.3  
 ```
 2、如果您是Flutter项目，请使用Flutter工具类库 [flustars][flustars_github]，该库依赖于本项目。  
 [flustars][flustars_github]库为大家提供更多的常用工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
@@ -23,7 +23,7 @@ dependencies:
   flustars: ^0.2.6+1  
 ```
 ### [更新说明](doc/UPDATELOG.md)
-v1.1.2 (2019.07.10)   
+v1.1.3 (2019.07.10)   
 1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.   
 2、新增EnDecodeUtil md5加密，Base64加/解密.   
 3、DateUtil 新增日期格式化，支持自定义格式输出。  
@@ -38,7 +38,7 @@ DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/
 /// TextUtil
 String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
 String num     = TextUtil.formatComma3("12345678"); // 123,456,78
-String phoneNo = TextUtil.hidePhone("15845678910")// 158****8910
+String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 
 ```
 ### Dart常用工具类库 [common_utils][common_utils_github]  
@@ -102,14 +102,14 @@ print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
 isEmpty                     : isEmpty.(新)
 formatSpace4                : 每隔4位加空格，格式化银行卡.(新)
 formatComma3                : 每隔3三位加逗号.(新)
-hidePhone                   : 隐藏手机号.(新)
+hideNumber                  : 隐藏号码.(新)
 replace                     : replace.(新)
 split                       : split.(新)
   
 /// example
 String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
 String num     = TextUtil.formatComma3("1234"); // 123,4
-String phoneNo = TextUtil.hidePhone("15845678910")// 158****8910
+String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 ```
 
 * #### EnDecodeUtil

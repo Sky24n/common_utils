@@ -14,7 +14,7 @@ DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/
 /// TextUtil
 String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
 String num     = TextUtil.formatComma3("1234"); // 123,4
-String phoneNo = TextUtil.hidePhone("15845678910")// 158****8910
+String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 
 ```
 
@@ -78,9 +78,14 @@ print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
 isEmpty                     : isEmpty.(new)
 formatSpace4                : 每隔4位加空格.(new)
 formatComma3                : 每隔3三位加逗号.(new)
-hidePhone                   : 隐藏手机号，例如：158****8910.(new)
+hideNumber                   : 隐藏手机号，例如：158****8910.(new)
 replace                     : replace.(new)
 split                       : split.(new)
+  
+/// example
+String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
+String num     = TextUtil.formatComma3("1234"); // 123,4
+String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 ```
 
 * #### EnDecodeUtil
@@ -210,6 +215,11 @@ getDayOfYear                    : get day of year..
 isYesterday                     : is yesterday.
 isToday                         : is Today.
 isWeek                          : is Week.(new)
+  
+// example
+DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
+DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
 ```
 
 * #### RegexUtil

@@ -24,6 +24,15 @@ class TextUtil {
     return text;
   }
 
+  /// 每隔 x位 加 pattern, 从末尾开始
+  static String formatDigitPatternEnd(String text,
+      {int digit = 4, String pattern = ' '}) {
+    String temp = reverse(text);
+    temp = formatDigitPattern(temp, digit: 3, pattern: ',');
+    temp = reverse(temp);
+    return temp;
+  }
+
   /// 每隔4位加空格
   static String formatSpace4(String text) {
     return formatDigitPattern(text);
@@ -32,14 +41,11 @@ class TextUtil {
   /// 每隔3三位加逗号
   /// num 数字或数字字符串。int型。
   static String formatComma3(Object num) {
-    String temp = reverse(num?.toString());
-    temp = formatDigitPattern(temp, digit: 3, pattern: ',');
-    temp = reverse(temp);
-    return temp;
+    return formatDigitPatternEnd(num?.toString(), digit: 3, pattern: ',');
   }
 
-  /// hidePhone
-  static String hidePhone(String phoneNo,
+  /// hideNumber
+  static String hideNumber(String phoneNo,
       {int start = 3, int end = 7, String replacement = '****'}) {
     return phoneNo?.replaceRange(start, end, replacement);
   }
