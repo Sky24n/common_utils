@@ -5,14 +5,11 @@
  * @Date: 2018/9/29
  */
 
-// https://api.flutter.dev/flutter/foundation/kReleaseMode-constant.html
-const bool kReleaseMode = bool.fromEnvironment('dart.vm.product', defaultValue: false);
-
 /// Log Util.
 class LogUtil {
   static const String _TAG_DEF = "###common_utils###";
 
-  static bool debuggable = !kReleaseMode; //是否是debug模式,true: log v 不输出.
+  static bool debuggable = false; //是否是debug模式,true: log v 不输出.
   static String TAG = _TAG_DEF;
 
   static void init({bool isDebug = false, String tag = _TAG_DEF}) {
