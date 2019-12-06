@@ -28,7 +28,7 @@ class TextUtil {
   static String formatDigitPatternEnd(String text,
       {int digit = 4, String pattern = ' '}) {
     String temp = reverse(text);
-    temp = formatDigitPattern(temp, digit: 3, pattern: ',');
+    temp = formatDigitPattern(temp, digit: 3, pattern: pattern);
     temp = reverse(temp);
     return temp;
   }
