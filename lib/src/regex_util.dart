@@ -74,7 +74,7 @@ class RegexUtil {
       "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*\$";
 
   /// Regex of url.
-  static final String regexUrl = "[a-zA-z]+://[^\\s]*";
+  static final String regexUrl = "[a-zA-Z]+://[^\\s]*";
 
   /// Regex of Chinese character.
   static final String regexZh = "[\\u4e00-\\u9fa5]";

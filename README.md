@@ -9,9 +9,19 @@
 ### 使用方式：  
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
+// pub
 dependencies:
-  common_utils: ^1.1.3  
+  common_utils: ^1.1.3
+
+or
+
+// git
+dependencies:
+  common_utils:
+    git:
+      url: git://github.com/Sky24n/common_utils.git
 ```
+
 2、如果您是Flutter项目，请使用Flutter工具类库 [flustars][flustars_github]，该库依赖于本项目。  
 [flustars][flustars_github]库为大家提供更多的常用工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
 ```yaml

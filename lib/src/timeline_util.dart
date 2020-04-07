@@ -250,9 +250,7 @@ class TimelineUtil {
       int timeMillis, TimelineInfo info, DayFormat dayFormat) {
     return info.customYesterday() +
         (dayFormat == DayFormat.Full
-            ? (" " +
-                DateUtil.getDateStrByMs(timeMillis,
-                    format: DateFormat.HOUR_MINUTE))
+            ? (" " + DateUtil.formatDateMs(timeMillis, format: 'HH:mm'))
             : "");
   }
 
@@ -260,10 +258,10 @@ class TimelineUtil {
   /// 获取非今年信息.
   static String _getYear(int timeMillis, DayFormat dayFormat) {
     if (dayFormat != DayFormat.Simple) {
-      return DateUtil.getDateStrByMs(timeMillis,
+      return DateUtil.formatDateMs(timeMillis,
           format: (dayFormat == DayFormat.Common
-              ? DateFormat.YEAR_MONTH_DAY
-              : DateFormat.YEAR_MONTH_DAY_HOUR_MINUTE));
+              ? 'yyyy-MM-dd'
+              : 'yyyy-MM-dd HH:mm'));
     }
     return "";
   }
@@ -279,12 +277,10 @@ class TimelineUtil {
             : timelineInfo.days(days.round()));
         break;
       case DayFormat.Common:
-        timeline =
-            DateUtil.getDateStrByMs(timeMillis, format: DateFormat.MONTH_DAY);
+        timeline = DateUtil.formatDateMs(timeMillis, format: 'MM-dd');
         break;
       case DayFormat.Full:
-        timeline = DateUtil.getDateStrByMs(timeMillis,
-            format: DateFormat.MONTH_DAY_HOUR_MINUTE);
+        timeline = DateUtil.formatDateMs(timeMillis, format: 'MM-dd HH:mm');
         break;
     }
     return timeline;

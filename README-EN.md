@@ -41,6 +41,14 @@ String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 ```yaml
 dependencies:
   common_utils: x.x.x  #latest version
+
+or
+
+// git
+dependencies:
+  common_utils:
+    git:
+      url: git://github.com/Sky24n/common_utils.git
 ```
 ### APIs
 * #### SpUtil

@@ -6,12 +6,12 @@ import 'package:crypto/crypto.dart';
 /**
  * @Author: Sky24n
  * @GitHub: https://github.com/Sky24n
- * @Description: EnDecode Util.
+ * @Description: Encrypt Util.
  * @Date: 2019/7/02
  */
 
-/// EnDecode Util.
-class EnDecodeUtil {
+/// Encrypt Util.
+class EncryptUtil {
   /// md5 加密
   static String encodeMd5(String data) {
     var content = Utf8Encoder().convert(data);
@@ -28,6 +28,8 @@ class EnDecodeUtil {
 
   /// Base64解密
   static String decodeBase64(String data) {
-    return String.fromCharCodes(base64Decode(data));
+    List<int> bytes = base64Decode(data);
+    String result = utf8.decode(bytes);
+    return result;
   }
 }

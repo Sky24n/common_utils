@@ -8,5 +8,5 @@ export 'src/timer_util.dart';
 export 'src/log_util.dart';
 export 'src/money_util.dart';
 export 'src/timeline_util.dart';
-export 'src/endecode_util.dart';
+export 'src/encrypt_util.dart';
 export 'src/text_util.dart';

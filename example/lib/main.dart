@@ -1,3 +1,8 @@
+import 'dart:convert';
+import 'dart:math';
+
+import 'dart:math' as math;
+
 import 'package:common_utils/common_utils.dart';
 
 void main() {
@@ -15,7 +20,7 @@ void main() {
   String yuan = '1.66';
   LogUtil.e(MoneyUtil.changeFStr2YWithUnit("1160",
           format: MoneyFormat.NORMAL, unit: MoneyUnit.YUAN_ZH) +
-      "\n" +
+      "   " +
       MoneyUtil.changeYWithUnit(yuan, MoneyUnit.YUAN_ZH));
   /**  ----------------MoneyUtil----------------  */
 
@@ -51,19 +56,19 @@ void main() {
   /**  ----------------ObjectUtil----------------  */
 
   /**  ----------------DateUtil----------------  */
-  LogUtil.e("getTimeByDateTime: " +
-      DateUtil.getDateStrByDateTime(DateTime.now(),
-          format: DateFormat.NORMAL, dateSeparate: "/", timeSeparate: ":") +
-      "\n" +
-      DateUtil.getZHWeekDay(DateTime.parse("2018-09-16")) +
-      "\n" +
-      DateUtil.getDateStrByDateTime(DateTime.now()) +
-      "\n" +
-      DateUtil.getDateStrByDateTime(DateTime.now(),
-          format: DateFormat.ZH_NORMAL) +
-      "\n" +
-      DateUtil.getNowDateStr() +
-      "");
+//  LogUtil.e("getTimeByDateTime: " +
+//      DateUtil.getDateStrByDateTime(DateTime.now(),
+//          format: DateFormat.NORMAL, dateSeparate: "/", timeSeparate: ":") +
+//      "\n" +
+//      DateUtil.getZHWeekDay(DateTime.parse("2018-09-16")) +
+//      "\n" +
+//      DateUtil.getDateStrByDateTime(DateTime.now()) +
+//      "\n" +
+//      DateUtil.getDateStrByDateTime(DateTime.now(),
+//          format: DateFormat.ZH_NORMAL) +
+//      "\n" +
+//      DateUtil.getNowDateStr() +
+//      "");
   /**  ----------------DateUtil----------------  */
 
   /**  ----------------NumUtil----------------  */
@@ -116,7 +121,10 @@ void main() {
       DateUtil.formatDateStr("2019-07-09 16:51:14", format: DataFormats.full));
   LogUtil.e(DateUtil.formatDateStr("2019-07-09 16:51:14",
       format: "yyyy/M/d HH:mm:ss"));
-  LogUtil.e(DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss"));
+  LogUtil.e("yyyy/MM/dd HH:mm:ss  " +
+      DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss"));
+  LogUtil.e("HH:mm:ss  " +
+      DateUtil.formatDateMs(59 * 1000, format: DataFormats.h_m_s, isUtc: true));
 
   String phoneNo = TextUtil.formatSpace4("15845678910");
   LogUtil.e(phoneNo);

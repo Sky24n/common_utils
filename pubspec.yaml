@@ -1,13 +1,13 @@
 name: common_utils
 description: Dart common utils library.Contain DateUtil,TimelineUtil,RegexUtil,TimerUtil,MoneyUtil,NumUtil,ObjectUtil,LogUtil.
-version: 1.1.3
-author: thl <863764940@qq.com>
+version: 1.1.5
+author: Sky24n <863764940@qq.com>
 homepage: https://github.com/Sky24n/common_utils
 
 environment:
     sdk: ">=1.19.0 <3.0.0"
 dependencies:
   # https://github.com/a14n/dart-decimal
-  decimal: ">=0.3.1 <1.0.0"
+  decimal: ">=0.3.1 <2.0.0"
   # https://github.com/dart-lang/crypto
-  crypto: ">=2.0.6 <3.0.0"
+  crypto: ">=2.0.6 <4.0.0"
