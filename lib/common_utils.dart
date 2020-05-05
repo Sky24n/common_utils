@@ -10,3 +10,4 @@ export 'src/money_util.dart';
 export 'src/timeline_util.dart';
 export 'src/encrypt_util.dart';
 export 'src/text_util.dart';
+export 'src/json_util.dart';

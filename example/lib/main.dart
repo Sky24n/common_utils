@@ -69,6 +69,11 @@ void main() {
 //      "\n" +
 //      DateUtil.getNowDateStr() +
 //      "");
+
+  DateTime week = DateTime(2020, 5, 4, 16, 16, 16);
+
+  LogUtil.e(
+      'Week: ${DateUtil.getWeekDay(week, short: true)}, toady: ${DateUtil.getWeekDayByMs(DateTime.now().millisecondsSinceEpoch)}');
   /**  ----------------DateUtil----------------  */
 
   /**  ----------------NumUtil----------------  */
@@ -133,4 +138,46 @@ void main() {
   LogUtil.e("reverse: " + TextUtil.reverse("1234567")); //7654321
 
   LogUtil.e("hideNumber: " + TextUtil.hideNumber("15845678910"));
+
+  /**  ----------------Util----------------  */
+  String objStr = "{\"name\":\"成都市\"}";
+  City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
+  String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
+  List<City> cityList = JsonUtil.getObjList(listStr, (v) => City.fromJson(v));
+
+  LogUtil.e(
+      'hisCity: ${hisCity.toString()} \n cityList: ${cityList.toString()}');
+  /**  ----------------Util----------------  */
+}
+
+class City {
+  String name;
+
+  City(this.name);
+
+  City.fromJson(Map<String, dynamic> jsonMap)
+      : name = jsonMap['name'] as String;
+
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> map = <String, dynamic>{};
+    map['name'] = name;
+    return map;
+  }
+
+  @override
+  String toString() {
+    return json.encode(this);
+    //return super.toString();
+  }
+
+//  @override
+//  String toString() {
+//    StringBuffer sb = StringBuffer('{');
+//    sb.write("\"titleId\":\"$titleId\"");
+//    sb.write(",\"languageCode\":\"$languageCode\"");
+//    sb.write(",\"countryCode\":\"$countryCode\"");
+//    sb.write('}');
+//    return sb.toString();
+//  }
+
 }

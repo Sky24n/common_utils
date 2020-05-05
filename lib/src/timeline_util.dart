@@ -177,20 +177,30 @@ class TimelineUtil {
   /// dateTime
   /// locDateTime: current time or schedule time.
   /// locale: output key.
-  static String formatByDateTime(DateTime dateTime,
-      {DateTime locDateTime, String locale, DayFormat dayFormat}) {
-    int _locDateTime =
-        (locDateTime == null ? null : locDateTime.millisecondsSinceEpoch);
-    return format(dateTime.millisecondsSinceEpoch,
-        locTimeMillis: _locDateTime, locale: locale, dayFormat: dayFormat);
+  static String formatByDateTime(
+    DateTime dateTime, {
+    DateTime locDateTime,
+    String locale,
+    DayFormat dayFormat,
+  }) {
+    return format(
+      dateTime?.millisecondsSinceEpoch,
+      locTimeMillis: locDateTime?.millisecondsSinceEpoch,
+      locale: locale,
+      dayFormat: dayFormat,
+    );
   }
 
   /// format time by millis.
   /// dateTime : millis.
   /// locDateTime: current time or schedule time. millis.
   /// locale: output key.
-  static String format(int timeMillis,
-      {int locTimeMillis, String locale, DayFormat dayFormat}) {
+  static String format(
+    int timeMillis, {
+    int locTimeMillis,
+    String locale,
+    DayFormat dayFormat,
+  }) {
     int _locTimeMillis = locTimeMillis ?? DateTime.now().millisecondsSinceEpoch;
     String _locale = locale ?? 'zh';
     TimelineInfo _info = _timelineInfoMap[_locale] ?? ZhInfo();
@@ -247,7 +257,10 @@ class TimelineUtil {
   /// get Yesterday.
   /// 获取昨天.
   static String _getYesterday(
-      int timeMillis, TimelineInfo info, DayFormat dayFormat) {
+    int timeMillis,
+    TimelineInfo info,
+    DayFormat dayFormat,
+  ) {
     return info.customYesterday() +
         (dayFormat == DayFormat.Full
             ? (" " + DateUtil.formatDateMs(timeMillis, format: 'HH:mm'))
@@ -256,7 +269,10 @@ class TimelineUtil {
 
   /// get is not year info.
   /// 获取非今年信息.
-  static String _getYear(int timeMillis, DayFormat dayFormat) {
+  static String _getYear(
+    int timeMillis,
+    DayFormat dayFormat,
+  ) {
     if (dayFormat != DayFormat.Simple) {
       return DateUtil.formatDateMs(timeMillis,
           format: (dayFormat == DayFormat.Common
@@ -267,8 +283,12 @@ class TimelineUtil {
   }
 
   /// format Days.
-  static String _formatDays(int timeMillis, num days, TimelineInfo timelineInfo,
-      DayFormat dayFormat) {
+  static String _formatDays(
+    int timeMillis,
+    num days,
+    TimelineInfo timelineInfo,
+    DayFormat dayFormat,
+  ) {
     String timeline;
     switch (dayFormat) {
       case DayFormat.Simple:

@@ -140,79 +140,49 @@ class DateUtil {
   }
 
   /// get WeekDay By Milliseconds.
-  static String getWeekDayByMs(int milliseconds, {bool isUtc = false}) {
+  static String getWeekDayByMs(int milliseconds,
+      {bool isUtc = false, String languageCode, bool short = false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
-    return getWeekDay(dateTime);
-  }
-
-  /// get ZH WeekDay By Milliseconds.
-  static String getZHWeekDayByMs(int milliseconds, {bool isUtc = false}) {
-    DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
-    return getZHWeekDay(dateTime);
+    return getWeekDay(dateTime, languageCode: languageCode, short: short);
   }
 
   /// get WeekDay.
-  static String getWeekDay(DateTime dateTime) {
+  /// dateTime
+  /// isUtc
+  /// languageCode zh or en
+  /// short
+  static String getWeekDay(DateTime dateTime,
+      {String languageCode, bool short = false}) {
     if (dateTime == null) return null;
     String weekday;
     switch (dateTime.weekday) {
       case 1:
-        weekday = "Monday";
+        weekday = languageCode == 'zh' ? '星期一' : "Monday";
         break;
       case 2:
-        weekday = "Tuesday";
+        weekday = languageCode == 'zh' ? '星期二' : "Tuesday";
         break;
       case 3:
-        weekday = "Wednesday";
+        weekday = languageCode == 'zh' ? '星期三' : "Wednesday";
         break;
       case 4:
-        weekday = "Thursday";
+        weekday = languageCode == 'zh' ? '星期四' : "Thursday";
         break;
       case 5:
-        weekday = "Friday";
+        weekday = languageCode == 'zh' ? '星期五' : "Friday";
         break;
       case 6:
-        weekday = "Saturday";
+        weekday = languageCode == 'zh' ? '星期六' : "Saturday";
         break;
       case 7:
-        weekday = "Sunday";
+        weekday = languageCode == 'zh' ? '星期日' : "Sunday";
         break;
       default:
         break;
     }
-    return weekday;
-  }
-
-  /// get ZH WeekDay.
-  static String getZHWeekDay(DateTime dateTime) {
-    if (dateTime == null) return null;
-    String weekday;
-    switch (dateTime.weekday) {
-      case 1:
-        weekday = "星期一";
-        break;
-      case 2:
-        weekday = "星期二";
-        break;
-      case 3:
-        weekday = "星期三";
-        break;
-      case 4:
-        weekday = "星期四";
-        break;
-      case 5:
-        weekday = "星期五";
-        break;
-      case 6:
-        weekday = "星期六";
-        break;
-      case 7:
-        weekday = "星期日";
-        break;
-      default:
-        break;
-    }
-    return weekday;
+    return languageCode == 'zh'
+        ? weekday
+        : weekday?.substring(0, short ? 3 : weekday?.length);
   }
 
   /// Return whether it is leap year.
