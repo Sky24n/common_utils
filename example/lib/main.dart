@@ -132,12 +132,11 @@ void main() {
       DateUtil.formatDateMs(59 * 1000, format: DataFormats.h_m_s, isUtc: true));
 
   String phoneNo = TextUtil.formatSpace4("15845678910");
-  LogUtil.e(phoneNo);
+  LogUtil.e(phoneNo);//1584 5678 910
   LogUtil.e("replace: " + TextUtil.replace(phoneNo, ' ', ''));
-  LogUtil.e("formatComma3: " + TextUtil.formatComma3(1234567)); //1,234,567
-  LogUtil.e("reverse: " + TextUtil.reverse("1234567")); //7654321
-
-  LogUtil.e("hideNumber: " + TextUtil.hideNumber("15845678910"));
+  LogUtil.e("formatComma3: " + TextUtil.formatComma3(12345678)); //12,345,678
+  LogUtil.e("reverse: " + TextUtil.reverse("12345678")); //87654321
+  LogUtil.e("hideNumber: " + TextUtil.hideNumber("15845678910"));//158****8910
 
   /**  ----------------Util----------------  */
   String objStr = "{\"name\":\"成都市\"}";

@@ -43,8 +43,8 @@ DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/
   
 /// TextUtil
 String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
-String num     = TextUtil.formatComma3("12345678"); // 123,456,78
-String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
+String num     = TextUtil.formatComma3("12345678"); // 12,345,678
+String phoneNo = TextUtil.hideNumber("15845678910"); // 158****8910
 
 ```
 ### Dart常用工具类库 [common_utils][common_utils_github]  
