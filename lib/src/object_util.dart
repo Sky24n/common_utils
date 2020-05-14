@@ -13,7 +13,7 @@ class ObjectUtil {
   }
 
   /// Returns true if the list is null or 0-length.
-  static bool isEmptyList(List list) {
+  static bool isEmptyList(Iterable list) {
     return list == null || list.isEmpty;
   }
 
@@ -27,7 +27,7 @@ class ObjectUtil {
     if (object == null) return true;
     if (object is String && object.isEmpty) {
       return true;
-    } else if (object is List && object.isEmpty) {
+    } else if (object is Iterable && object.isEmpty) {
       return true;
     } else if (object is Map && object.isEmpty) {
       return true;
@@ -59,7 +59,7 @@ class ObjectUtil {
     if (value == null) return 0;
     if (value is String) {
       return value.length;
-    } else if (value is List) {
+    } else if (value is Iterable) {
       return value.length;
     } else if (value is Map) {
       return value.length;

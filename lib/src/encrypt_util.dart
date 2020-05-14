@@ -32,7 +32,7 @@ class EncryptUtil {
   }
 
   /// 异或对称 Base64 加密
-  static String xorBase64EnCode(String res, String key) {
+  static String xorBase64Encode(String res, String key) {
     String encode = xorCode(res, key);
     encode = encodeBase64(encode);
     return encode;

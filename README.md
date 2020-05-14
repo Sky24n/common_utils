@@ -1,3 +1,5 @@
+Language: [English](README-EN.md) | 中文简体
+
 # common_utils (Dart常用工具类库)
 
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
@@ -29,6 +31,28 @@ dependencies:
   flustars: ^0.2.6+1  
 ```
 ### [更新说明](doc/UPDATELOG.md)
+v1.2.0 (2019.05.10)   
+1、新增JsonUtil。  
+2、新增EncryptUtil 简单加解密。  
+3、LogUtil 更新。
+```yaml
+String objStr = "{\"name\":\"成都市\"}";
+City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
+String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
+List<City> cityList = JsonUtil.getObjList(listStr, (v) => City.fromJson(v));
+
+const String key = '11, 22, 33, 44, 55, 66';
+String userName = 'Sky24n';
+String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
+String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
+
+//超长log查看
+common_utils e  — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —
+common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
+common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
+common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
+```
+
 v1.1.3 (2019.07.10)   
 1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.   
 2、新增EnDecodeUtil md5加密，Base64加/解密.   
@@ -56,7 +80,7 @@ String phoneNo = TextUtil.hideNumber("15845678910"); // 158****8910
  6、RegexUtil        : 正则验证手机号，身份证，邮箱等等.  
  7、NumUtil          : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
  8、ObjectUtil       : 判断对象是否为空(String List Map),判断两个List是否相等.  
- 9、EnDecodeUtil     : md5加密，Base64加/解密.  
+ 9、EncryptUtil      : md5加密，Base64加/解密.  
 10、TextUtil         : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.  
  
 ### Flutter工具类库 [flustars][flustars_github]   
@@ -205,27 +229,28 @@ greaterOrEqual              : >= .
 
 * #### DateUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/date_page.dart)
 ```
-enum DateFormat {
-  DEFAULT, //yyyy-MM-dd HH:mm:ss.SSS
-  NORMAL, //yyyy-MM-dd HH:mm:ss
-  YEAR_MONTH_DAY_HOUR_MINUTE, //yyyy-MM-dd HH:mm
-  YEAR_MONTH_DAY, //yyyy-MM-dd
-  YEAR_MONTH, //yyyy-MM
-  MONTH_DAY, //MM-dd
-  MONTH_DAY_HOUR_MINUTE, //MM-dd HH:mm
-  HOUR_MINUTE_SECOND, //HH:mm:ss
-  HOUR_MINUTE, //HH:mm
+/// 一些常用格式参照。可以自定义格式，例如："yyyy/MM/dd HH:mm:ss"，"yyyy/M/d HH:mm:ss"。
+/// 格式要求
+/// year -> yyyy/yy   month -> MM/M    day -> dd/d
+/// hour -> HH/H      minute -> mm/m   second -> ss/s
+class DataFormats {
+  static String full = "yyyy-MM-dd HH:mm:ss";
+  static String y_mo_d_h_m = "yyyy-MM-dd HH:mm";
+  static String y_mo_d = "yyyy-MM-dd";
+  static String y_mo = "yyyy-MM";
+  static String mo_d = "MM-dd";
+  static String mo_d_h_m = "MM-dd HH:mm";
+  static String h_m_s = "HH:mm:ss";
+  static String h_m = "HH:mm";
 
-  ZH_DEFAULT, //yyyy年MM月dd日 HH时mm分ss秒SSS毫秒
-  ZH_NORMAL, //yyyy年MM月dd日 HH时mm分ss秒  /  timeSeparate: ":" --> yyyy年MM月dd日 HH:mm:ss
-  ZH_YEAR_MONTH_DAY_HOUR_MINUTE, //yyyy年MM月dd日 HH时mm分  /  timeSeparate: ":" --> yyyy年MM月dd日 HH:mm
-  ZH_YEAR_MONTH_DAY, //yyyy年MM月dd日
-  ZH_YEAR_MONTH, //yyyy年MM月
-  ZH_MONTH_DAY, //MM月dd日
-  ZH_MONTH_DAY_HOUR_MINUTE, //MM月
-  dd日 HH时mm分  /  timeSeparate: ":" --> MM月dd日 HH:mm
-  ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
-  ZH_HOUR_MINUTE, //HH时mm分
+  static String zh_full = "yyyy年MM月dd日 HH时mm分ss秒";
+  static String zh_y_mo_d_h_m = "yyyy年MM月dd日 HH时mm分";
+  static String zh_y_mo_d = "yyyy年MM月dd日";
+  static String zh_y_mo = "yyyy年MM月";
+  static String zh_mo_d = "MM月dd日";
+  static String zh_mo_d_h_m = "MM月dd日 HH时mm分";
+  static String zh_h_m_s = "HH时mm分ss秒";
+  static String zh_h_m = "HH时mm分";
 }
 formatDate                      : 格式化日期 DateTime.(新)
 formatDateStr                   : 格式化日期 字符串.(新)

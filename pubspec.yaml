@@ -1,5 +1,5 @@
 name: common_utils
-description: Dart common utils library.Contain DateUtil,TimelineUtil,RegexUtil,TimerUtil,MoneyUtil,NumUtil,ObjectUtil,LogUtil.
+description: Dart common utils library.Contain DateUtil, EncryptUtil, JsonUtil, LogUtil, MoneyUtil, NumUtil, ObjectUtil,  RegexUtil, TextUtil, TimelineUtil, TimerUtil.
 version: 1.2.0
 author: Sky24n <863764940@qq.com>
 homepage: https://github.com/Sky24n/common_utils

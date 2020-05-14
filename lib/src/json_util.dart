@@ -7,7 +7,7 @@ import 'dart:convert';
  * @Date: 2020/01/06
  */
 
-/// Json Util
+/// Json Util.
 class JsonUtil {
   static String encodeObj(Object value) {
     return value == null ? null : json.encode(value);
