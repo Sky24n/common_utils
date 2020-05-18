@@ -4,9 +4,7 @@ Language: [English](README-EN.md) | 中文简体
 
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
 
-## [README of English][readme-en]
-
-## Dart常用工具类库。包含日期，正则，倒计时，定时任务，时间轴等工具类。如果你有好的工具类欢迎PR.
+Dart常用工具类库。包含日期，正则，倒计时，定时任务，时间轴等工具类。如果你有好的工具类欢迎PR.
 
 ### 使用方式：  
 1、如果您是纯Dart项目，可以直接引用本库。
@@ -24,53 +22,13 @@ dependencies:
       url: git://github.com/Sky24n/common_utils.git
 ```
 
-2、如果您是Flutter项目，请使用Flutter工具类库 [flustars][flustars_github]，该库依赖于本项目。  
-[flustars][flustars_github]库为大家提供更多的常用工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
+2、如果您是Flutter项目，请使用Flutter常用工具类库 [flustars][flustars_github]，该库依赖于本库。  
+[flustars][flustars_github]库为大家提供更多的工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
 ```yaml
 dependencies:
-  flustars: ^0.2.6+1  
-```
-### [更新说明](doc/UPDATELOG.md)
-v1.2.0 (2019.05.10)   
-1、新增JsonUtil。  
-2、新增EncryptUtil 简单加解密。  
-3、LogUtil 更新。
-```yaml
-String objStr = "{\"name\":\"成都市\"}";
-City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
-String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
-List<City> cityList = JsonUtil.getObjList(listStr, (v) => City.fromJson(v));
-
-const String key = '11, 22, 33, 44, 55, 66';
-String userName = 'Sky24n';
-String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
-String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
-
-//超长log查看
-common_utils e  — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —
-common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
-common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
-common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
+  flustars: ^0.3.2  
 ```
 
-v1.1.3 (2019.07.10)   
-1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.   
-2、新增EnDecodeUtil md5加密，Base64加/解密.   
-3、DateUtil 新增日期格式化，支持自定义格式输出。  
-4、LogUtil 支持输出超长log。  
-5、RegexUtil 支持199号段。
-```dart
-/// DateUtil
-DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
-DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
-DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
-  
-/// TextUtil
-String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
-String num     = TextUtil.formatComma3("12345678"); // 12,345,678
-String phoneNo = TextUtil.hideNumber("15845678910"); // 158****8910
-
-```
 ### Dart常用工具类库 [common_utils][common_utils_github]  
  1、TimelineUtil     : 时间轴.  
  2、TimerUtil        : 倒计时，定时任务.  
@@ -83,18 +41,13 @@ String phoneNo = TextUtil.hideNumber("15845678910"); // 158****8910
  9、EncryptUtil      : md5加密，Base64加/解密.  
 10、TextUtil         : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.  
  
-### Flutter工具类库 [flustars][flustars_github]   
+### Flutter常用工具类库 [flustars][flustars_github]
  1、SpUtil           : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。  
  2、ScreenUtil       : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
  3、WidgetUtil       : 监听Widget渲染状态，获取Widget宽高，在屏幕上的坐标，获取网络/本地图片尺寸.  
  4、DirectoryUtil    : 文件目录工具类.  
  5、DioUtil          : 单例Dio网络工具类(已迁移至此处[DioUtil](https://github.com/Sky24n/FlutterRepos/blob/master/base_library/lib/src/data/net/dio_util.dart))。 
  
-### Add dependency
-```yaml
-dependencies:
-  common_utils: x.x.x  #latest version
-```
 
 ### APIs
 * #### SpUtil
@@ -116,7 +69,6 @@ SpUtil.putObject("loc_city", city);
 City hisCity = SpUtil.getObj("loc_city", (v) => City.fromJson(v));
 print("City: " + (hisCity == null ? "null" : hisCit.toString()));
   
-
 /// save object list example.
 /// 存储实体对象list示例。
 List<City> list = new List();
@@ -127,6 +79,62 @@ SpUtil.putObjectList("loc_city_list", list);
 List<City> _cityList = SpUtil.getObjList("loc_city_list", (v) => City.fromJson(v));
 print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
 ```
+
+* #### DateUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/date_page.dart)
+```
+/// 一些常用格式参照。可以自定义格式，例如："yyyy/MM/dd HH:mm:ss"，"yyyy/M/d HH:mm:ss"。
+/// 格式要求
+/// year -> yyyy/yy   month -> MM/M    day -> dd/d
+/// hour -> HH/H      minute -> mm/m   second -> ss/s
+class DataFormats {
+  static String full = "yyyy-MM-dd HH:mm:ss";
+  static String y_mo_d_h_m = "yyyy-MM-dd HH:mm";
+  static String y_mo_d = "yyyy-MM-dd";
+  static String y_mo = "yyyy-MM";
+  static String mo_d = "MM-dd";
+  static String mo_d_h_m = "MM-dd HH:mm";
+  static String h_m_s = "HH:mm:ss";
+  static String h_m = "HH:mm";
+
+  static String zh_full = "yyyy年MM月dd日 HH时mm分ss秒";
+  static String zh_y_mo_d_h_m = "yyyy年MM月dd日 HH时mm分";
+  static String zh_y_mo_d = "yyyy年MM月dd日";
+  static String zh_y_mo = "yyyy年MM月";
+  static String zh_mo_d = "MM月dd日";
+  static String zh_mo_d_h_m = "MM月dd日 HH时mm分";
+  static String zh_h_m_s = "HH时mm分ss秒";
+  static String zh_h_m = "HH时mm分";
+}
+formatDate                      : 格式化日期 DateTime.
+formatDateStr                   : 格式化日期 字符串.
+formatDateMs                    : 格式化日期 毫秒.
+
+getNowDateMs                    : 获取现在 毫秒.
+getNowDateStr                   : 获取现在 日期字符串.(yyyy-MM-dd HH:mm:ss)
+getDateMsByTimeStr              : 获取毫秒 By 日期字符串(Format格式输出).
+getDateStrByTimeStr             : 获取日期字符串 By 日期字符串(Format格式输出).
+getDateStrByMs                  : 获取日期字符串 By 毫秒(Format格式输出).
+getDateStrByDateTime            : 获取日期字符串 By DateTime(Format格式输出).
+getWeekDay                      : 获取WeekDay By DateTime.
+getZHWeekDay                    : 获取星期 By DateTime.
+getWeekDayByMs                  : 获取WeekDay By 毫秒.
+getZHWeekDayByMs                : 获取星期 By 毫秒.
+isLeapYearByYear                : 是否是闰年.
+yearIsEqual                     : 是否同年.
+getDayOfYear                    : 在今年的第几天.
+isYesterday                     : 是否是昨天.
+isToday                         : 是否是今天.
+isWeek                          : 是否是本周.(新)
+  
+// example
+DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
+DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
+
+
+
+```
+
 * #### TextUtil
 ```
 isEmpty                     : isEmpty.(新)
@@ -227,56 +235,7 @@ greaterThan                 : > .
 greaterOrEqual              : >= .
 ```
 
-* #### DateUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/date_page.dart)
-```
-/// 一些常用格式参照。可以自定义格式，例如："yyyy/MM/dd HH:mm:ss"，"yyyy/M/d HH:mm:ss"。
-/// 格式要求
-/// year -> yyyy/yy   month -> MM/M    day -> dd/d
-/// hour -> HH/H      minute -> mm/m   second -> ss/s
-class DataFormats {
-  static String full = "yyyy-MM-dd HH:mm:ss";
-  static String y_mo_d_h_m = "yyyy-MM-dd HH:mm";
-  static String y_mo_d = "yyyy-MM-dd";
-  static String y_mo = "yyyy-MM";
-  static String mo_d = "MM-dd";
-  static String mo_d_h_m = "MM-dd HH:mm";
-  static String h_m_s = "HH:mm:ss";
-  static String h_m = "HH:mm";
 
-  static String zh_full = "yyyy年MM月dd日 HH时mm分ss秒";
-  static String zh_y_mo_d_h_m = "yyyy年MM月dd日 HH时mm分";
-  static String zh_y_mo_d = "yyyy年MM月dd日";
-  static String zh_y_mo = "yyyy年MM月";
-  static String zh_mo_d = "MM月dd日";
-  static String zh_mo_d_h_m = "MM月dd日 HH时mm分";
-  static String zh_h_m_s = "HH时mm分ss秒";
-  static String zh_h_m = "HH时mm分";
-}
-formatDate                      : 格式化日期 DateTime.(新)
-formatDateStr                   : 格式化日期 字符串.(新)
-formatDateMs                    : 格式化日期 毫秒.(新)
-getNowDateMs                    : 获取现在 毫秒.
-getNowDateStr                   : 获取现在 日期字符串.(yyyy-MM-dd HH:mm:ss)
-getDateMsByTimeStr              : 获取毫秒 By 日期字符串(Format格式输出).
-getDateStrByTimeStr             : 获取日期字符串 By 日期字符串(Format格式输出).
-getDateStrByMs                  : 获取日期字符串 By 毫秒(Format格式输出).
-getDateStrByDateTime            : 获取日期字符串 By DateTime(Format格式输出).
-getWeekDay                      : 获取WeekDay By DateTime.
-getZHWeekDay                    : 获取星期 By DateTime.
-getWeekDayByMs                  : 获取WeekDay By 毫秒.
-getZHWeekDayByMs                : 获取星期 By 毫秒.
-isLeapYearByYear                : 是否是闰年.
-yearIsEqual                     : 是否同年.
-getDayOfYear                    : 在今年的第几天.
-isYesterday                     : 是否是昨天.
-isToday                         : 是否是今天.
-isWeek                          : 是否是本周.(新)
-  
-// example
-DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
-DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
-DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
-```
 
 * #### RegexUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/regex_page.dart)
 ```
@@ -304,91 +263,6 @@ isNotEmpty                : 判断对象是否非空.(String List Map).
 twoListIsEqual            : 判断两个List是否相等.
 ```
 
-### Example
-
-``` dart
-
-// Import package
-import 'package:common_utils/common_utils.dart';
-
-//TimelineUtil
-DateTime xxxDateTime = DateTime(2018, 6, 16, 16, 16, 16);
-LogUtil.e("Timeline: " + TimelineUtil.formatByDateTime(xxxDateTime, locale: 'zh').toString());
-
-//MoneyUtil example
-String moneyTxt = MoneyUtil.changeFStr2YWithUnit("1160", format: MoneyFormat.NORMAL, unit: MoneyUnit.YUAN_ZH);
-String moneyTxt = MoneyUtil.changeYWithUnit("1.66", unit: MoneyUnit.YUAN_ZH);
-
-//TimerUtil example
-TimerUtil timerUtil;
-  //定时任务test
-  timerUtil = new TimerUtil(mInterval: 1000);
-  //timerUtil.setInterval(1000);
-  timerUtil.setOnTimerTickCallback((int value) {
-      LogUtil.e("TimerTick: " + value.toString());
-  });
-  timerUtil.startTimer();
-  //timerUtil.cancel();
- 
-TimerUtil timerCountDown;
-     //倒计时test
-    timerCountDown = new TimerUtil(mInterval: 1000, mTotalTime: 3 * 1000);
-//    timerCountDown.setInterval(1000);
-//    timerCountDown.setTotalTime(3 * 1000);
-    timerCountDown.setOnTimerTickCallback((int value) {
-       double tick = (value / 1000);
-       LogUtil.e("CountDown: " + tick.toInt().toString());
-    });
-    timerCountDown.startCountDown();
-    //timerUtil.cancel();
-
-//LogUtil example
-LogUtil.init(isDebug: true, tag: "test");
-LogUtil.e("...log...", tag: "test");
-LogUtil.v("...log...", tag: "test");
-    
-//DateUtil example
-String timeNow = DateUtil.getDateStrByDateTime(DateTime.now());//2018-09-16 23:14:56
-String timeNow = DateUtil.getDateStrByDateTime(DateTime.now(),format: DateFormat.ZH_NORMAL);//2018年09月16日 23时16分15秒
-String weekday = DateUtil.getWeekDay(DateTime.parse("2018-09-16"));//Sunday
-String weekdayZh = DateUtil.getZHWeekDay(DateTime.parse("2018-09-16"));//星期日
-
-//First Page init. Notice!!!
-ScreenUtil.getInstance().init(context);
-
-ScreenUtil.screenWidth
-ScreenUtil.screenHeight
-ScreenUtil.statusBarHeight
-ScreenUtil.screenDensity
-
-List listA = ["A", "B", "C"];
-List listB = ["A", "B", "C"];
-print("Two List Is Equal: " + ObjectUtil.twoListIsEqual(listA, listB).toString());
-
-// Global variable，Reference example
-WidgetUtil widgetUtil = new WidgetUtil();
-
-@override
-Widget build(BuildContext context) {
-  widgetUtil.asyncPrepare(context, false, (Rect rect) {
-     double width = rect.width;
-     double height = rect.height;
-  });
-    return ;
- }
-
-//Widgets must be rendered completely. Otherwise return Rect.zero.
-Rect rect = WidgetUtil.getWidgetBounds(context);
-double width = rect.width;
-double height = rect.height;
-
-//Widgets must be rendered completely. Otherwise return Offset.zero.
-Offset offset = WidgetUtil.getWidgetLocalToGlobal(context);
-double dx = offset.dx  
-double dx = offset.dy
-
-```
-
 ### [Flutter Demos](https://github.com/Sky24n/flutter_wanandroid/tree/master/lib/demos)   
  
 >- |--demos
@@ -407,11 +281,6 @@ double dx = offset.dy
 ## 扫码下载APK :
   ![flutter_wanandroid][flutter_wanandroid_qr] 
 
-### Screenshot
-<img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20181003-234414.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20181003-211011.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180930-012302.jpg" width="200">  
-<img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180930-012431.jpg" width="200">  <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-231618.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180926-144840.png" width="200">  
-<img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224204.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224146.jpg" width="200">   <img src="https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/Screenshot_20180919-224231.jpg" width="200">  
-
 ### Big Thanks
 本库部分源码参考，正则，时间轴。  
 Blankj [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode) 强大易用的安卓工具类库。   
@@ -425,40 +294,47 @@ GitHub : [Sky24n](https://github.com/Sky24n)
 Pub &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://pub.flutter-io.cn/packages?q=email%3A863764940%40qq.com)    
 Email &nbsp;&nbsp;: 863764940@qq.com  
 
-如果您觉得本项目不错的话，来个star支持下作者吧！  
+### [Change Log](CHANGE_LOG.md)
+v1.2.0 (2019.05.10)   
+1、新增JsonUtil。  
+2、新增EncryptUtil 简单加解密。  
+3、LogUtil 更新。
+```yaml
+String objStr = "{\"name\":\"成都市\"}";
+City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
+String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
+List<City> cityList = JsonUtil.getObjList(listStr, (v) => City.fromJson(v));
 
-[![GitHub stars](https://img.shields.io/github/stars/flutterchina/auto_size.svg?style=social&label=Star)](https://github.com/flutterchina/auto_size) [![GitHub forks](https://img.shields.io/github/forks/flutterchina/auto_size.svg?style=social&label=Fork)](https://github.com/flutterchina/auto_size) [![GitHub watchers](https://img.shields.io/github/watchers/flutterchina/auto_size.svg?style=social&label=Watch)](https://github.com/flutterchina/auto_size)  
-    
-Flutter版玩安卓 [flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)  
-  
-[![GitHub stars](https://img.shields.io/github/stars/Sky24n/flutter_wanandroid.svg?style=social&label=Star)](https://github.com/Sky24n/flutter_wanandroid) [![GitHub forks](https://img.shields.io/github/forks/Sky24n/flutter_wanandroid.svg?style=social&label=Fork)](https://github.com/Sky24n/flutter_wanandroid) [![GitHub watchers](https://img.shields.io/github/watchers/Sky24n/flutter_wanandroid.svg?style=social&label=Watch)](https://github.com/Sky24n/flutter_wanandroid)  
-  
-Flutter仿滴滴出行 [GreenTravel](https://github.com/Sky24n/GreenTravel)  
-  
-[![GitHub stars](https://img.shields.io/github/stars/Sky24n/GreenTravel.svg?style=social&label=Star)](https://github.com/Sky24n/GreenTravel) [![GitHub forks](https://img.shields.io/github/forks/Sky24n/GreenTravel.svg?style=social&label=Fork)](https://github.com/Sky24n/GreenTravel) [![GitHub watchers](https://img.shields.io/github/watchers/Sky24n/GreenTravel.svg?style=social&label=Watch)](https://github.com/Sky24n/GreenTravel)  
-  
-Flutter常用工具类库 [flustars](https://github.com/Sky24n/flustars)  
-  
-[![GitHub stars](https://img.shields.io/github/stars/Sky24n/flustars.svg?style=social&label=Star)](https://github.com/Sky24n/flustars) [![GitHub forks](https://img.shields.io/github/forks/Sky24n/flustars.svg?style=social&label=Fork)](https://github.com/Sky24n/flustars) [![GitHub watchers](https://img.shields.io/github/watchers/Sky24n/flustars.svg?style=social&label=Watch)](https://github.com/Sky24n/flustars)  
-  
-Dart常用工具类库 [common_utils](https://github.com/Sky24n/common_utils)  
-  
-[![GitHub stars](https://img.shields.io/github/stars/Sky24n/common_utils.svg?style=social&label=Star)](https://github.com/Sky24n/common_utils) [![GitHub forks](https://img.shields.io/github/forks/Sky24n/common_utils.svg?style=social&label=Fork)](https://github.com/Sky24n/common_utils) [![GitHub watchers](https://img.shields.io/github/watchers/Sky24n/common_utils.svg?style=social&label=Watch)](https://github.com/Sky24n/common_utils)  
-  
-Flutter城市列表 [azlistview](https://github.com/flutterchina/azlistview)  
-  
-[![GitHub stars](https://img.shields.io/github/stars/flutterchina/azlistview.svg?style=social&label=Star)](https://github.com/flutterchina/azlistview) [![GitHub forks](https://img.shields.io/github/forks/flutterchina/azlistview.svg?style=social&label=Fork)](https://github.com/flutterchina/azlistview) [![GitHub watchers](https://img.shields.io/github/watchers/flutterchina/azlistview.svg?style=social&label=Watch)](https://github.com/flutterchina/azlistview)  
-  
-Flutter汉字转拼音库 [lpinyin](https://github.com/flutterchina/lpinyin)  
-  
-[![GitHub stars](https://img.shields.io/github/stars/flutterchina/lpinyin.svg?style=social&label=Star)](https://github.com/flutterchina/lpinyin) [![GitHub forks](https://img.shields.io/github/forks/flutterchina/lpinyin.svg?style=social&label=Fork)](https://github.com/flutterchina/lpinyin) [![GitHub watchers](https://img.shields.io/github/watchers/flutterchina/lpinyin.svg?style=social&label=Watch)](https://github.com/flutterchina/lpinyin)  
-  
-Flutter国际化库 [fluintl](https://github.com/Sky24n/fluintl)  
-  
-[![GitHub stars](https://img.shields.io/github/stars/Sky24n/fluintl.svg?style=social&label=Star)](https://github.com/Sky24n/fluintl) [![GitHub forks](https://img.shields.io/github/forks/Sky24n/fluintl.svg?style=social&label=Fork)](https://github.com/Sky24n/fluintl) [![GitHub watchers](https://img.shields.io/github/watchers/Sky24n/fluintl.svg?style=social&label=Watch)](https://github.com/Sky24n/fluintl)  
+const String key = '11, 22, 33, 44, 55, 66';
+String userName = 'Sky24n';
+String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
+String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
 
-[readme]: https://github.com/Sky24n/common_utils
-[readme-en]: https://github.com/Sky24n/common_utils/blob/master/README-EN.md
+//超长log查看
+common_utils e  — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —
+common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
+common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
+common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
+```
+
+v1.1.3 (2019.07.10)   
+1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.   
+2、新增EnDecodeUtil md5加密，Base64加/解密.   
+3、DateUtil 新增日期格式化，支持自定义格式输出。  
+4、LogUtil 支持输出超长log。  
+5、RegexUtil 支持199号段。
+```dart
+/// DateUtil
+DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
+DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
+  
+/// TextUtil
+String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
+String num     = TextUtil.formatComma3("12345678"); // 12,345,678
+String phoneNo = TextUtil.hideNumber("15845678910"); // 158****8910
+
+```
 
 [flutter_wanandroid_github]: https://github.com/Sky24n/flutter_wanandroid
 [flutter_wanandroid_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_wanandroid.apk

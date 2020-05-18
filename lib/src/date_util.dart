@@ -70,7 +70,7 @@ class DateUtil {
   /// get DateMilliseconds By DateStr.
   static int getDateMsByTimeStr(String dateStr) {
     DateTime dateTime = DateTime.tryParse(dateStr);
-    return dateTime == null ? null : dateTime.millisecondsSinceEpoch;
+    return dateTime?.millisecondsSinceEpoch;
   }
 
   /// get Now Date Milliseconds.
@@ -79,9 +79,9 @@ class DateUtil {
   }
 
   /// get Now Date Str.(yyyy-MM-dd HH:mm:ss)
-//  static String getNowDateStr() {
-//    return getDateStrByDateTime(DateTime.now());
-//  }
+  static String getNowDateStr() {
+    return formatDate(DateTime.now());
+  }
 
   /// format date by milliseconds.
   /// milliseconds 日期毫秒
@@ -102,7 +102,7 @@ class DateUtil {
   /// 格式要求
   /// year -> yyyy/yy   month -> MM/M    day -> dd/d
   /// hour -> HH/H      minute -> mm/m   second -> ss/s
-  static String formatDate(DateTime dateTime, {bool isUtc, String format}) {
+  static String formatDate(DateTime dateTime, {String format}) {
     if (dateTime == null) return "";
     format = format ?? DataFormats.full;
     if (format.contains("yy")) {
@@ -140,10 +140,10 @@ class DateUtil {
   }
 
   /// get WeekDay By Milliseconds.
-  static String getWeekDayByMs(int milliseconds,
+  static String getWeekdayByMs(int milliseconds,
       {bool isUtc = false, String languageCode, bool short = false}) {
     DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
-    return getWeekDay(dateTime, languageCode: languageCode, short: short);
+    return getWeekday(dateTime, languageCode: languageCode, short: short);
   }
 
   /// get WeekDay.
@@ -151,7 +151,7 @@ class DateUtil {
   /// isUtc
   /// languageCode zh or en
   /// short
-  static String getWeekDay(DateTime dateTime,
+  static String getWeekday(DateTime dateTime,
       {String languageCode, bool short = false}) {
     if (dateTime == null) return null;
     String weekday;

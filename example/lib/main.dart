@@ -1,13 +1,45 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:common_utils/common_utils.dart';
 
 void main() {
-  /// 示例工程地址
-  /// Sample project url.
-  /// https://github.com/Sky24n/flutter_demos
+  testDateUtil();
+}
 
+void testDateUtil() {
+  /**  ----------------DateUtil----------------  */
+
+  DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch,
+      format: DataFormats.full); // 2019-07-09 16:51:14
+  DateUtil.formatDateStr("2019-07-09 16:51:14",
+      format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+  DateUtil.formatDate(DateTime.now(),
+      format: "yyyy/MM/dd HH:mm:ss"); // 2019/07/09 16:51:14
+
+  String dateStr = "2019-07-09 16:16:16";
+  DateTime dateTime = DateUtil.getDateTime(dateStr);
+  DateTime now = DateTime.now();
+  int dateMs = DateUtil.getDateMsByTimeStr(dateStr);
+
+  String nowStr1 = DateUtil.formatDateMs(dateMs, format: DataFormats.full);
+  String nowStr2 = DateUtil.formatDateStr(dateStr, format: "yyyy/M/d HH:mm:ss");
+  String nowStr3 = DateUtil.formatDate(dateTime, format: DataFormats.zh_full);
+  String nowStr4 =
+      DateUtil.formatDate(dateTime, format: 'yyyy年M月d日 HH时mm分ss秒');
+
+  LogUtil.e('nowStr1: $nowStr1'); //2020-05-15 16:58:47
+  LogUtil.e('nowStr2: $nowStr2'); //2019/7/9 16:16:16
+  LogUtil.e('nowStr3: $nowStr3'); //2019年07月09日 16时16分16秒
+  LogUtil.e('nowStr4: $nowStr4'); //2019年7月9日 16时16分16秒
+
+  DateTime week = DateTime(2020, 5, 6);
+  LogUtil.e(
+      '2020/5/6 : ${DateUtil.getWeekday(week, short: true)}, toady: ${DateUtil.getWeekdayByMs(now.millisecondsSinceEpoch)}');
+  LogUtil.e("Today DayOfYear: " + DateUtil.getDayOfYear(now).toString());
+  /**  ----------------DateUtil----------------  */
+}
+
+void test() {
   /**  ----------------TimelineUtil----------------  */
   DateTime xxxDateTime = DateTime(2018, 10, 3, 16, 16, 16);
   LogUtil.e("Timeline: " +
@@ -34,7 +66,7 @@ void main() {
   DateTime week = DateTime(2020, 5, 6);
   DateTime now = DateTime.now();
   LogUtil.e(
-      '2020/5/6 : ${DateUtil.getWeekDay(week, short: true)}, toady: ${DateUtil.getWeekDayByMs(now.millisecondsSinceEpoch)}');
+      '2020/5/6 : ${DateUtil.getWeekday(week, short: true)}, toady: ${DateUtil.getWeekdayByMs(now.millisecondsSinceEpoch)}');
   LogUtil.e("Today DayOfYear: " + DateUtil.getDayOfYear(now).toString());
   /**  ----------------DateUtil----------------  */
 
