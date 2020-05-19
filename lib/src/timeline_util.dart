@@ -1,3 +1,4 @@
+import 'package:common_utils/common_utils.dart';
 import 'package:common_utils/src/date_util.dart';
 
 /**
@@ -31,7 +32,9 @@ abstract class TimelineInfo {
 
   String suffixAfter(); //suffix after(后缀 前).
 
-  String lessThanTenSecond() => ''; //just now(刚刚).
+  int maxJustNowSecond() => 30;
+
+  String lessThanOneMinute() => ''; //just now(刚刚).
 
   String customYesterday() => ''; //Yesterday(昨天).优先级高于keepOneDay
 
@@ -39,11 +42,11 @@ abstract class TimelineInfo {
 
   bool keepTwoDays(); //保持2天,example: true -> 2天前, false -> MM-dd.
 
-  String oneMinute(int minutes); //a minute(1分钟).
+//  String oneMinute(int minutes); //a minute(1分钟).
 
   String minutes(int minutes); //x minutes(x分钟).
 
-  String anHour(int hours); //an hour(1小时).
+//  String anHour(int hours); //an hour(1小时).
 
   String hours(int hours); //x hours(x小时).
 
@@ -58,7 +61,9 @@ class ZhInfo implements TimelineInfo {
 
   String suffixAfter() => '后';
 
-  String lessThanTenSecond() => '刚刚';
+  int maxJustNowSecond() => 30;
+
+  String lessThanOneMinute() => '刚刚';
 
   String customYesterday() => '昨天';
 
@@ -66,11 +71,11 @@ class ZhInfo implements TimelineInfo {
 
   bool keepTwoDays() => true;
 
-  String oneMinute(int minutes) => '$minutes分钟';
+//  String oneMinute(int minutes) => '$minutes分钟';
 
   String minutes(int minutes) => '$minutes分钟';
 
-  String anHour(int hours) => '$hours小时';
+//  String anHour(int hours) => '$hours小时';
 
   String hours(int hours) => '$hours小时';
 
@@ -84,7 +89,9 @@ class EnInfo implements TimelineInfo {
 
   String suffixAfter() => ' after';
 
-  String lessThanTenSecond() => 'just now';
+  int maxJustNowSecond() => 30;
+
+  String lessThanOneMinute() => 'just now';
 
   String customYesterday() => 'Yesterday';
 
@@ -92,11 +99,11 @@ class EnInfo implements TimelineInfo {
 
   bool keepTwoDays() => true;
 
-  String oneMinute(int minutes) => 'a minute';
+//  String oneMinute(int minutes) => 'a minute';
 
   String minutes(int minutes) => '$minutes minutes';
 
-  String anHour(int hours) => 'an hour';
+//  String anHour(int hours) => 'an hour';
 
   String hours(int hours) => '$hours hours';
 
@@ -110,7 +117,9 @@ class ZhNormalInfo implements TimelineInfo {
 
   String suffixAfter() => '后';
 
-  String lessThanTenSecond() => '刚刚';
+  int maxJustNowSecond() => 30;
+
+  String lessThanOneMinute() => '刚刚';
 
   String customYesterday() => '昨天';
 
@@ -118,11 +127,11 @@ class ZhNormalInfo implements TimelineInfo {
 
   bool keepTwoDays() => false;
 
-  String oneMinute(int minutes) => '$minutes分钟';
+//  String oneMinute(int minutes) => '$minutes分钟';
 
   String minutes(int minutes) => '$minutes分钟';
 
-  String anHour(int hours) => '$hours小时';
+//  String anHour(int hours) => '$hours小时';
 
   String hours(int hours) => '$hours小时';
 
@@ -136,7 +145,9 @@ class EnNormalInfo implements TimelineInfo {
 
   String suffixAfter() => ' after';
 
-  String lessThanTenSecond() => 'just now';
+  int maxJustNowSecond() => 30;
+
+  String lessThanOneMinute() => 'just now';
 
   String customYesterday() => 'Yesterday';
 
@@ -144,11 +155,11 @@ class EnNormalInfo implements TimelineInfo {
 
   bool keepTwoDays() => false;
 
-  String oneMinute(int minutes) => 'a minute';
+//  String oneMinute(int minutes) => 'a minute';
 
   String minutes(int minutes) => '$minutes minutes';
 
-  String anHour(int hours) => 'an hour';
+//  String anHour(int hours) => 'an hour';
 
   String hours(int hours) => '$hours hours';
 
@@ -202,8 +213,8 @@ class TimelineUtil {
     DayFormat dayFormat,
   }) {
     int _locTimeMillis = locTimeMillis ?? DateTime.now().millisecondsSinceEpoch;
-    String _locale = locale ?? 'zh';
-    TimelineInfo _info = _timelineInfoMap[_locale] ?? ZhInfo();
+    String _locale = locale ?? 'en';
+    TimelineInfo _info = _timelineInfoMap[_locale] ?? EnInfo();
     DayFormat _dayFormat = dayFormat ?? DayFormat.Common;
 
     int elapsed = _locTimeMillis - timeMillis;
@@ -231,12 +242,14 @@ class TimelineUtil {
     final num minutes = seconds / 60;
     final num hours = minutes / 60;
     final num days = hours / 24;
-    if (seconds < 120) {
-      timeline = _info.oneMinute(1);
+    LogUtil.e(
+        "seconds: $seconds , minutes: $minutes , minutes: ${minutes.round()}");
+    if (seconds < 60) {
+      timeline = _info.minutes(1);
       if (suffix != _info.suffixAfter() &&
-          _info.lessThanTenSecond().isNotEmpty &&
-          seconds < 10) {
-        timeline = _info.lessThanTenSecond();
+          _info.lessThanOneMinute().isNotEmpty &&
+          seconds < _info.maxJustNowSecond()) {
+        timeline = _info.lessThanOneMinute();
         suffix = "";
       }
     } else if (minutes < 60) {
