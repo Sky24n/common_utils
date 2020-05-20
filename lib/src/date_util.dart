@@ -152,7 +152,7 @@ class DateUtil {
   /// languageCode zh or en
   /// short
   static String getWeekday(DateTime dateTime,
-      {String languageCode, bool short = false}) {
+      {String languageCode = 'en', bool short = false}) {
     if (dateTime == null) return null;
     String weekday;
     switch (dateTime.weekday) {
@@ -181,8 +181,8 @@ class DateUtil {
         break;
     }
     return languageCode == 'zh'
-        ? weekday
-        : weekday?.substring(0, short ? 3 : weekday?.length);
+        ? (short ? weekday.replaceAll('星期', '周') : weekday)
+        : weekday.substring(0, short ? 3 : weekday.length);
   }
 
   /// Return whether it is leap year.
@@ -197,7 +197,7 @@ class DateUtil {
 
   /// is yesterday by millis.
   /// 是否是昨天.
-  static bool isYesterdayByMillis(int millis, int locMillis) {
+  static bool isYesterdayByMs(int millis, int locMillis) {
     return isYesterday(DateTime.fromMillisecondsSinceEpoch(millis),
         DateTime.fromMillisecondsSinceEpoch(locMillis));
   }
@@ -219,7 +219,7 @@ class DateUtil {
 
   /// get day of year.
   /// 在今年的第几天.
-  static int getDayOfYearByMillis(int millis, {bool isUtc = false}) {
+  static int getDayOfYearByMs(int millis, {bool isUtc = false}) {
     return getDayOfYear(
         DateTime.fromMillisecondsSinceEpoch(millis, isUtc: isUtc));
   }
@@ -241,7 +241,7 @@ class DateUtil {
 
   /// year is equal.
   /// 是否同年.
-  static bool yearIsEqualByMillis(int millis, int locMillis) {
+  static bool yearIsEqualByMs(int millis, int locMillis) {
     return yearIsEqual(DateTime.fromMillisecondsSinceEpoch(millis),
         DateTime.fromMillisecondsSinceEpoch(locMillis));
   }
@@ -254,23 +254,34 @@ class DateUtil {
 
   /// is today.
   /// 是否是当天.
-  static bool isToday(int milliseconds, {bool isUtc = false}) {
+  static bool isToday(int milliseconds, {bool isUtc = false, int locMillis}) {
     if (milliseconds == null || milliseconds == 0) return false;
     DateTime old =
         DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
-    DateTime now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
+    DateTime now;
+    if (locMillis != null) {
+      now = DateUtil.getDateTimeByMs(locMillis);
+    } else {
+      now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
+    }
     return old.year == now.year && old.month == now.month && old.day == now.day;
   }
 
   /// is Week.
   /// 是否是本周.
-  static bool isWeek(int milliseconds, {bool isUtc = false}) {
+  static bool isWeek(int milliseconds, {bool isUtc = false, int locMillis}) {
     if (milliseconds == null || milliseconds <= 0) {
       return false;
     }
     DateTime _old =
         DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
-    DateTime _now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
+    DateTime _now;
+    if (locMillis != null) {
+      _now = DateUtil.getDateTimeByMs(locMillis);
+    } else {
+      _now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
+    }
+
     DateTime old =
         _now.millisecondsSinceEpoch > _old.millisecondsSinceEpoch ? _old : _now;
     DateTime now =

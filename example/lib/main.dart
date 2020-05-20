@@ -5,7 +5,7 @@ import 'package:common_utils/common_utils.dart';
 void main() {
 //  testDateUtil();
   /**  ----------------TimelineUtil----------------  */
-  DateTime dateTime = DateTime(2020, 5, 19, 23, 35, 31);
+  DateTime dateTime = DateTime(2020, 5, 19, 23, 36, 31);
   DateTime locDateTime = DateTime(2020, 5, 19, 23, 36, 00);
   LogUtil.e("Timeline: " +
       TimelineUtil.formatByDateTime(
@@ -18,7 +18,15 @@ void main() {
         dateTime,
         locDateTime: locDateTime,
       ).toString());
+  LogUtil.e("Timeline: " +
+      TimelineUtil.formatA(
+        dateTime.millisecondsSinceEpoch,
+      ).toString());
   /**  ----------------TimelineUtil----------------  */
+  DateTime week = DateTime(2020, 5, 6);
+  DateTime now = DateTime.now();
+  LogUtil.e(
+      '2020/5/6 : ${DateUtil.getWeekday(week, languageCode: 'zh', short: true)}, toady: ${DateUtil.getWeekdayByMs(now.millisecondsSinceEpoch)}');
 }
 
 void testDateUtil() {

@@ -52,6 +52,8 @@ abstract class TimelineInfo {
 
   String oneDay(int days); //a day(1天).
 
+  String weeks(int week) => ''; //x week(星期x).
+
   String days(int days); //x days(x天).
 
 }
@@ -81,6 +83,8 @@ class ZhInfo implements TimelineInfo {
 
   String oneDay(int days) => '$days天';
 
+  String weeks(int week) => ''; //x week(星期x).
+
   String days(int days) => '$days天';
 }
 
@@ -108,6 +112,8 @@ class EnInfo implements TimelineInfo {
   String hours(int hours) => '$hours hours';
 
   String oneDay(int days) => 'a day';
+
+  String weeks(int week) => ''; //x week(星期x).
 
   String days(int days) => '$days days';
 }
@@ -137,6 +143,8 @@ class ZhNormalInfo implements TimelineInfo {
 
   String oneDay(int days) => '$days天';
 
+  String weeks(int week) => ''; //x week(星期x).
+
   String days(int days) => '$days天';
 }
 
@@ -164,6 +172,8 @@ class EnNormalInfo implements TimelineInfo {
   String hours(int hours) => '$hours hours';
 
   String oneDay(int days) => 'a day';
+
+  String weeks(int week) => ''; //x week(星期x).
 
   String days(int days) => '$days days';
 }
@@ -196,7 +206,7 @@ class TimelineUtil {
   }) {
     return format(
       dateTime?.millisecondsSinceEpoch,
-      locTimeMillis: locDateTime?.millisecondsSinceEpoch,
+      locTimeMs: locDateTime?.millisecondsSinceEpoch,
       locale: locale,
       dayFormat: dayFormat,
     );
@@ -207,34 +217,39 @@ class TimelineUtil {
   /// locDateTime: current time or schedule time. millis.
   /// locale: output key.
   static String format(
-    int timeMillis, {
-    int locTimeMillis,
+    int timeMs, {
+    int locTimeMs,
     String locale,
     DayFormat dayFormat,
   }) {
-    int _locTimeMillis = locTimeMillis ?? DateTime.now().millisecondsSinceEpoch;
+    int _locTimeMs = locTimeMs ?? DateTime.now().millisecondsSinceEpoch;
     String _locale = locale ?? 'en';
     TimelineInfo _info = _timelineInfoMap[_locale] ?? EnInfo();
     DayFormat _dayFormat = dayFormat ?? DayFormat.Common;
 
-    int elapsed = _locTimeMillis - timeMillis;
+    int elapsed = _locTimeMs - timeMs;
     String suffix;
     if (elapsed < 0) {
-      elapsed = elapsed.abs();
       suffix = _info.suffixAfter();
-      _dayFormat = DayFormat.Simple;
+      // suffix after is empty. user just now.
+      if (suffix.isNotEmpty) {
+        elapsed = elapsed.abs();
+        _dayFormat = DayFormat.Simple;
+      } else {
+        return _info.lessThanOneMinute();
+      }
     } else {
       suffix = _info.suffixAgo();
     }
 
     String timeline;
     if (_info.customYesterday().isNotEmpty &&
-        DateUtil.isYesterdayByMillis(timeMillis, _locTimeMillis)) {
-      return _getYesterday(timeMillis, _info, _dayFormat);
+        DateUtil.isYesterdayByMs(timeMs, _locTimeMs)) {
+      return _getYesterday(timeMs, _info, _dayFormat);
     }
 
-    if (!DateUtil.yearIsEqualByMillis(timeMillis, _locTimeMillis)) {
-      timeline = _getYear(timeMillis, _dayFormat);
+    if (!DateUtil.yearIsEqualByMs(timeMs, _locTimeMs)) {
+      timeline = _getYear(timeMs, _dayFormat);
       if (timeline.isNotEmpty) return timeline;
     }
 
@@ -261,10 +276,41 @@ class TimelineUtil {
           (days.round() == 2 && _info.keepTwoDays() == true)) {
         _dayFormat = DayFormat.Simple;
       }
-      timeline = _formatDays(timeMillis, days.round(), _info, _dayFormat);
+      timeline = _formatDays(timeMs, days.round(), _info, _dayFormat);
       suffix = (_dayFormat == DayFormat.Simple ? suffix : "");
     }
     return timeline + suffix;
+  }
+
+  ///
+  static String formatA(
+    int timeMs, {
+    int locTimeMs,
+    String languageCode = 'en',
+    bool short = false,
+    String formatToday = 'HH:mm',
+    String format = 'yyyy-MM-dd',
+  }) {
+    int _locTimeMs = locTimeMs ?? DateTime.now().millisecondsSinceEpoch;
+    int elapsed = _locTimeMs - timeMs;
+    if (elapsed < 0) {
+      return DateUtil.formatDateMs(timeMs, format: formatToday);
+    }
+
+    if (DateUtil.isToday(timeMs, locMillis: _locTimeMs)) {
+      return DateUtil.formatDateMs(timeMs, format: formatToday);
+    }
+
+    if (DateUtil.isYesterdayByMs(timeMs, _locTimeMs)) {
+      return languageCode == 'zh' ? '昨天' : 'Yesterday';
+    }
+
+    if (DateUtil.isWeek(timeMs, locMillis: _locTimeMs)) {
+      return DateUtil.getWeekdayByMs(timeMs,
+          languageCode: languageCode, short: short);
+    }
+
+    return DateUtil.formatDateMs(timeMs, format: format);
   }
 
   /// get Yesterday.
