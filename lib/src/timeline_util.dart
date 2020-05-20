@@ -217,7 +217,7 @@ class TimelineUtil {
   /// locDateTime: current time or schedule time. millis.
   /// locale: output key.
   static String format(
-    int timeMs, {
+    int ms, {
     int locTimeMs,
     String locale,
     DayFormat dayFormat,
@@ -227,7 +227,7 @@ class TimelineUtil {
     TimelineInfo _info = _timelineInfoMap[_locale] ?? EnInfo();
     DayFormat _dayFormat = dayFormat ?? DayFormat.Common;
 
-    int elapsed = _locTimeMs - timeMs;
+    int elapsed = _locTimeMs - ms;
     String suffix;
     if (elapsed < 0) {
       suffix = _info.suffixAfter();
@@ -244,12 +244,12 @@ class TimelineUtil {
 
     String timeline;
     if (_info.customYesterday().isNotEmpty &&
-        DateUtil.isYesterdayByMs(timeMs, _locTimeMs)) {
-      return _getYesterday(timeMs, _info, _dayFormat);
+        DateUtil.isYesterdayByMs(ms, _locTimeMs)) {
+      return _getYesterday(ms, _info, _dayFormat);
     }
 
-    if (!DateUtil.yearIsEqualByMs(timeMs, _locTimeMs)) {
-      timeline = _getYear(timeMs, _dayFormat);
+    if (!DateUtil.yearIsEqualByMs(ms, _locTimeMs)) {
+      timeline = _getYear(ms, _dayFormat);
       if (timeline.isNotEmpty) return timeline;
     }
 
@@ -276,64 +276,69 @@ class TimelineUtil {
           (days.round() == 2 && _info.keepTwoDays() == true)) {
         _dayFormat = DayFormat.Simple;
       }
-      timeline = _formatDays(timeMs, days.round(), _info, _dayFormat);
+      timeline = _formatDays(ms, days.round(), _info, _dayFormat);
       suffix = (_dayFormat == DayFormat.Simple ? suffix : "");
     }
     return timeline + suffix;
   }
 
+  /// Timeline like QQ.
   ///
+  /// today (HH:mm)
+  /// yesterday (昨天;Yesterday)
+  /// this week (星期一,周一;Monday,Mon)
+  /// others (yyyy-MM-dd)
   static String formatA(
-    int timeMs, {
-    int locTimeMs,
-    String languageCode = 'en',
-    bool short = false,
+    int ms, {
+    int locMs,
     String formatToday = 'HH:mm',
     String format = 'yyyy-MM-dd',
+    String languageCode = 'en',
+    bool short = false,
   }) {
-    int _locTimeMs = locTimeMs ?? DateTime.now().millisecondsSinceEpoch;
-    int elapsed = _locTimeMs - timeMs;
+    int _locTimeMs = locMs ?? DateTime.now().millisecondsSinceEpoch;
+    int elapsed = _locTimeMs - ms;
     if (elapsed < 0) {
-      return DateUtil.formatDateMs(timeMs, format: formatToday);
+      return DateUtil.formatDateMs(ms, format: formatToday);
     }
 
-    if (DateUtil.isToday(timeMs, locMillis: _locTimeMs)) {
-      return DateUtil.formatDateMs(timeMs, format: formatToday);
+    if (DateUtil.isToday(ms, locMs: _locTimeMs)) {
+      return DateUtil.formatDateMs(ms, format: formatToday);
     }
 
-    if (DateUtil.isYesterdayByMs(timeMs, _locTimeMs)) {
+    if (DateUtil.isYesterdayByMs(ms, _locTimeMs)) {
       return languageCode == 'zh' ? '昨天' : 'Yesterday';
     }
 
-    if (DateUtil.isWeek(timeMs, locMillis: _locTimeMs)) {
-      return DateUtil.getWeekdayByMs(timeMs,
+    if (DateUtil.isWeek(ms, locMs: _locTimeMs)) {
+      return DateUtil.getWeekdayByMs(ms,
           languageCode: languageCode, short: short);
     }
 
-    return DateUtil.formatDateMs(timeMs, format: format);
+    return DateUtil.formatDateMs(ms, format: format);
   }
 
   /// get Yesterday.
   /// 获取昨天.
   static String _getYesterday(
-    int timeMillis,
+    int ms,
     TimelineInfo info,
     DayFormat dayFormat,
   ) {
     return info.customYesterday() +
         (dayFormat == DayFormat.Full
-            ? (" " + DateUtil.formatDateMs(timeMillis, format: 'HH:mm'))
+            ? (" " + DateUtil.formatDateMs(ms, format: 'HH:mm'))
             : "");
   }
 
   /// get is not year info.
   /// 获取非今年信息.
   static String _getYear(
-    int timeMillis,
+    int ms,
     DayFormat dayFormat,
   ) {
     if (dayFormat != DayFormat.Simple) {
-      return DateUtil.formatDateMs(timeMillis,
+      return DateUtil.formatDateMs(ms,
           format: (dayFormat == DayFormat.Common
               ? 'yyyy-MM-dd'
               : 'yyyy-MM-dd HH:mm'));
@@ -343,7 +348,7 @@ class TimelineUtil {
 
   /// format Days.
   static String _formatDays(
-    int timeMillis,
+    int ms,
     num days,
     TimelineInfo timelineInfo,
     DayFormat dayFormat,
@@ -356,10 +361,10 @@ class TimelineUtil {
             : timelineInfo.days(days.round()));
         break;
       case DayFormat.Common:
-        timeline = DateUtil.formatDateMs(timeMillis, format: 'MM-dd');
+        timeline = DateUtil.formatDateMs(ms, format: 'MM-dd');
         break;
       case DayFormat.Full:
-        timeline = DateUtil.formatDateMs(timeMillis, format: 'MM-dd HH:mm');
+        timeline = DateUtil.formatDateMs(ms, format: 'MM-dd HH:mm');
         break;
     }
     return timeline;

@@ -6,7 +6,7 @@ void main() {
 //  testDateUtil();
   /**  ----------------TimelineUtil----------------  */
   DateTime dateTime = DateTime(2020, 5, 19, 23, 36, 31);
-  DateTime locDateTime = DateTime(2020, 5, 19, 23, 36, 00);
+  DateTime locDateTime = DateTime(2020, 5, 20, 23, 36, 00);
   LogUtil.e("Timeline: " +
       TimelineUtil.formatByDateTime(
         dateTime,
@@ -18,9 +18,11 @@ void main() {
         dateTime,
         locDateTime: locDateTime,
       ).toString());
-  LogUtil.e("Timeline: " +
+  LogUtil.e("Timeline formatA: " +
       TimelineUtil.formatA(
         dateTime.millisecondsSinceEpoch,
+        languageCode: 'zh',
+        short: true,
       ).toString());
   /**  ----------------TimelineUtil----------------  */
   DateTime week = DateTime(2020, 5, 6);

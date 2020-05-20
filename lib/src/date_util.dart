@@ -61,10 +61,10 @@ class DateUtil {
   }
 
   /// get DateTime By Milliseconds.
-  static DateTime getDateTimeByMs(int milliseconds, {bool isUtc = false}) {
-    return milliseconds == null
+  static DateTime getDateTimeByMs(int ms, {bool isUtc = false}) {
+    return ms == null
         ? null
-        : DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
+        : DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc);
   }
 
   /// get DateMilliseconds By DateStr.
@@ -85,10 +85,8 @@ class DateUtil {
 
   /// format date by milliseconds.
   /// milliseconds 日期毫秒
-  static String formatDateMs(int milliseconds,
-      {bool isUtc = false, String format}) {
-    return formatDate(getDateTimeByMs(milliseconds, isUtc: isUtc),
-        format: format);
+  static String formatDateMs(int ms, {bool isUtc = false, String format}) {
+    return formatDate(getDateTimeByMs(ms, isUtc: isUtc), format: format);
   }
 
   /// format date by date str.
@@ -197,9 +195,9 @@ class DateUtil {
 
   /// is yesterday by millis.
   /// 是否是昨天.
-  static bool isYesterdayByMs(int millis, int locMillis) {
-    return isYesterday(DateTime.fromMillisecondsSinceEpoch(millis),
-        DateTime.fromMillisecondsSinceEpoch(locMillis));
+  static bool isYesterdayByMs(int ms, int locMs) {
+    return isYesterday(DateTime.fromMillisecondsSinceEpoch(ms),
+        DateTime.fromMillisecondsSinceEpoch(locMs));
   }
 
   /// is yesterday by dateTime.
@@ -219,9 +217,8 @@ class DateUtil {
 
   /// get day of year.
   /// 在今年的第几天.
-  static int getDayOfYearByMs(int millis, {bool isUtc = false}) {
-    return getDayOfYear(
-        DateTime.fromMillisecondsSinceEpoch(millis, isUtc: isUtc));
+  static int getDayOfYearByMs(int ms, {bool isUtc = false}) {
+    return getDayOfYear(DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc));
   }
 
   /// get day of year.
@@ -241,9 +238,9 @@ class DateUtil {
 
   /// year is equal.
   /// 是否同年.
-  static bool yearIsEqualByMs(int millis, int locMillis) {
-    return yearIsEqual(DateTime.fromMillisecondsSinceEpoch(millis),
-        DateTime.fromMillisecondsSinceEpoch(locMillis));
+  static bool yearIsEqualByMs(int ms, int locMs) {
+    return yearIsEqual(DateTime.fromMillisecondsSinceEpoch(ms),
+        DateTime.fromMillisecondsSinceEpoch(locMs));
   }
 
   /// year is equal.
@@ -254,13 +251,13 @@ class DateUtil {
 
   /// is today.
   /// 是否是当天.
-  static bool isToday(int milliseconds, {bool isUtc = false, int locMillis}) {
+  static bool isToday(int milliseconds, {bool isUtc = false, int locMs}) {
     if (milliseconds == null || milliseconds == 0) return false;
     DateTime old =
         DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
     DateTime now;
-    if (locMillis != null) {
-      now = DateUtil.getDateTimeByMs(locMillis);
+    if (locMs != null) {
+      now = DateUtil.getDateTimeByMs(locMs);
     } else {
       now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
     }
@@ -269,15 +266,14 @@ class DateUtil {
 
   /// is Week.
   /// 是否是本周.
-  static bool isWeek(int milliseconds, {bool isUtc = false, int locMillis}) {
-    if (milliseconds == null || milliseconds <= 0) {
+  static bool isWeek(int ms, {bool isUtc = false, int locMs}) {
+    if (ms == null || ms <= 0) {
       return false;
     }
-    DateTime _old =
-        DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
+    DateTime _old = DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc);
     DateTime _now;
-    if (locMillis != null) {
-      _now = DateUtil.getDateTimeByMs(locMillis);
+    if (locMs != null) {
+      _now = DateUtil.getDateTimeByMs(locMs);
     } else {
       _now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
     }
