@@ -3,64 +3,54 @@ import 'dart:convert';
 import 'package:common_utils/common_utils.dart';
 
 void main() {
-//  testDateUtil();
-  /**  ----------------TimelineUtil----------------  */
-  DateTime dateTime = DateTime(2020, 5, 19, 23, 36, 31);
-  DateTime locDateTime = DateTime(2020, 5, 20, 23, 36, 00);
-  LogUtil.e("Timeline: " +
-      TimelineUtil.formatByDateTime(
-        dateTime,
-        locDateTime: locDateTime,
-        locale: 'zh',
-      ).toString());
-  LogUtil.e("Timeline: " +
-      TimelineUtil.formatByDateTime(
-        dateTime,
-        locDateTime: locDateTime,
-      ).toString());
-  LogUtil.e("Timeline formatA: " +
-      TimelineUtil.formatA(
-        dateTime.millisecondsSinceEpoch,
-        languageCode: 'zh',
-        short: true,
-      ).toString());
-  /**  ----------------TimelineUtil----------------  */
-  DateTime week = DateTime(2020, 5, 6);
-  DateTime now = DateTime.now();
-  LogUtil.e(
-      '2020/5/6 : ${DateUtil.getWeekday(week, languageCode: 'zh', short: true)}, toady: ${DateUtil.getWeekdayByMs(now.millisecondsSinceEpoch)}');
-}
-
-void testDateUtil() {
-  /**  ----------------DateUtil----------------  */
-
-  DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch,
-      format: DataFormats.full); // 2019-07-09 16:51:14
-  DateUtil.formatDateStr("2019-07-09 16:51:14",
-      format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
-  DateUtil.formatDate(DateTime.now(),
-      format: "yyyy/MM/dd HH:mm:ss"); // 2019/07/09 16:51:14
-
+  LogUtil.e("---------------- DateUtil st ----------------");
   String dateStr = "2019-07-09 16:16:16";
   DateTime dateTime = DateUtil.getDateTime(dateStr);
   DateTime now = DateTime.now();
   int dateMs = DateUtil.getDateMsByTimeStr(dateStr);
-
   String nowStr1 = DateUtil.formatDateMs(dateMs, format: DataFormats.full);
   String nowStr2 = DateUtil.formatDateStr(dateStr, format: "yyyy/M/d HH:mm:ss");
   String nowStr3 = DateUtil.formatDate(dateTime, format: DataFormats.zh_full);
   String nowStr4 = DateUtil.formatDate(dateTime, format: 'yyyy年M月d日 HH时mm分ss秒');
-
   LogUtil.e('nowStr1: $nowStr1'); //2020-05-15 16:58:47
   LogUtil.e('nowStr2: $nowStr2'); //2019/7/9 16:16:16
   LogUtil.e('nowStr3: $nowStr3'); //2019年07月09日 16时16分16秒
   LogUtil.e('nowStr4: $nowStr4'); //2019年7月9日 16时16分16秒
-
   DateTime week = DateTime(2020, 5, 6);
-  LogUtil.e(
-      '2020/5/6 : ${DateUtil.getWeekday(week, short: true)}, toady: ${DateUtil.getWeekdayByMs(now.millisecondsSinceEpoch)}');
+  LogUtil.e('2020/5/6 : ${DateUtil.getWeekday(week, short: true)}');
+  LogUtil.e('toady: ${DateUtil.getWeekdayByMs(now.millisecondsSinceEpoch)}');
   LogUtil.e("Today DayOfYear: " + DateUtil.getDayOfYear(now).toString());
-  /**  ----------------DateUtil----------------  */
+  LogUtil.e("---------------- DateUtil en ----------------\n");
+
+  LogUtil.e("---------------- EncryptUtil st ----------------");
+  const String key = '11, 22, 33, 44, 55, 66';
+  String userName = 'Sky24n';
+  String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
+  String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
+  LogUtil.e('EncryptUtil -> encode: $encode, decode: $decode');
+  LogUtil.e("---------------- EncryptUtil en ----------------\n");
+
+  LogUtil.e("---------------- TimelineUtil st ----------------");
+  DateTime dateTime1 = DateTime(2020, 5, 19, 23, 36, 31);
+//  DateTime locDateTime = DateTime(2020, 5, 20, 23, 36, 00);
+  LogUtil.e("Timeline: " +
+      TimelineUtil.formatByDateTime(
+        dateTime1,
+        //locDateTime: locDateTime,
+        locale: 'zh',
+      ).toString());
+  LogUtil.e("Timeline: " +
+      TimelineUtil.formatByDateTime(
+        dateTime1,
+        //locDateTime: locDateTime,
+      ).toString());
+  LogUtil.e("Timeline formatA: " +
+      TimelineUtil.formatA(
+        dateTime1.millisecondsSinceEpoch,
+        languageCode: 'zh',
+        short: true,
+      ).toString());
+  LogUtil.e("---------------- TimelineUtil en ----------------\n");
 }
 
 void test() {
@@ -162,14 +152,6 @@ void test() {
   LogUtil.e(
       'JsonUtil -> hisCity: ${hisCity.toString()} ; cityList: ${cityList.toString()}');
   /**  ----------------JsonUtil----------------  */
-
-  /**  ----------------EncryptUtil----------------  */
-  const String key = '11, 22, 33, 44, 55, 66';
-  String userName = 'Sky24n';
-  String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
-  String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
-  LogUtil.e('EncryptUtil -> encode: $encode, decode: $decode');
-  /**  ----------------EncryptUtil----------------  */
 
   /**  ----------------TimerUtil----------------  */
   TimerUtil timerUtil;

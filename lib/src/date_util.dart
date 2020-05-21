@@ -137,13 +137,6 @@ class DateUtil {
     return format;
   }
 
-  /// get WeekDay By Milliseconds.
-  static String getWeekdayByMs(int milliseconds,
-      {bool isUtc = false, String languageCode, bool short = false}) {
-    DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
-    return getWeekday(dateTime, languageCode: languageCode, short: short);
-  }
-
   /// get WeekDay.
   /// dateTime
   /// isUtc
@@ -183,42 +176,11 @@ class DateUtil {
         : weekday.substring(0, short ? 3 : weekday.length);
   }
 
-  /// Return whether it is leap year.
-  static bool isLeapYearByDateTime(DateTime dateTime) {
-    return isLeapYearByYear(dateTime.year);
-  }
-
-  /// Return whether it is leap year.
-  static bool isLeapYearByYear(int year) {
-    return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
-  }
-
-  /// is yesterday by millis.
-  /// 是否是昨天.
-  static bool isYesterdayByMs(int ms, int locMs) {
-    return isYesterday(DateTime.fromMillisecondsSinceEpoch(ms),
-        DateTime.fromMillisecondsSinceEpoch(locMs));
-  }
-
-  /// is yesterday by dateTime.
-  /// 是否是昨天.
-  static bool isYesterday(DateTime dateTime, DateTime locDateTime) {
-    if (yearIsEqual(dateTime, locDateTime)) {
-      int spDay = getDayOfYear(locDateTime) - getDayOfYear(dateTime);
-      return spDay == 1;
-    } else {
-      return ((locDateTime.year - dateTime.year == 1) &&
-          dateTime.month == 12 &&
-          locDateTime.month == 1 &&
-          dateTime.day == 31 &&
-          locDateTime.day == 1);
-    }
-  }
-
-  /// get day of year.
-  /// 在今年的第几天.
-  static int getDayOfYearByMs(int ms, {bool isUtc = false}) {
-    return getDayOfYear(DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc));
+  /// get WeekDay By Milliseconds.
+  static String getWeekdayByMs(int milliseconds,
+      {bool isUtc = false, String languageCode, bool short = false}) {
+    DateTime dateTime = getDateTimeByMs(milliseconds, isUtc: isUtc);
+    return getWeekday(dateTime, languageCode: languageCode, short: short);
   }
 
   /// get day of year.
@@ -236,17 +198,10 @@ class DateUtil {
     return days;
   }
 
-  /// year is equal.
-  /// 是否同年.
-  static bool yearIsEqualByMs(int ms, int locMs) {
-    return yearIsEqual(DateTime.fromMillisecondsSinceEpoch(ms),
-        DateTime.fromMillisecondsSinceEpoch(locMs));
-  }
-
-  /// year is equal.
-  /// 是否同年.
-  static bool yearIsEqual(DateTime dateTime, DateTime locDateTime) {
-    return dateTime.year == locDateTime.year;
+  /// get day of year.
+  /// 在今年的第几天.
+  static int getDayOfYearByMs(int ms, {bool isUtc = false}) {
+    return getDayOfYear(DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc));
   }
 
   /// is today.
@@ -264,6 +219,28 @@ class DateUtil {
     return old.year == now.year && old.month == now.month && old.day == now.day;
   }
 
+  /// is yesterday by dateTime.
+  /// 是否是昨天.
+  static bool isYesterday(DateTime dateTime, DateTime locDateTime) {
+    if (yearIsEqual(dateTime, locDateTime)) {
+      int spDay = getDayOfYear(locDateTime) - getDayOfYear(dateTime);
+      return spDay == 1;
+    } else {
+      return ((locDateTime.year - dateTime.year == 1) &&
+          dateTime.month == 12 &&
+          locDateTime.month == 1 &&
+          dateTime.day == 31 &&
+          locDateTime.day == 1);
+    }
+  }
+
+  /// is yesterday by millis.
+  /// 是否是昨天.
+  static bool isYesterdayByMs(int ms, int locMs) {
+    return isYesterday(DateTime.fromMillisecondsSinceEpoch(ms),
+        DateTime.fromMillisecondsSinceEpoch(locMs));
+  }
+
   /// is Week.
   /// 是否是本周.
   static bool isWeek(int ms, {bool isUtc = false, int locMs}) {
@@ -273,7 +250,7 @@ class DateUtil {
     DateTime _old = DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc);
     DateTime _now;
     if (locMs != null) {
-      _now = DateUtil.getDateTimeByMs(locMs);
+      _now = DateUtil.getDateTimeByMs(locMs, isUtc: isUtc);
     } else {
       _now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
     }
@@ -285,5 +262,30 @@ class DateUtil {
     return (now.weekday >= old.weekday) &&
         (now.millisecondsSinceEpoch - old.millisecondsSinceEpoch <=
             7 * 24 * 60 * 60 * 1000);
+  }
+
+  /// year is equal.
+  /// 是否同年.
+  static bool yearIsEqual(DateTime dateTime, DateTime locDateTime) {
+    return dateTime.year == locDateTime.year;
+  }
+
+  /// year is equal.
+  /// 是否同年.
+  static bool yearIsEqualByMs(int ms, int locMs) {
+    return yearIsEqual(DateTime.fromMillisecondsSinceEpoch(ms),
+        DateTime.fromMillisecondsSinceEpoch(locMs));
+  }
+
+  /// Return whether it is leap year.
+  /// 是否是闰年
+  static bool isLeapYear(DateTime dateTime) {
+    return isLeapYearByYear(dateTime.year);
+  }
+
+  /// Return whether it is leap year.
+  /// 是否是闰年
+  static bool isLeapYearByYear(int year) {
+    return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
   }
 }

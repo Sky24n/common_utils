@@ -257,8 +257,6 @@ class TimelineUtil {
     final num minutes = seconds / 60;
     final num hours = minutes / 60;
     final num days = hours / 24;
-    LogUtil.e(
-        "seconds: $seconds , minutes: $minutes , minutes: ${minutes.round()}");
     if (seconds < 60) {
       timeline = _info.minutes(1);
       if (suffix != _info.suffixAfter() &&

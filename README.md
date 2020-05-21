@@ -24,15 +24,17 @@ Dart常用工具类库 [common_utils][common_utils_github]
 6. RegexUtil        : 正则验证手机号，身份证，邮箱等等.
 7. NumUtil          : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.
 8. ObjectUtil       : 判断对象是否为空(String List Map),判断两个List是否相等.
-9. EncryptUtil      : md5加密，Base64加/解密.
-10. TextUtil         : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.
+9. EncryptUtil      : 异或对称加/解密，md5加密，Base64加/解密.
+10. TextUtil        : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.
+11. JsonUtil        : 简单封装json字符串转对象.
 
- Flutter常用工具类库 [flustars][flustars_github]  
- 1、SpUtil           : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。  
- 2、ScreenUtil       : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
- 3、WidgetUtil       : 监听Widget渲染状态，获取Widget宽高，在屏幕上的坐标，获取网络/本地图片尺寸.  
- 4、DirectoryUtil    : 文件目录工具类.  
- 5、DioUtil          : 单例Dio网络工具类(已迁移至此处[DioUtil](https://github.com/Sky24n/FlutterRepos/blob/master/base_library/lib/src/data/net/dio_util.dart))。 
+Flutter常用工具类库 [flustars][flustars_github]
+1. SpUtil           : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。
+2. ScreenUtil       : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.
+3. WidgetUtil       : 监听Widget渲染状态，获取Widget宽高，在屏幕上的坐标，获取网络/本地图片尺寸.
+4. ImageUtil        : 获取网络/本地图片尺寸.
+5. DirectoryUtil    : 文件目录工具类.
+6. DioUtil          : 单例Dio网络工具类(已迁移至此处[DioUtil](https://github.com/Sky24n/FlutterRepos/blob/master/base_library/lib/src/data/net/dio_util.dart))。
  
 
 ### APIs
@@ -46,7 +48,6 @@ await SpUtil.getInstance();
 String name = SpUtil.putString("key_username", "Sky24n");
 bool isShow = SpUtil.getBool("key_show", defValue: true);
   
-/// save object example.
 /// 存储实体对象示例。
 City city = new City();
 city.name = "成都市";
@@ -55,7 +56,6 @@ SpUtil.putObject("loc_city", city);
 City hisCity = SpUtil.getObj("loc_city", (v) => City.fromJson(v));
 print("City: " + (hisCity == null ? "null" : hisCit.toString()));
   
-/// save object list example.
 /// 存储实体对象list示例。
 List<City> list = new List();
 list.add(new City(name: "成都市"));
@@ -91,44 +91,52 @@ class DataFormats {
   static String zh_h_m_s = "HH时mm分ss秒";
   static String zh_h_m = "HH时mm分";
 }
+
+getDateTimeByMs                 :
+getDateMsByTimeStr              :
+formatDateMs                    : 获取现在 毫秒.
+getNowDateStr                   : 获取现在 日期字符串.(yyyy-MM-dd HH:mm:ss)
 formatDate                      : 格式化日期 DateTime.
 formatDateStr                   : 格式化日期 字符串.
 formatDateMs                    : 格式化日期 毫秒.
-
-getNowDateMs                    : 获取现在 毫秒.
-getNowDateStr                   : 获取现在 日期字符串.(yyyy-MM-dd HH:mm:ss)
-getDateMsByTimeStr              : 获取毫秒 By 日期字符串(Format格式输出).
-getDateStrByTimeStr             : 获取日期字符串 By 日期字符串(Format格式输出).
-getDateStrByMs                  : 获取日期字符串 By 毫秒(Format格式输出).
-getDateStrByDateTime            : 获取日期字符串 By DateTime(Format格式输出).
-getWeekDay                      : 获取WeekDay By DateTime.
-getZHWeekDay                    : 获取星期 By DateTime.
-getWeekDayByMs                  : 获取WeekDay By 毫秒.
-getZHWeekDayByMs                : 获取星期 By 毫秒.
-isLeapYearByYear                : 是否是闰年.
-yearIsEqual                     : 是否同年.
+getWeekday                      : 获取星期几.
 getDayOfYear                    : 在今年的第几天.
-isYesterday                     : 是否是昨天.
 isToday                         : 是否是今天.
-isWeek                          : 是否是本周.(新)
-  
+isYesterday                     : 是否是昨天.
+isWeek                          : 是否是本周.
+yearIsEqual                     : 是否同年.
+isLeapYear                      : 是否是闰年.
+
 // example
-DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
-DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
-DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
-
-
-
+DateUtil.formatDateMs(dateMs, format: DataFormats.full); //2019-07-09 16:16:16
+DateUtil.formatDateStr('2019-07-09 16:16:16', format: "yyyy/M/d HH:mm:ss"); //2019/7/9 16:16:16
+DateUtil.formatDate(DateTime.now(), format: DataFormats.zh_full); //2019年07月09日 16时16分16秒
 ```
+
+* #### EncryptUtil
+```
+encodeMd5                   : md5 加密.
+encodeBase64                : Base64加密.
+decodeBase64()              : Base64解密.
+xorCode()                   : 异或对称加密.
+xorBase64Encode()           : 异或对称 Base64 加密.
+xorBase64Decode()           : 异或对称 Base64 解密.
+
+const String key = '11, 22, 33, 44, 55, 66';
+String userName = 'Sky24n';
+String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
+String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
+```
+
 
 * #### TextUtil
 ```
-isEmpty                     : isEmpty.(新)
-formatSpace4                : 每隔4位加空格，格式化银行卡.(新)
-formatComma3                : 每隔3三位加逗号.(新)
-hideNumber                  : 隐藏号码.(新)
-replace                     : replace.(新)
-split                       : split.(新)
+isEmpty                     : isEmpty.
+formatSpace4                : 每隔4位加空格，格式化银行卡.
+formatComma3                : 每隔3三位加逗号.
+hideNumber                  : 隐藏号码.
+replace                     : replace.
+split                       : split.
   
 /// example
 String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
@@ -136,12 +144,7 @@ String num     = TextUtil.formatComma3("1234"); // 123,4
 String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 ```
 
-* #### EnDecodeUtil
-```
-encodeMd5                   : md5 加密.(新)
-encodeBase64                : Base64加密.(新)
-decodeBase64()              : Base64解密.(新)
-```
+
 
 * #### TimelineUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timeline_page.dart)
 ```
@@ -322,21 +325,11 @@ String phoneNo = TextUtil.hideNumber("15845678910"); // 158****8910
 
 ```
 
-[flutter_wanandroid_github]: https://github.com/Sky24n/flutter_wanandroid
 [flutter_wanandroid_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_wanandroid.apk
 [flutter_wanandroid_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_wanandroid/qrcode.png
-
-[flutter_demos_github]: https://github.com/Sky24n/flutter_demos
-[flutter_demos_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_demos.apk
-[flutter_demos_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_demos/qrcode.png
 
 [common_utils_github]: https://github.com/Sky24n/common_utils
 
 [flustars_github]: https://github.com/Sky24n/flustars
 
-[jianshuSvg]: https://img.shields.io/badge/简书-@Sky24n-536dfe.svg
-[jianshu]: https://www.jianshu.com/u/cbf2ad25d33a
-
-[juejinSvg]: https://img.shields.io/badge/掘金-@Sky24n-536dfe.svg
-[juejin]: https://juejin.im/user/5b9e8a92e51d453df0440422
 

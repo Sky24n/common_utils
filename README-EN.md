@@ -1,29 +1,16 @@
-# common_utils (Dart common utils library, Platforms: Flutter, web, other)
+Language: English | [中文简体](https://github.com/Sky24n/common_utils)
 
-[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
+[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square&color=009688)](https://pub.dartlang.org/packages/common_utils)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square&color=2196F3)](https://pub.flutter-io.cn/packages/common_utils)
 
-## [README of Chinese][readme]
 
-## Update Description  
-```dart
-/// DateUtil
-DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
-DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
-DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
-  
-/// TextUtil
-String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
-String num     = TextUtil.formatComma3("1234"); // 123,4
-String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
+## common_utils is a Dart common tools library.
 
-```
 
-## [common_utils] is a dart common tools library.  
 ### [common_utils](https://github.com/Sky24n/common_utils)  
- 1、TimelineUtil     : timeline util.(new)  
- 2、TimerUtil        : countdown，timer.(new)  
- 3、MoneyUtil        : fen to yuan, format output.(new)  
- 4、LogUtil          : simply encapsulate print logs.(new)  
+ 1、TimelineUtil     : timeline util.  
+ 2、TimerUtil        : countdown，timer.  
+ 3、MoneyUtil        : fen to yuan, format output.  
+ 4、LogUtil          : simply encapsulate print logs.  
  5、DateUtil         : date conversion formatted output.  
  6、RegexUtil        : Regular verification of mobile phone numbers, ID cards, mailboxes and so on.  
  7、NumUtil          : Keep [x] decimal places,add subtract multiply divide without loosing precision.  
@@ -41,28 +28,19 @@ String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 ```yaml
 dependencies:
   common_utils: x.x.x  #latest version
-
-or
-
-// git
-dependencies:
-  common_utils:
-    git:
-      url: git://github.com/Sky24n/common_utils.git
 ```
 ### APIs
 * #### SpUtil
-强大的SharedPreferences工具类，详细使用请参考原仓库[flustars][flustars_github]。
+SharedPreferences util.
 ```dart
-/// 等待Sp初始化完成。
+/// await sp initialized。
 await SpUtil.getInstance();  
   
-/// 同步使用Sp。支付默认值。
+/// support default value.
 String name = SpUtil.putString("key_username", "Sky24n");
 bool isShow = SpUtil.getBool("key_show", defValue: true);
   
 /// save object example.
-/// 存储实体对象示例。
 City city = new City();
 city.name = "成都市";
 SpUtil.putObject("loc_city", city);
@@ -72,7 +50,6 @@ print("City: " + (hisCity == null ? "null" : hisCit.toString()));
   
 
 /// save object list example.
-/// 存储实体对象list示例。
 List<City> list = new List();
 list.add(new City(name: "成都市"));
 list.add(new City(name: "北京市"));
@@ -83,12 +60,12 @@ print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
 ```
 * #### TextUtil
 ```
-isEmpty                     : isEmpty.(new)
-formatSpace4                : 每隔4位加空格.(new)
-formatComma3                : 每隔3三位加逗号.(new)
-hideNumber                   : 隐藏手机号，例如：158****8910.(new)
-replace                     : replace.(new)
-split                       : split.(new)
+isEmpty                     : isEmpty.
+formatSpace4                : 每隔4位加空格.
+formatComma3                : 每隔3三位加逗号.
+hideNumber                  : 隐藏手机号，例如：158****8910.
+replace                     : replace.
+split                       : split.
   
 /// example
 String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
@@ -98,9 +75,9 @@ String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 
 * #### EnDecodeUtil
 ```
-encodeMd5                   : md5 加密.(new)
-encodeBase64                : Base64加密.(new)
-decodeBase64()              : Base64解密.(new)
+encodeMd5                     : md5 加密.
+encodeBase64                : Base64加密.
+decodeBase64()              : Base64解密.
 ```
 ### APIs
 * #### TimelineUtil
@@ -204,9 +181,9 @@ enum DateFormat {
   ZH_HOUR_MINUTE_SECOND, //HH时mm分ss秒
   ZH_HOUR_MINUTE, //HH时mm分
 }
-formatDate                      : format Date DateTime.(new)
-formatDateStr                   : format Date DateStr.(new)
-formatDateMs                    : format Date milliseconds.(new)
+formatDate                      : format Date DateTime.
+formatDateStr                   : format Date DateStr.
+formatDateMs                    : format Date milliseconds.
 getNowDateMs                    : get Now Date milliseconds.
 getNowDateStr                   : get Now DateStr.(yyyy-MM-dd HH:mm:ss)
 getDateMsByTimeStr              : get DateMilliseconds By DateStr.
@@ -222,7 +199,7 @@ yearIsEqual                     : year is equal.
 getDayOfYear                    : get day of year..
 isYesterday                     : is yesterday.
 isToday                         : is Today.
-isWeek                          : is Week.(new)
+isWeek                          : is Week.
   
 // example
 DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
@@ -255,62 +232,3 @@ isEmpty                   : Object is empty.(String List Map).
 isNotEmpty                : Object is not empty.(String List Map).
 twoListIsEqual            : Two List Is Equal.
 ```
-
-### Example
-
-``` dart
-
-// Import package
-import 'package:common_utils/common_utils.dart';
-
-//DateUtil example
-String timeNow = DateUtil.getDateStrByDateTime(DateTime.now());//2018-09-16 23:14:56
-String timeNow = DateUtil.getDateStrByDateTime(DateTime.now(),format: DateFormat.ZH_NORMAL);//2018年09月16日 23时16分15秒
-String weekday = DateUtil.getWeekDay(DateTime.parse("2018-09-16"));//Sunday
-String weekdayZh = DateUtil.getZHWeekDay(DateTime.parse("2018-09-16"));//星期日
-
-//First Page init. Notice!!!
-ScreenUtil.getInstance().init(context);
-
-ScreenUtil.screenWidth
-ScreenUtil.screenHeight
-ScreenUtil.statusBarHeight
-ScreenUtil.screenDensity
-
-List listA = ["A", "B", "C"];
-List listB = ["A", "B", "C"];
-print("Two List Is Equal: " + ObjectUtil.twoListIsEqual(listA, listB).toString());
-
-// Global variable，Reference example
-WidgetUtil widgetUtil = new WidgetUtil();
-
-@override
-Widget build(BuildContext context) {
-  widgetUtil.asyncPrepare(context, false, (Rect rect) {
-     double width = rect.width;
-     double height = rect.height;
-  });
-    return ;
- }
-
-//Widgets must be rendered completely. Otherwise return Rect.zero.
-Rect rect = WidgetUtil.getWidgetBounds(context);
-double width = rect.width;
-double height = rect.height;
-
-//Widgets must be rendered completely. Otherwise return Offset.zero.
-Offset offset = WidgetUtil.getWidgetLocalToGlobal(context);
-double dx = offset.dx  
-double dx = offset.dy
-
-```
-
-
-
-
-
-
-[readme]: https://github.com/Sky24n/common_utils
-[readme-en]: https://github.com/Sky24n/common_utils/blob/master/README-EN.md
-
-
