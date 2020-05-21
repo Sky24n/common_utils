@@ -1,35 +1,23 @@
 Language: [English](README-EN.md) | 中文简体
 
-# common_utils (Dart常用工具类库)
-
-[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square)](https://pub.dartlang.org/packages/common_utils)
+[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square&color=009688)](https://pub.dartlang.org/packages/common_utils)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square&color=2196F3)](https://pub.flutter-io.cn/packages/common_utils)
 
 Dart常用工具类库。包含日期，正则，倒计时，定时任务，时间轴等工具类。如果你有好的工具类欢迎PR.
 
-### 使用方式：  
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
-// pub
 dependencies:
   common_utils: ^1.1.3
-
-or
-
-// git
-dependencies:
-  common_utils:
-    git:
-      url: git://github.com/Sky24n/common_utils.git
 ```
-
-2、如果您是Flutter项目，请使用Flutter常用工具类库 [flustars][flustars_github]，该库依赖于本库。  
+2、如果您是Flutter项目，请使用Flutter常用工具类库 [flustars][flustars_github]，该库依赖于本项目。  
 [flustars][flustars_github]库为大家提供更多的工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
 ```yaml
 dependencies:
   flustars: ^0.3.2  
 ```
 
-### Dart常用工具类库 [common_utils][common_utils_github]  
+Dart常用工具类库 [common_utils][common_utils_github]
+
  1、TimelineUtil     : 时间轴.  
  2、TimerUtil        : 倒计时，定时任务.  
  3、MoneyUtil        : 精确转换，元转分，分转元，支持格式输出.  
@@ -39,9 +27,9 @@ dependencies:
  7、NumUtil          : 保留x位小数, 精确加、减、乘、除, 防止精度丢失.  
  8、ObjectUtil       : 判断对象是否为空(String List Map),判断两个List是否相等.  
  9、EncryptUtil      : md5加密，Base64加/解密.  
-10、TextUtil         : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.  
- 
-### Flutter常用工具类库 [flustars][flustars_github]
+10、TextUtil         : 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.
+
+ Flutter常用工具类库 [flustars][flustars_github]  
  1、SpUtil           : 单例"同步"SharedPreferences工具类。支持get传入默认值，支持存储对象，支持存储对象数组。  
  2、ScreenUtil       : 屏幕适配，获取屏幕宽、高、密度，AppBar高，状态栏高度，屏幕方向.  
  3、WidgetUtil       : 监听Widget渲染状态，获取Widget宽高，在屏幕上的坐标，获取网络/本地图片尺寸.  
@@ -51,7 +39,7 @@ dependencies:
 
 ### APIs
 * #### SpUtil
-强大的SharedPreferences工具类，详细使用请参考原仓库[flustars][flustars_github]。
+强大易用的SharedPreferences工具类，详细使用请参考原仓库[flustars][flustars_github]。
 ```dart
 /// 等待Sp初始化完成。
 await SpUtil.getInstance();  
