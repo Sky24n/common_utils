@@ -1,10 +1,22 @@
-## 更新说明  
-v1.1.2 (2019.07.08) 暂未发布到pub。   
-1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.   
-2、新增EnDecodeUtil md5加密，Base64加/解密.   
+## 更新说明
+v1.1.3 (2019.07.10)  
+1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.  
+2、新增EnDecodeUtil md5加密，Base64加/解密.  
 3、DateUtil 新增日期格式化，支持自定义格式输出。  
 4、LogUtil 支持输出超长log。  
 5、RegexUtil 支持199号段。
+```dart
+/// DateUtil
+DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
+DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
+DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
+  
+/// TextUtil
+String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
+String num     = TextUtil.formatComma3("12345678"); // 12,345,678
+String phoneNo = TextUtil.hideNumber("15845678910"); // 158****8910
+
+```
 ```dart
 /// DateUtil
 DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14

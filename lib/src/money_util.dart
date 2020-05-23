@@ -71,7 +71,7 @@ class MoneyUtil {
   static String changeF2YWithUnit(int amount,
       {MoneyFormat format = MoneyFormat.NORMAL,
       MoneyUnit unit = MoneyUnit.NORMAL}) {
-    return _withUnit(changeF2Y(amount, format: format), unit);
+    return withUnit(changeF2Y(amount, format: format), unit);
   }
 
   /// yuan, format & unit  output.(yuan is int,double,str).
@@ -84,7 +84,7 @@ class MoneyUtil {
       int amount = changeY2F(yuan);
       yuanTxt = changeF2Y(amount.toInt(), format: format);
     }
-    return _withUnit(yuanTxt, unit);
+    return withUnit(yuanTxt, unit);
   }
 
   /// yuan to fen.
@@ -96,7 +96,7 @@ class MoneyUtil {
 
   /// with unit.
   /// 拼接单位.
-  static String _withUnit(String moneyTxt, MoneyUnit unit) {
+  static String withUnit(String moneyTxt, MoneyUnit unit) {
     if (moneyTxt == null || moneyTxt.isEmpty) return null;
     switch (unit) {
       case MoneyUnit.YUAN:

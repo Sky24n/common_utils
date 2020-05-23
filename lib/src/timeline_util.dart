@@ -32,7 +32,7 @@ abstract class TimelineInfo {
 
   String suffixAfter(); //suffix after(后缀 前).
 
-  int maxJustNowSecond() => 30;
+  int maxJustNowSecond() => 30; // max just now second.
 
   String lessThanOneMinute() => ''; //just now(刚刚).
 

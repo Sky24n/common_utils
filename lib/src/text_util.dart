@@ -44,6 +44,18 @@ class TextUtil {
     return formatDigitPatternEnd(num?.toString(), digit: 3, pattern: ',');
   }
 
+  /// 每隔3三位加逗号
+  /// num 数字或数字字符串。double型。
+  static String formatDoubleComma3(Object num,
+      {int digit = 3, String pattern = ','}) {
+    if (num == null) return '';
+    List<String> list = num.toString().split('.');
+    String left =
+        formatDigitPatternEnd(list[0], digit: digit, pattern: pattern);
+    String right = list[1];
+    return '$left.$right';
+  }
+
   /// hideNumber
   static String hideNumber(String phoneNo,
       {int start = 3, int end = 7, String replacement = '****'}) {

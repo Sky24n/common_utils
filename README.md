@@ -2,7 +2,7 @@ Language: [English](README-EN.md) | 中文简体
 
 [![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square&color=009688)](https://pub.dartlang.org/packages/common_utils)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Pub](https://img.shields.io/pub/v/common_utils.svg?style=flat-square&color=2196F3)](https://pub.flutter-io.cn/packages/common_utils)
 
-Dart常用工具类库。包含日期，正则，倒计时，定时任务，时间轴等工具类。如果你有好的工具类欢迎PR.
+Dart常用工具类库。包含日期，正则，倒计时，时间轴等工具类。如果你有好的工具类欢迎PR.
 
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
@@ -38,7 +38,7 @@ Flutter常用工具类库 [flustars][flustars_github]
  
 
 ### APIs
-* #### SpUtil
+* SpUtil
 强大易用的SharedPreferences工具类，详细使用请参考原仓库[flustars][flustars_github]。
 ```dart
 /// 等待Sp初始化完成。
@@ -66,7 +66,7 @@ List<City> _cityList = SpUtil.getObjList("loc_city_list", (v) => City.fromJson(v
 print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
 ```
 
-* #### DateUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/date_page.dart)
+* DateUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/date_page.dart)
 ```
 /// 一些常用格式参照。可以自定义格式，例如："yyyy/MM/dd HH:mm:ss"，"yyyy/M/d HH:mm:ss"。
 /// 格式要求
@@ -92,9 +92,9 @@ class DataFormats {
   static String zh_h_m = "HH时mm分";
 }
 
-getDateTimeByMs                 :
-getDateMsByTimeStr              :
-formatDateMs                    : 获取现在 毫秒.
+getDateTimeByMs                 : .
+getDateMsByTimeStr              : .
+getNowDateMs                    : 获取现在 毫秒.
 getNowDateStr                   : 获取现在 日期字符串.(yyyy-MM-dd HH:mm:ss)
 formatDate                      : 格式化日期 DateTime.
 formatDateStr                   : 格式化日期 字符串.
@@ -113,7 +113,7 @@ DateUtil.formatDateStr('2019-07-09 16:16:16', format: "yyyy/M/d HH:mm:ss"); //20
 DateUtil.formatDate(DateTime.now(), format: DataFormats.zh_full); //2019年07月09日 16时16分16秒
 ```
 
-* #### EncryptUtil
+* EncryptUtil
 ```
 encodeMd5                   : md5 加密.
 encodeBase64                : Base64加密.
@@ -128,85 +128,43 @@ String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
 String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
 ```
 
-
-* #### TextUtil
+* JsonUtil
 ```
-isEmpty                     : isEmpty.
-formatSpace4                : 每隔4位加空格，格式化银行卡.
-formatComma3                : 每隔3三位加逗号.
-hideNumber                  : 隐藏号码.
-replace                     : replace.
-split                       : split.
-  
-/// example
-String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
-String num     = TextUtil.formatComma3("1234"); // 123,4
-String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
+encodeObj                   : object to json string.
+getObj                      : json string to object.
+getObject                   : json string / map to object.
+getObjList                  : json string list to object list.
+getObjectList               : json string / map list to object list.
+
+String objStr = "{\"name\":\"成都市\"}";
+City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
+String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
+List<City> cityList = JsonUtil.getObjList(listStr, (v) => City.fromJson(v));
 ```
 
-
-
-* #### TimelineUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timeline_page.dart)
+* LogUtil
 ```
-///(xx)为可配置输出
-enum DayFormat {
-  ///(小于10s->刚刚)、x分钟、x小时、(昨天)、x天.
-  Simple,
-  ///(小于10s->刚刚)、x分钟、x小时、[今年: (昨天/1天前)、(2天前)、MM-dd],[往年: yyyy-MM-dd].
-  Common,
-  ///小于10s->刚刚)、x分钟、x小时、[今年: (昨天 HH:mm/1天前)、(2天前)、MM-dd HH:mm],[往年: yyyy-MM-dd HH:mm].
-  Full,
-}
-///Timeline信息配置.
-abstract class TimelineInfo {
-  String suffixAgo(); //suffix ago(后缀 后).
-  String suffixAfter(); //suffix after(后缀 前).
-  String lessThanTenSecond() => ''; //just now(刚刚).
-  String customYesterday() => ''; //Yesterday(昨天).优先级高于keepOneDay
-  bool keepOneDay(); //保持1天,example: true -> 1天前, false -> MM-dd.
-  bool keepTwoDays(); //保持2天,example: true -> 2天前, false -> MM-dd.
-  String oneMinute(int minutes); //a minute(1分钟).
-  String minutes(int minutes); //x minutes(x分钟).
-  String anHour(int hours); //an hour(1小时).
-  String hours(int hours); //x hours(x小时).
-  String oneDay(int days); //a day(1天).
-  String days(int days); //x days(x天).
-  DayFormat dayFormat(); //format.
-}
-setLocaleInfo               : 自定义设置配置信息.
-formatByDateTime            : 格式输出时间轴信息 by DateTime .
-format                      : 格式输出时间轴信息.
+init(tag, isDebug, maxLen)  : tag 标签, isDebug: 模式, maxLen 每行最大长度.
+e(object, tag)              : 日志e
+v(object, tag)              : 日志v，只在debug模式输出.
+
+//超长log查看
+common_utils e  — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —
+common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
+common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
+common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
 ```
 
-* #### TimerUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timer_page.dart)
-```
-setInterval                 : 设置Timer间隔.
-setTotalTime                : 设置倒计时总时间.
-startTimer()                : 启动定时Timer.
-startCountDown              : 启动倒计时Timer.
-updateTotalTime             : 重设倒计时总时间.
-cancel                      : 取消计时器.
-setOnTimerTickCallback      : 计时器回调.
-isActive                    : Timer是否启动.
-```
-
-* #### MoneyUtil 精确转换,防止精度丢失 -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/money_page.dart)
+* MoneyUtil 精确转换,防止精度丢失 -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/money_page.dart)
 ```
 changeF2Y                   : 分 转 元, format格式输出.
 changeFStr2YWithUnit        : 分字符串 转 元, format 与 unit 格式 输出.
 changeF2YWithUnit           : 分 转 元, format 与 unit 格式 输出.
 changeYWithUnit             : 元, format 与 unit 格式 输出.
-changeY2F                   : 元 转 分.
+changeY2F                   : 元 转 分. 
 ```
 
-* #### LogUtil
-```
-init(isDebug, tag)          : isDebug: 模式, tag 标签.
-e(object, tag)              : 日志e
-v(object, tag)              : 日志v，只在debug模式输出.
-```
-
-* #### NumUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/num_util_page.dart)
+* NumUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/num_util_page.dart)
 ```
 getIntByValueStr            : 数字字符串转int.
 getDoubleByValueStr         : 数字字符串转double.
@@ -224,9 +182,17 @@ greaterThan                 : > .
 greaterOrEqual              : >= .
 ```
 
+* ObjectUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/object_util_page.dart)
+```
+isEmptyString             : 判断String是否为空.
+isEmptyList               : 判断List是否为空.
+isEmptyMap                : 判断Map是否为空.
+isEmpty                   : 判断对象是否为空.(String List Map).
+isNotEmpty                : 判断对象是否非空.(String List Map).
+twoListIsEqual            : 判断两个List是否相等.
+```
 
-
-* #### RegexUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/regex_page.dart)
+* RegexUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/regex_page.dart)
 ```
 isMobileSimple            : 简单验证手机号
 isMobileExact             : 精确验证手机号
@@ -242,14 +208,65 @@ isDate                    : 验证 yyyy-MM-dd 格式的日期校验，已考虑�
 isIP                      : 验证 IP 地址
 ```
 
-* #### ObjectUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/object_util_page.dart)
+* TextUtil
 ```
-isEmptyString             : 判断String是否为空.
-isEmptyList               : 判断List是否为空.
-isEmptyMap                : 判断Map是否为空.
-isEmpty                   : 判断对象是否为空.(String List Map).
-isNotEmpty                : 判断对象是否非空.(String List Map).
-twoListIsEqual            : 判断两个List是否相等.
+isEmpty                     : isEmpty.
+formatSpace4                : 每隔4位加空格，格式化银行卡.
+formatComma3                : 每隔3三位加逗号.
+formatDoubleComma3          : 每隔3三位加逗号.
+hideNumber                  : 隐藏号码.
+replace                     : replace.
+split                       : split.
+reverse                     : reverse.
+  
+/// example
+String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
+String num     = TextUtil.formatComma3("1234"); // 123,4
+String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
+```
+
+* TimelineUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timeline_page.dart)
+```
+///(xx)为可配置输出
+enum DayFormat {
+  ///(小于10s->刚刚)、x分钟、x小时、(昨天)、x天.
+  Simple,
+  ///(小于10s->刚刚)、x分钟、x小时、[今年: (昨天/1天前)、(2天前)、MM-dd],[往年: yyyy-MM-dd].
+  Common,
+  ///小于10s->刚刚)、x分钟、x小时、[今年: (昨天 HH:mm/1天前)、(2天前)、MM-dd HH:mm],[往年: yyyy-MM-dd HH:mm].
+  Full,
+}
+///Timeline信息配置.
+abstract class TimelineInfo {
+  String suffixAgo(); //suffix ago(后缀 后).
+  String suffixAfter(); //suffix after(后缀 前).
+  int maxJustNowSecond() => 30; // max just now second.
+  String lessThanOneMinute() => ''; //just now(刚刚).
+  String customYesterday() => ''; //Yesterday(昨天).优先级高于keepOneDay
+  bool keepOneDay(); //保持1天,example: true -> 1天前, false -> MM-dd.
+  bool keepTwoDays(); //保持2天,example: true -> 2天前, false -> MM-dd.
+  String minutes(int minutes); //x minutes(x分钟).
+  String hours(int hours); //x hours(x小时).
+  String oneDay(int days); //a day(1天).
+  String days(int days); //x days(x天).
+  DayFormat dayFormat(); //format.
+}
+setLocaleInfo               : 自定义设置配置信息.
+formatByDateTime            : 格式输出时间轴信息 by DateTime .
+format                      : 格式输出时间轴信息.
+formatA                     : 格式输出时间轴信息. like QQ.
+```
+
+* TimerUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/timer_page.dart)
+```
+setInterval                 : 设置Timer间隔.
+setTotalTime                : 设置倒计时总时间.
+startTimer()                : 启动定时Timer.
+startCountDown              : 启动倒计时Timer.
+updateTotalTime             : 重设倒计时总时间.
+cancel                      : 取消计时器.
+setOnTimerTickCallback      : 计时器回调.
+isActive                    : Timer是否启动.
 ```
 
 ### [Flutter Demos](https://github.com/Sky24n/flutter_wanandroid/tree/master/lib/demos)   
@@ -263,10 +280,10 @@ twoListIsEqual            : 判断两个List是否相等.
 >    - |-- regex_page.dart 正则工具类示例
 >    - |-- round_portrait_page.dart 圆形圆角头像示例
 >    - |-- timeline_page.dart 时间轴示例
->    - |-- timer_page.dart 倒计时/定时任务示例
+>    - |-- timer_page.dart 倒计时/定时器示例
 >    - |-- widget_page.dart 获取Widget尺寸/屏幕坐标示例
 
-## 点击下载APK : [v0.1.x][flutter_wanandroid_apk] 
+## 点击下载APK : [flutter_wanandroid](https://github.com/Sky24n/Doc)
 ## 扫码下载APK :
   ![flutter_wanandroid][flutter_wanandroid_qr] 
 
@@ -280,11 +297,10 @@ a14n [decimal](https://github.com/a14n/dart-decimal) 精确运算，避免精度
 GitHub : [Sky24n](https://github.com/Sky24n)  
 简书 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://www.jianshu.com/u/cbf2ad25d33a)  
 掘金 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://juejin.im/user/5b9e8a92e51d453df0440422/posts)  
-Pub &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://pub.flutter-io.cn/packages?q=email%3A863764940%40qq.com)    
-Email &nbsp;&nbsp;: 863764940@qq.com  
+Pub &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://pub.flutter-io.cn/packages?q=email%3Asky24no%40gmail.com)
 
 ### [Change Log](CHANGE_LOG.md)
-v1.2.0 (2019.05.10)   
+v1.2.0 (2020.05.23)  
 1、新增JsonUtil。  
 2、新增EncryptUtil 简单加解密。  
 3、LogUtil 更新。
@@ -304,25 +320,6 @@ common_utils e  — — — — — — — — — — — — — — — — 
 common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
 common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
 common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
-```
-
-v1.1.3 (2019.07.10)   
-1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.   
-2、新增EnDecodeUtil md5加密，Base64加/解密.   
-3、DateUtil 新增日期格式化，支持自定义格式输出。  
-4、LogUtil 支持输出超长log。  
-5、RegexUtil 支持199号段。
-```dart
-/// DateUtil
-DateUtil.formatDateMs(DateTime.now().millisecondsSinceEpoch, format: DataFormats.full); // 2019-07-09 16:51:14
-DateUtil.formatDateStr("2019-07-09 16:51:14", format: "yyyy/M/d HH:mm:ss"); // 2019/7/9 16:51:14
-DateUtil.formatDate(DateTime.now(), format: "yyyy/MM/dd HH:mm:ss");  // 2019/07/09 16:51:14
-  
-/// TextUtil
-String phoneNo = TextUtil.formatSpace4("15845678910"); // 1584 5678 910
-String num     = TextUtil.formatComma3("12345678"); // 12,345,678
-String phoneNo = TextUtil.hideNumber("15845678910"); // 158****8910
-
 ```
 
 [flutter_wanandroid_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_wanandroid.apk

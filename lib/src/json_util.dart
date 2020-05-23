@@ -9,10 +9,12 @@ import 'dart:convert';
 
 /// Json Util.
 class JsonUtil {
+  /// Converts object [value] to a JSON string.
   static String encodeObj(Object value) {
     return value == null ? null : json.encode(value);
   }
 
+  /// Converts JSON string [source] to object.
   static T getObj<T>(String source, T f(Map v)) {
     if (source == null || source.isEmpty) return null;
     try {
@@ -24,6 +26,7 @@ class JsonUtil {
     return null;
   }
 
+  /// Converts JSON string or JSON map [source] to object.
   static T getObject<T>(Object source, T f(Map v)) {
     if (source == null || source.toString().isEmpty) return null;
     try {
@@ -40,6 +43,7 @@ class JsonUtil {
     return null;
   }
 
+  /// Converts JSON string list [source] to object list.
   static List<T> getObjList<T>(String source, T f(Map v)) {
     if (source == null || source.isEmpty) return null;
     try {
@@ -53,6 +57,7 @@ class JsonUtil {
     return null;
   }
 
+  /// Converts JSON string or JSON map list [source] to object list.
   static List<T> getObjectList<T>(Object source, T f(Map v)) {
     if (source == null || source.toString().isEmpty) return null;
     try {
