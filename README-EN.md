@@ -4,12 +4,12 @@ Language: English | [中文简体](https://github.com/Sky24n/common_utils)
 
 ## common_utils is a Dart common utils library.
 
-1、Dart project dependencies。
+1、Dart project dependencies.
 ```yaml
 dependencies:
-  common_utils: ^1.1.3
+  common_utils: ^1.2.0
 ```
-2、Dart project dependencies, [flustars][flustars_github] is a Flutter common utils library.More SpUtil，ScreenUtil, DirectoryUtil。
+2、Dart project dependencies, [flustars][flustars_github] is a Flutter common utils library. More SpUtil, ScreenUtil, DirectoryUtil.
 ```yaml
 dependencies:
   flustars: ^0.3.2  
@@ -205,6 +205,8 @@ isURL                     :
 isZh                      : 
 isDate                    : 
 isIP                      : 
+isUserName                :
+isQQ                      :
 ```
 
 * TextUtil

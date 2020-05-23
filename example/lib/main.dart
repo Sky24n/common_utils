@@ -42,7 +42,7 @@ void main() {
   LogUtil.e("---------------- LogUtil st ----------------");
   //LogUtil.init(isDebug: true, tag: "test", maxLen: 128);
   LogUtil.init(isDebug: true);
-  StringBuffer sb = new StringBuffer();
+  StringBuffer sb = StringBuffer();
   for (int i = 1; i <= 160; i++) {
     sb.write('$i,');
   }
@@ -117,12 +117,12 @@ void main() {
         languageCode: 'zh',
         short: true,
       ).toString());
-  LogUtil.e("---------------- TimerUtil en ----------------\n");
+  LogUtil.e("---------------- TimelineUtil en ----------------\n");
 
   LogUtil.e("---------------- TimerUtil st ----------------");
   TimerUtil timerUtil;
   //定时任务test
-  timerUtil = new TimerUtil(mInterval: 1000);
+  timerUtil = TimerUtil(mInterval: 1000);
   //timerUtil.setInterval(1000);
   timerUtil.setOnTimerTickCallback((int value) {
     LogUtil.e("TimerTick: " + value.toString());
@@ -132,16 +132,16 @@ void main() {
 
   TimerUtil timerCountDown;
   //倒计时test
-  timerCountDown = new TimerUtil(mInterval: 1000, mTotalTime: 3 * 1000);
+  timerCountDown = TimerUtil(mInterval: 1000, mTotalTime: 3 * 1000);
 //    timerCountDown.setInterval(1000);
 //    timerCountDown.setTotalTime(3 * 1000);
   timerCountDown.setOnTimerTickCallback((int value) {
     double tick = (value / 1000);
     LogUtil.e("CountDown: " + tick.toInt().toString());
   });
-  timerCountDown.startCountDown();
+  //timerCountDown.startCountDown();
   //if (timerCountDown != null) timerCountDown.cancel(); //dispose()
-  LogUtil.e("---------------- TimelineUtil en ----------------\n");
+  LogUtil.e("---------------- TimerUtil en ----------------\n");
 }
 
 class City {

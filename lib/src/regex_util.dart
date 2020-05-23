@@ -87,6 +87,24 @@ class RegexUtil {
   static final String regexIp =
       "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
 
+  /// must contain letters and numbers, 6 ~ 18.
+  /// 必须包含字母和数字, 6~18.
+  static const String regexUsername =
+      "^(?![0-9]+\$)(?![a-zA-Z]+\$)[0-9A-Za-z]{6,18}\$";
+
+  /// must contain letters and numbers, can contain special characters 6 ~ 18.
+  /// 必须包含字母和数字,可包含特殊字符 6~18.
+  static const String regexUsername2 =
+      "^(?![0-9]+\$)(?![a-zA-Z]+\$)[0-9A-Za-z\\W]{6,18}\$";
+
+  /// must contain letters and numbers and special characters, 6 ~ 18.
+  /// 必须包含字母和数字和殊字符, 6~18.
+  static const String regexUsername3 =
+      "^(?![0-9]+\$)(?![a-zA-Z]+\$)(?![0-9a-zA-Z]+\$)(?![0-9\\W]+\$)(?![a-zA-Z\\W]+\$)[0-9A-Za-z\\W]{6,18}\$";
+
+  /// Regex of QQ number.
+  static final String regexQQ = "[1-9][0-9]{4,}";
+
   static final Map<String, String> cityMap = Map();
 
   ///Return whether input matches regex of simple mobile.
@@ -188,6 +206,16 @@ class RegexUtil {
   /// Return whether input matches regex of ip address.
   static bool isIP(String input) {
     return matches(regexIp, input);
+  }
+
+  /// Return whether input matches regex of username.
+  static bool isUserName(String input, {String regex = regexUsername}) {
+    return matches(regex, input);
+  }
+
+  /// Return whether input matches regex of QQ.
+  static bool isQQ(String input) {
+    return matches(regexQQ, input);
   }
 
   static bool matches(String regex, String input) {

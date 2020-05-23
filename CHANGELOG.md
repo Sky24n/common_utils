@@ -1,6 +1,10 @@
+## 1.2.0
+
+* TODO: add JsonUtil, EncryptUtil, Some updates.
+
 ## 1.1.3
 
-* TODO: TextUtil, EnDecodeUtil, Some updates. 
+* TODO: TextUtil, EnDecodeUtil, Some updates.
 ## 1.1.1
 
 * TODO: Some updates. 

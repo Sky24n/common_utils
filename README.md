@@ -7,7 +7,7 @@ Dart常用工具类库。包含日期，正则，倒计时，时间轴等工具�
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
 dependencies:
-  common_utils: ^1.1.3
+  common_utils: ^1.2.0
 ```
 2、如果您是Flutter项目，请使用Flutter常用工具类库 [flustars][flustars_github]，该库依赖于本项目。[flustars][flustars_github]库为大家提供更多的工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
 ```yaml
@@ -206,6 +206,8 @@ isURL                     : 验证 URL
 isZh                      : 验证汉字
 isDate                    : 验证 yyyy-MM-dd 格式的日期校验，已考虑平闰年
 isIP                      : 验证 IP 地址
+isUserName                : 验证用户名
+isQQ                      : 验证 QQ
 ```
 
 * TextUtil
@@ -295,9 +297,8 @@ a14n [decimal](https://github.com/a14n/dart-decimal) 精确运算，避免精度
 
 ### 关于作者
 GitHub : [Sky24n](https://github.com/Sky24n)  
-简书 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://www.jianshu.com/u/cbf2ad25d33a)  
 掘金 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://juejin.im/user/5b9e8a92e51d453df0440422/posts)  
-Pub &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://pub.flutter-io.cn/packages?q=email%3Asky24no%40gmail.com)
+简书 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://www.jianshu.com/u/cbf2ad25d33a)
 
 ### [Change Log](CHANGE_LOG.md)
 v1.2.0 (2020.05.23)  
@@ -322,7 +323,8 @@ common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
 common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
 ```
 
-[flutter_wanandroid_apk]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppStore/flutter_wanandroid.apk
+
+
 [flutter_wanandroid_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_wanandroid/qrcode.png
 
 [common_utils_github]: https://github.com/Sky24n/common_utils
