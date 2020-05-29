@@ -1,3 +1,7 @@
+## 1.2.1
+
+* TODO: fix DataFormats -> DateFormats, fix TimelineInfo bugs.
+
 ## 1.2.0
 
 * TODO: add JsonUtil, EncryptUtil, Some updates.

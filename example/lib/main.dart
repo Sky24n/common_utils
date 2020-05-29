@@ -8,9 +8,9 @@ void main() {
   DateTime dateTime = DateUtil.getDateTime(dateStr);
   DateTime now = DateTime.now();
   int dateMs = DateUtil.getDateMsByTimeStr(dateStr);
-  String nowStr1 = DateUtil.formatDateMs(dateMs, format: DataFormats.full);
+  String nowStr1 = DateUtil.formatDateMs(dateMs, format: DateFormats.full);
   String nowStr2 = DateUtil.formatDateStr(dateStr, format: "yyyy/M/d HH:mm:ss");
-  String nowStr3 = DateUtil.formatDate(dateTime, format: DataFormats.zh_full);
+  String nowStr3 = DateUtil.formatDate(dateTime, format: DateFormats.zh_full);
   String nowStr4 = DateUtil.formatDate(dateTime, format: 'yyyy年M月d日 HH时mm分ss秒');
   LogUtil.e('nowStr1: $nowStr1'); //2020-05-15 16:58:47
   LogUtil.e('nowStr2: $nowStr2'); //2019/7/9 16:16:16
@@ -98,13 +98,13 @@ void main() {
   LogUtil.e("---------------- TextUtil en ----------------\n");
 
   LogUtil.e("---------------- TimelineUtil st ----------------");
-  DateTime dateTime1 = DateTime(2020, 5, 19, 23, 36, 31);
-//  DateTime locDateTime = DateTime(2020, 5, 20, 23, 36, 00);
+  DateTime dateTime1 = DateTime(2020, 5, 20, 22, 30, 00);
+  DateTime locDateTime = DateTime(2020, 5, 20, 23, 30, 00);
   LogUtil.e("Timeline: " +
       TimelineUtil.formatByDateTime(
         dateTime1,
-        //locDateTime: locDateTime,
-        locale: 'zh',
+        locDateTime: locDateTime,
+        //locale: 'zh',
       ).toString());
   LogUtil.e("Timeline: " +
       TimelineUtil.formatByDateTime(

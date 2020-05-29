@@ -42,11 +42,11 @@ abstract class TimelineInfo {
 
   bool keepTwoDays(); //保持2天,example: true -> 2天前, false -> MM-dd.
 
-//  String oneMinute(int minutes); //a minute(1分钟).
+  String oneMinute(int minutes); //a minute(1分钟).
 
   String minutes(int minutes); //x minutes(x分钟).
 
-//  String anHour(int hours); //an hour(1小时).
+  String anHour(int hours); //an hour(1小时).
 
   String hours(int hours); //x hours(x小时).
 
@@ -73,11 +73,11 @@ class ZhInfo implements TimelineInfo {
 
   bool keepTwoDays() => true;
 
-//  String oneMinute(int minutes) => '$minutes分钟';
+  String oneMinute(int minutes) => '$minutes分钟';
 
   String minutes(int minutes) => '$minutes分钟';
 
-//  String anHour(int hours) => '$hours小时';
+  String anHour(int hours) => '$hours小时';
 
   String hours(int hours) => '$hours小时';
 
@@ -103,11 +103,11 @@ class EnInfo implements TimelineInfo {
 
   bool keepTwoDays() => true;
 
-//  String oneMinute(int minutes) => 'a minute';
+  String oneMinute(int minutes) => 'a minute';
 
   String minutes(int minutes) => '$minutes minutes';
 
-//  String anHour(int hours) => 'an hour';
+  String anHour(int hours) => 'an hour';
 
   String hours(int hours) => '$hours hours';
 
@@ -133,11 +133,11 @@ class ZhNormalInfo implements TimelineInfo {
 
   bool keepTwoDays() => false;
 
-//  String oneMinute(int minutes) => '$minutes分钟';
+  String oneMinute(int minutes) => '$minutes分钟';
 
   String minutes(int minutes) => '$minutes分钟';
 
-//  String anHour(int hours) => '$hours小时';
+  String anHour(int hours) => '$hours小时';
 
   String hours(int hours) => '$hours小时';
 
@@ -163,11 +163,11 @@ class EnNormalInfo implements TimelineInfo {
 
   bool keepTwoDays() => false;
 
-//  String oneMinute(int minutes) => 'a minute';
+  String oneMinute(int minutes) => 'a minute';
 
   String minutes(int minutes) => '$minutes minutes';
 
-//  String anHour(int hours) => 'an hour';
+  String anHour(int hours) => 'an hour';
 
   String hours(int hours) => '$hours hours';
 
@@ -257,8 +257,8 @@ class TimelineUtil {
     final num minutes = seconds / 60;
     final num hours = minutes / 60;
     final num days = hours / 24;
-    if (seconds < 60) {
-      timeline = _info.minutes(1);
+    if (seconds < 90) {
+      timeline = _info.oneMinute(1);
       if (suffix != _info.suffixAfter() &&
           _info.lessThanOneMinute().isNotEmpty &&
           seconds < _info.maxJustNowSecond()) {
@@ -267,6 +267,8 @@ class TimelineUtil {
       }
     } else if (minutes < 60) {
       timeline = _info.minutes(minutes.round());
+    } else if (minutes < 90) {
+      timeline = _info.anHour(1);
     } else if (hours < 24) {
       timeline = _info.hours(hours.round());
     } else {

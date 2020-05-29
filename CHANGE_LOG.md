@@ -1,6 +1,30 @@
 ## 更新说明
-v1.1.3 (2019.07.10)  
-1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.  
+#### v1.2.1 (2020.05.29)
+1、fix DataFormats -> DateFormats。  
+2、fix TimelineInfo bugs。
+
+#### v1.2.0 (2020.05.23)
+1、新增JsonUtil。  
+2、新增EncryptUtil 简单加解密。  
+3、LogUtil 更新。
+```yaml
+String objStr = "{\"name\":\"成都市\"}";
+City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
+String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
+List<City> cityList = JsonUtil.getObjList(listStr, (v) => City.fromJson(v));
+
+const String key = '11, 22, 33, 44, 55, 66';
+String userName = 'Sky24n';
+String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
+String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
+
+//超长log查看
+common_utils e  — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —
+common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
+common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
+common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
+```
+#### v1.1.3 (2019.07.10)  1、新增TextUtil 银行卡号每隔4位加空格，每隔3三位加逗号，隐藏手机号等等.
 2、新增EnDecodeUtil md5加密，Base64加/解密.  
 3、DateUtil 新增日期格式化，支持自定义格式输出。  
 4、LogUtil 支持输出超长log。  

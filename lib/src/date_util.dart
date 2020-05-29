@@ -9,7 +9,7 @@
 /// 格式要求
 /// year -> yyyy/yy   month -> MM/M    day -> dd/d
 /// hour -> HH/H      minute -> mm/m   second -> ss/s
-class DataFormats {
+class DateFormats {
   static String full = "yyyy-MM-dd HH:mm:ss";
   static String y_mo_d_h_m = "yyyy-MM-dd HH:mm";
   static String y_mo_d = "yyyy-MM-dd";
@@ -96,13 +96,13 @@ class DateUtil {
   }
 
   /// format date by DateTime.
-  /// format 转换格式(已提供常用格式 DataFormats，可以自定义格式："yyyy/MM/dd HH:mm:ss")
+  /// format 转换格式(已提供常用格式 DateFormats，可以自定义格式："yyyy/MM/dd HH:mm:ss")
   /// 格式要求
   /// year -> yyyy/yy   month -> MM/M    day -> dd/d
   /// hour -> HH/H      minute -> mm/m   second -> ss/s
   static String formatDate(DateTime dateTime, {String format}) {
     if (dateTime == null) return "";
-    format = format ?? DataFormats.full;
+    format = format ?? DateFormats.full;
     if (format.contains("yy")) {
       String year = dateTime.year.toString();
       if (format.contains("yyyy")) {

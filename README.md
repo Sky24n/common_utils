@@ -7,7 +7,7 @@ Dart常用工具类库。包含日期，正则，倒计时，时间轴等工具�
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
 dependencies:
-  common_utils: ^1.2.0
+  common_utils: ^1.2.1
 ```
 2、如果您是Flutter项目，请使用Flutter常用工具类库 [flustars][flustars_github]，该库依赖于本项目。[flustars][flustars_github]库为大家提供更多的工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
 ```yaml
@@ -231,11 +231,11 @@ String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 ```
 ///(xx)为可配置输出
 enum DayFormat {
-  ///(小于10s->刚刚)、x分钟、x小时、(昨天)、x天.
+  ///(小于30s->刚刚)、x分钟、x小时、(昨天)、x天.
   Simple,
-  ///(小于10s->刚刚)、x分钟、x小时、[今年: (昨天/1天前)、(2天前)、MM-dd],[往年: yyyy-MM-dd].
+  ///(小于30s->刚刚)、x分钟、x小时、[今年: (昨天/1天前)、(2天前)、MM-dd],[往年: yyyy-MM-dd].
   Common,
-  ///小于10s->刚刚)、x分钟、x小时、[今年: (昨天 HH:mm/1天前)、(2天前)、MM-dd HH:mm],[往年: yyyy-MM-dd HH:mm].
+  ///小于30s->刚刚)、x分钟、x小时、[今年: (昨天 HH:mm/1天前)、(2天前)、MM-dd HH:mm],[往年: yyyy-MM-dd HH:mm].
   Full,
 }
 ///Timeline信息配置.
@@ -247,11 +247,12 @@ abstract class TimelineInfo {
   String customYesterday() => ''; //Yesterday(昨天).优先级高于keepOneDay
   bool keepOneDay(); //保持1天,example: true -> 1天前, false -> MM-dd.
   bool keepTwoDays(); //保持2天,example: true -> 2天前, false -> MM-dd.
+  String oneMinute(int minutes); //a minute(1分钟).
   String minutes(int minutes); //x minutes(x分钟).
+  String anHour(int hours); //an hour(1小时).
   String hours(int hours); //x hours(x小时).
   String oneDay(int days); //a day(1天).
   String days(int days); //x days(x天).
-  DayFormat dayFormat(); //format.
 }
 setLocaleInfo               : 自定义设置配置信息.
 formatByDateTime            : 格式输出时间轴信息 by DateTime .
@@ -285,9 +286,7 @@ isActive                    : Timer是否启动.
 >    - |-- timer_page.dart 倒计时/定时器示例
 >    - |-- widget_page.dart 获取Widget尺寸/屏幕坐标示例
 
-## 点击下载APK : [flutter_wanandroid](https://github.com/Sky24n/Doc)
-## 扫码下载APK :
-  ![flutter_wanandroid][flutter_wanandroid_qr] 
+### Demo Apk : [flutter_wanandroid](https://github.com/Sky24n/Doc)
 
 ### Big Thanks
 本库部分源码参考，正则，时间轴。  
@@ -301,6 +300,10 @@ GitHub : [Sky24n](https://github.com/Sky24n)
 简书 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://www.jianshu.com/u/cbf2ad25d33a)
 
 ### [Change Log](CHANGE_LOG.md)
+v1.2.1 (2020.05.29)  
+1、fix DataFormats -> DateFormats。  
+2、fix TimelineInfo bugs。
+
 v1.2.0 (2020.05.23)  
 1、新增JsonUtil。  
 2、新增EncryptUtil 简单加解密。  
@@ -322,8 +325,6 @@ common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,2
 common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
 common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
 ```
-
-
 
 [flutter_wanandroid_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_wanandroid/qrcode.png
 

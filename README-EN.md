@@ -7,7 +7,7 @@ Language: English | [中文简体](https://github.com/Sky24n/common_utils)
 1、Dart project dependencies.
 ```yaml
 dependencies:
-  common_utils: ^1.2.0
+  common_utils: ^1.2.1
 ```
 2、Dart project dependencies, [flustars][flustars_github] is a Flutter common utils library. More SpUtil, ScreenUtil, DirectoryUtil.
 ```yaml
@@ -230,26 +230,28 @@ String phoneNo = TextUtil.hideNumber("15845678910")// 158****8910
 ```
 ///(xx)Configurable output.
 enum DayFormat {
-  ///(less than 10s->just now)、x minutes、x hours、(Yesterday)、x days.
+  ///(less than 30s->just now)、x minutes、x hours、(Yesterday)、x days.
   Simple,
-  ///(less than 10s->just now)、x minutes、x hours、[This year:(Yesterday/a day ago)、(two days age)、MM-dd ]、[past years: yyyy-MM-dd]
+  ///(less than 30s->just now)、x minutes、x hours、[This year:(Yesterday/a day ago)、(two days age)、MM-dd ]、[past years: yyyy-MM-dd]
   Common,
-  ///(less than 10s->just now)、x minutes、x hours、[This year:(Yesterday HH:mm/a day ago)、(two days age)、MM-dd HH:mm]、[past years: yyyy-MM-dd HH:mm]
+  ///(less than 30s->just now)、x minutes、x hours、[This year:(Yesterday HH:mm/a day ago)、(two days age)、MM-dd HH:mm]、[past years: yyyy-MM-dd HH:mm]
   Full,
 }
 ///Timeline information configuration.
 abstract class TimelineInfo {
   String suffixAgo(); //suffix ago(后缀 后).
   String suffixAfter(); //suffix after(后缀 前).
-  String lessThanTenSecond() => ''; //just now(刚刚).
+  int maxJustNowSecond() => 30; // max just now second.
+  String lessThanOneMinute() => ''; //just now(刚刚).
   String customYesterday() => ''; //Yesterday(昨天).优先级高于keepOneDay
   bool keepOneDay(); //保持1天,example: true -> 1天前, false -> MM-dd.
   bool keepTwoDays(); //保持2天,example: true -> 2天前, false -> MM-dd.
+  String oneMinute(int minutes); //a minute(1分钟).
   String minutes(int minutes); //x minutes(x分钟).
+  String anHour(int hours); //an hour(1小时).
   String hours(int hours); //x hours(x小时).
   String oneDay(int days); //a day(1天).
   String days(int days); //x days(x天).
-  DayFormat dayFormat(); //format.
 }
 setLocaleInfo               : add custom configuration.
 formatByDateTime            : timeline format output by DateTime .
@@ -284,12 +286,18 @@ isActive                    : timer is Active.
 >    - |-- timer_page.dart
 >    - |-- widget_page.dart
 
-### APK : [flutter_wanandroid](https://github.com/Sky24n/Doc/blob/master/apks/flutter_wanandroid.apk)
+### Demo Apk : [flutter_wanandroid](https://github.com/Sky24n/Doc)
 
 ### Big Thanks
 Blankj [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)。  
 Andres Araujo [timeago](https://github.com/andresaraujo/timeago.dart)。  
 a14n [decimal](https://github.com/a14n/dart-decimal)。
+
+### [Change Log](CHANGELOG.md)
+v1.2.1 (2020.05.29)  
+1、fix DataFormats -> DateFormats。  
+2、fix TimelineInfo bugs。
+
 
 [flustars_github]: https://github.com/Sky24n/flustars
 [common_utils_github]: https://github.com/Sky24n/common_utils
