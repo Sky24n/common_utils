@@ -21,7 +21,7 @@ class EncryptUtil {
 
   /// 异或对称加密
   static String xorCode(String res, String key) {
-    List<String> keyList = key.split(",");
+    List<String> keyList = key.split(',');
     List<int> codeUnits = res.codeUnits;
     List<int> codes = List();
     for (int i = 0, length = codeUnits.length; i < length; i++) {

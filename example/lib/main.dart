@@ -142,6 +142,8 @@ void main() {
   //timerCountDown.startCountDown();
   //if (timerCountDown != null) timerCountDown.cancel(); //dispose()
   LogUtil.e("---------------- TimerUtil en ----------------\n");
+
+  LogUtil.e('Regex: ${RegexUtil.isPassport('EG6504900')}');
 }
 
 class City {

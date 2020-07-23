@@ -263,7 +263,7 @@ class TimelineUtil {
           _info.lessThanOneMinute().isNotEmpty &&
           seconds < _info.maxJustNowSecond()) {
         timeline = _info.lessThanOneMinute();
-        suffix = "";
+        suffix = '';
       }
     } else if (minutes < 60) {
       timeline = _info.minutes(minutes.round());
@@ -277,7 +277,7 @@ class TimelineUtil {
         _dayFormat = DayFormat.Simple;
       }
       timeline = _formatDays(ms, days.round(), _info, _dayFormat);
-      suffix = (_dayFormat == DayFormat.Simple ? suffix : "");
+      suffix = (_dayFormat == DayFormat.Simple ? suffix : '');
     }
     return timeline + suffix;
   }
@@ -327,8 +327,8 @@ class TimelineUtil {
   ) {
     return info.customYesterday() +
         (dayFormat == DayFormat.Full
-            ? (" " + DateUtil.formatDateMs(ms, format: 'HH:mm'))
-            : "");
+            ? (' ' + DateUtil.formatDateMs(ms, format: 'HH:mm'))
+            : '');
   }
 
   /// get is not year info.
@@ -343,7 +343,7 @@ class TimelineUtil {
               ? 'yyyy-MM-dd'
               : 'yyyy-MM-dd HH:mm'));
     }
-    return "";
+    return '';
   }
 
   /// format Days.

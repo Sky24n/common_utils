@@ -5,28 +5,28 @@
  * @Date: 2018/9/8
  */
 
-/// 一些常用格式参照。可以自定义格式，例如："yyyy/MM/dd HH:mm:ss"，"yyyy/M/d HH:mm:ss"。
+/// 一些常用格式参照。可以自定义格式，例如：'yyyy/MM/dd HH:mm:ss'，'yyyy/M/d HH:mm:ss'。
 /// 格式要求
 /// year -> yyyy/yy   month -> MM/M    day -> dd/d
 /// hour -> HH/H      minute -> mm/m   second -> ss/s
 class DateFormats {
-  static String full = "yyyy-MM-dd HH:mm:ss";
-  static String y_mo_d_h_m = "yyyy-MM-dd HH:mm";
-  static String y_mo_d = "yyyy-MM-dd";
-  static String y_mo = "yyyy-MM";
-  static String mo_d = "MM-dd";
-  static String mo_d_h_m = "MM-dd HH:mm";
-  static String h_m_s = "HH:mm:ss";
-  static String h_m = "HH:mm";
+  static String full = 'yyyy-MM-dd HH:mm:ss';
+  static String y_mo_d_h_m = 'yyyy-MM-dd HH:mm';
+  static String y_mo_d = 'yyyy-MM-dd';
+  static String y_mo = 'yyyy-MM';
+  static String mo_d = 'MM-dd';
+  static String mo_d_h_m = 'MM-dd HH:mm';
+  static String h_m_s = 'HH:mm:ss';
+  static String h_m = 'HH:mm';
 
-  static String zh_full = "yyyy年MM月dd日 HH时mm分ss秒";
-  static String zh_y_mo_d_h_m = "yyyy年MM月dd日 HH时mm分";
-  static String zh_y_mo_d = "yyyy年MM月dd日";
-  static String zh_y_mo = "yyyy年MM月";
-  static String zh_mo_d = "MM月dd日";
-  static String zh_mo_d_h_m = "MM月dd日 HH时mm分";
-  static String zh_h_m_s = "HH时mm分ss秒";
-  static String zh_h_m = "HH时mm分";
+  static String zh_full = 'yyyy年MM月dd日 HH时mm分ss秒';
+  static String zh_y_mo_d_h_m = 'yyyy年MM月dd日 HH时mm分';
+  static String zh_y_mo_d = 'yyyy年MM月dd日';
+  static String zh_y_mo = 'yyyy年MM月';
+  static String zh_mo_d = 'MM月dd日';
+  static String zh_mo_d_h_m = 'MM月dd日 HH时mm分';
+  static String zh_h_m_s = 'HH时mm分ss秒';
+  static String zh_h_m = 'HH时mm分';
 }
 
 /// month->days.
@@ -96,20 +96,20 @@ class DateUtil {
   }
 
   /// format date by DateTime.
-  /// format 转换格式(已提供常用格式 DateFormats，可以自定义格式："yyyy/MM/dd HH:mm:ss")
+  /// format 转换格式(已提供常用格式 DateFormats，可以自定义格式：'yyyy/MM/dd HH:mm:ss')
   /// 格式要求
   /// year -> yyyy/yy   month -> MM/M    day -> dd/d
   /// hour -> HH/H      minute -> mm/m   second -> ss/s
   static String formatDate(DateTime dateTime, {String format}) {
-    if (dateTime == null) return "";
+    if (dateTime == null) return '';
     format = format ?? DateFormats.full;
-    if (format.contains("yy")) {
+    if (format.contains('yy')) {
       String year = dateTime.year.toString();
-      if (format.contains("yyyy")) {
-        format = format.replaceAll("yyyy", year);
+      if (format.contains('yyyy')) {
+        format = format.replaceAll('yyyy', year);
       } else {
         format = format.replaceAll(
-            "yy", year.substring(year.length - 2, year.length));
+            'yy', year.substring(year.length - 2, year.length));
       }
     }
 
@@ -148,25 +148,25 @@ class DateUtil {
     String weekday;
     switch (dateTime.weekday) {
       case 1:
-        weekday = languageCode == 'zh' ? '星期一' : "Monday";
+        weekday = languageCode == 'zh' ? '星期一' : 'Monday';
         break;
       case 2:
-        weekday = languageCode == 'zh' ? '星期二' : "Tuesday";
+        weekday = languageCode == 'zh' ? '星期二' : 'Tuesday';
         break;
       case 3:
-        weekday = languageCode == 'zh' ? '星期三' : "Wednesday";
+        weekday = languageCode == 'zh' ? '星期三' : 'Wednesday';
         break;
       case 4:
-        weekday = languageCode == 'zh' ? '星期四' : "Thursday";
+        weekday = languageCode == 'zh' ? '星期四' : 'Thursday';
         break;
       case 5:
-        weekday = languageCode == 'zh' ? '星期五' : "Friday";
+        weekday = languageCode == 'zh' ? '星期五' : 'Friday';
         break;
       case 6:
-        weekday = languageCode == 'zh' ? '星期六' : "Saturday";
+        weekday = languageCode == 'zh' ? '星期六' : 'Saturday';
         break;
       case 7:
-        weekday = languageCode == 'zh' ? '星期日' : "Sunday";
+        weekday = languageCode == 'zh' ? '星期日' : 'Sunday';
         break;
       default:
         break;

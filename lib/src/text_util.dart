@@ -15,8 +15,8 @@ class TextUtil {
   /// 每隔 x位 加 pattern
   static String formatDigitPattern(String text,
       {int digit = 4, String pattern = ' '}) {
-    text = text?.replaceAllMapped(RegExp("(.{$digit})"), (Match match) {
-      return "${match.group(0)}$pattern";
+    text = text?.replaceAllMapped(RegExp('(.{$digit})'), (Match match) {
+      return '${match.group(0)}$pattern';
     });
     if (text != null && text.endsWith(pattern)) {
       text = text.substring(0, text.length - 1);

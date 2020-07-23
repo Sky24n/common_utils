@@ -21,7 +21,7 @@ class JsonUtil {
       Map map = json.decode(source);
       return map == null ? null : f(map);
     } catch (e) {
-      print("JsonUtil convert error, Exception：${e.toString()}");
+      print('JsonUtil convert error, Exception：${e.toString()}');
     }
     return null;
   }
@@ -38,7 +38,7 @@ class JsonUtil {
       }
       return map == null ? null : f(map);
     } catch (e) {
-      print("JsonUtil convert error, Exception：${e.toString()}");
+      print('JsonUtil convert error, Exception：${e.toString()}');
     }
     return null;
   }
@@ -52,7 +52,7 @@ class JsonUtil {
         return f(value);
       })?.toList();
     } catch (e) {
-      print("JsonUtil convert error, Exception：${e.toString()}");
+      print('JsonUtil convert error, Exception：${e.toString()}');
     }
     return null;
   }
@@ -71,7 +71,7 @@ class JsonUtil {
         return f(value);
       })?.toList();
     } catch (e) {
-      print("JsonUtil convert error, Exception：${e.toString()}");
+      print('JsonUtil convert error, Exception：${e.toString()}');
     }
     return null;
   }

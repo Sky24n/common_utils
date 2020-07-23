@@ -7,7 +7,7 @@
 
 /// Log Util.
 class LogUtil {
-  static const String _defTag = "common_utils";
+  static const String _defTag = 'common_utils';
   static bool _debugMode = false; //是否是debug模式,true: log v 不输出.
   static int _maxLen = 128;
   static String _tagValue = _defTag;
@@ -36,18 +36,18 @@ class LogUtil {
     String da = object.toString();
     tag = tag ?? _tagValue;
     if (da.length <= _maxLen) {
-      print("$tag$stag $da");
+      print('$tag$stag $da');
       return;
     }
     print(
         '$tag$stag — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —');
     while (da.isNotEmpty) {
       if (da.length > _maxLen) {
-        print("$tag$stag| ${da.substring(0, _maxLen)}");
+        print('$tag$stag| ${da.substring(0, _maxLen)}');
         da = da.substring(_maxLen, da.length);
       } else {
-        print("$tag$stag| $da");
-        da = "";
+        print('$tag$stag| $da');
+        da = '';
       }
     }
     print(
