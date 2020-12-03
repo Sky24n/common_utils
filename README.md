@@ -108,9 +108,9 @@ yearIsEqual                     : 是否同年.
 isLeapYear                      : 是否是闰年.
 
 // example
-DateUtil.formatDateMs(dateMs, format: DataFormats.full); //2019-07-09 16:16:16
+DateUtil.formatDateMs(dateMs, format: DateFormats.full); //2019-07-09 16:16:16
 DateUtil.formatDateStr('2019-07-09 16:16:16', format: "yyyy/M/d HH:mm:ss"); //2019/7/9 16:16:16
-DateUtil.formatDate(DateTime.now(), format: DataFormats.zh_full); //2019年07月09日 16时16分16秒
+DateUtil.formatDate(DateTime.now(), format: DateFormats.zh_full); //2019年07月09日 16时16分16秒
 ```
 
 * EncryptUtil
