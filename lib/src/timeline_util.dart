@@ -1,4 +1,3 @@
-import 'package:common_utils/common_utils.dart';
 import 'package:common_utils/src/date_util.dart';
 
 /**
@@ -222,7 +221,8 @@ class TimelineUtil {
     String locale,
     DayFormat dayFormat,
   }) {
-    int _locTimeMs = locTimeMs ?? DateTime.now().millisecondsSinceEpoch;
+    int _locTimeMs = locTimeMs ??
+        DateTime.parse('2021-01-08 11:00:21').millisecondsSinceEpoch;
     String _locale = locale ?? 'en';
     TimelineInfo _info = _timelineInfoMap[_locale] ?? EnInfo();
     DayFormat _dayFormat = dayFormat ?? DayFormat.Common;
@@ -257,6 +257,7 @@ class TimelineUtil {
     final num minutes = seconds / 60;
     final num hours = minutes / 60;
     final num days = hours / 24;
+
     if (seconds < 90) {
       timeline = _info.oneMinute(1);
       if (suffix != _info.suffixAfter() &&
@@ -350,15 +351,17 @@ class TimelineUtil {
   static String _formatDays(
     int ms,
     num days,
-    TimelineInfo timelineInfo,
+    TimelineInfo info,
     DayFormat dayFormat,
   ) {
     String timeline;
     switch (dayFormat) {
       case DayFormat.Simple:
         timeline = (days == 1
-            ? timelineInfo.oneDay(days.round())
-            : timelineInfo.days(days.round()));
+            ? info.customYesterday().isEmpty
+                ? info.oneDay(days.round())
+                : info.days(2)
+            : info.days(days.round()));
         break;
       case DayFormat.Common:
         timeline = DateUtil.formatDateMs(ms, format: 'MM-dd');

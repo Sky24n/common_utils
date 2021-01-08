@@ -49,6 +49,9 @@ class JsonUtil {
     try {
       List list = json.decode(source);
       return list?.map((value) {
+        if (value is String) {
+          value = json.decode(value);
+        }
         return f(value);
       })?.toList();
     } catch (e) {
@@ -68,11 +71,29 @@ class JsonUtil {
         list = source;
       }
       return list?.map((value) {
+        if (value is String) {
+          value = json.decode(value);
+        }
         return f(value);
       })?.toList();
     } catch (e) {
       print('JsonUtil convert error, Exception：${e.toString()}');
     }
     return null;
+  }
+
+  /// get List
+  /// [1, 2, 3, 4, 5, 6];
+  /// "[\"tom\",\"tony\",\"jacky\"]";
+  static List<T> getList<T>(Object source) {
+    List list;
+    if (source is String) {
+      list = json.decode(source);
+    } else {
+      list = source;
+    }
+    return list?.map((v) {
+      return v as T;
+    })?.toList();
   }
 }

@@ -5,6 +5,8 @@
  * @Date: 2018/9/29
  */
 
+import 'dart:developer';
+
 /// Log Util.
 class LogUtil {
   static const String _defTag = 'common_utils';
@@ -20,6 +22,12 @@ class LogUtil {
     _tagValue = tag;
     _debugMode = isDebug;
     _maxLen = maxLen;
+  }
+
+  static void d(Object object, {String tag}) {
+    if (_debugMode) {
+      log('$tag d | ${object?.toString()}');
+    }
   }
 
   static void e(Object object, {String tag}) {

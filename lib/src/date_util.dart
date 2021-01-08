@@ -68,8 +68,8 @@ class DateUtil {
   }
 
   /// get DateMilliseconds By DateStr.
-  static int getDateMsByTimeStr(String dateStr) {
-    DateTime dateTime = DateTime.tryParse(dateStr);
+  static int getDateMsByTimeStr(String dateStr, {bool isUtc}) {
+    DateTime dateTime = getDateTime(dateStr, isUtc: isUtc);
     return dateTime?.millisecondsSinceEpoch;
   }
 

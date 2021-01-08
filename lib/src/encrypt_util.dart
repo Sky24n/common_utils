@@ -23,7 +23,7 @@ class EncryptUtil {
   static String xorCode(String res, String key) {
     List<String> keyList = key.split(',');
     List<int> codeUnits = res.codeUnits;
-    List<int> codes = List();
+    List<int> codes = [];
     for (int i = 0, length = codeUnits.length; i < length; i++) {
       int code = codeUnits[i] ^ int.parse(keyList[i % keyList.length]);
       codes.add(code);

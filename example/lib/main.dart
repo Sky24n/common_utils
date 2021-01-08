@@ -31,6 +31,13 @@ void main() {
   LogUtil.e("---------------- EncryptUtil en ----------------\n");
 
   LogUtil.e("---------------- JsonUtil st ----------------");
+  String intListStr = "[1, 2, 3, 4, 5, 6]";
+  List<int> intList = JsonUtil.getList(intListStr);
+  LogUtil.e("JsonUtil getList -> intList: $intList");
+  String strListStr = "[\"tom\",\"tony\",\"jacky\"]";
+  List<String> strList = JsonUtil.getList(strListStr);
+  LogUtil.e("JsonUtil getList -> strList: $strList");
+
   String objStr = "{\"name\":\"成都市\"}";
   City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
   String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
@@ -47,6 +54,8 @@ void main() {
     sb.write('$i,');
   }
   LogUtil.e(sb.toString());
+
+  LogUtil.d(sb.toString());
   LogUtil.e("---------------- LogUtil en ----------------\n");
 
   LogUtil.e("---------------- MoneyUtil st ----------------");

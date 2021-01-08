@@ -38,9 +38,10 @@ List<String> ID_CARD_PROVINCE_DICT = [
   '63=青海',
   '64=宁夏',
   '65=新疆',
-  '71=台湾',
+  '71=台湾老',
   '81=香港',
   '82=澳门',
+  '83=台湾新',
   '91=国外',
 ];
 
@@ -169,7 +170,7 @@ class RegexUtil {
       ];
       if (cityMap.isEmpty) {
         List<String> list = ID_CARD_PROVINCE_DICT;
-        List<MapEntry<String, String>> mapEntryList = List();
+        List<MapEntry<String, String>> mapEntryList = [];
         for (int i = 0, length = list.length; i < length; i++) {
           List<String> tokens = list[i].trim().split('=');
           MapEntry<String, String> mapEntry = MapEntry(tokens[0], tokens[1]);
