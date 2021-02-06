@@ -7,12 +7,12 @@ Dart常用工具类库。包含日期，正则，倒计时，时间轴等工具�
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
 dependencies:
-  common_utils: ^1.2.1
+  common_utils: ^1.2.2
 ```
 2、如果您是Flutter项目，请使用Flutter常用工具类库 [flustars][flustars_github]，该库依赖于本项目。[flustars][flustars_github]库为大家提供更多的工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
 ```yaml
 dependencies:
-  flustars: ^0.3.2  
+  flustars: ^0.3.3  
 ```
 
 Dart常用工具类库 [common_utils][common_utils_github]
@@ -108,9 +108,9 @@ yearIsEqual                     : 是否同年.
 isLeapYear                      : 是否是闰年.
 
 // example
-DateUtil.formatDateMs(dateMs, format: DataFormats.full); //2019-07-09 16:16:16
+DateUtil.formatDateMs(dateMs, format: DateFormats.full); //2019-07-09 16:16:16
 DateUtil.formatDateStr('2019-07-09 16:16:16', format: "yyyy/M/d HH:mm:ss"); //2019/7/9 16:16:16
-DateUtil.formatDate(DateTime.now(), format: DataFormats.zh_full); //2019年07月09日 16时16分16秒
+DateUtil.formatDate(DateTime.now(), format: DateFormats.zh_full); //2019年07月09日 16时16分16秒
 ```
 
 * EncryptUtil
@@ -286,8 +286,6 @@ isActive                    : Timer是否启动.
 >    - |-- timer_page.dart 倒计时/定时器示例
 >    - |-- widget_page.dart 获取Widget尺寸/屏幕坐标示例
 
-### Demo Apk : [flutter_wanandroid](https://github.com/Sky24n/Doc)
-
 ### Big Thanks
 本库部分源码参考，正则，时间轴。  
 Blankj [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode) 强大易用的安卓工具类库。   
@@ -298,6 +296,10 @@ a14n [decimal](https://github.com/a14n/dart-decimal) 精确运算，避免精度
 GitHub : [Sky24n](https://github.com/Sky24n)  
 掘金 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://juejin.im/user/5b9e8a92e51d453df0440422/posts)  
 简书 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://www.jianshu.com/u/cbf2ad25d33a)
+
+## Apps
+[flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)  
+[Moss App](https://github.com/Sky24n/Moss)
 
 ### [Change Log](CHANGE_LOG.md)
 v1.2.1 (2020.05.29)  
@@ -325,6 +327,7 @@ common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,2
 common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
 common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
 ```
+
 
 [flutter_wanandroid_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_wanandroid/qrcode.png
 

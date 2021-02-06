@@ -1,3 +1,7 @@
+## 1.2.2
+
+* TODO: RegexUtil add regexPassport, fix TimelineInfo bugs and some updates.
+
 ## 1.2.1
 
 * TODO: fix DataFormats -> DateFormats, fix TimelineInfo bugs.

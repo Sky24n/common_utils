@@ -7,12 +7,12 @@ Language: English | [中文简体](https://github.com/Sky24n/common_utils)
 1、Dart project dependencies.
 ```yaml
 dependencies:
-  common_utils: ^1.2.1
+  common_utils: ^1.2.2
 ```
 2、Dart project dependencies, [flustars][flustars_github] is a Flutter common utils library. More SpUtil, ScreenUtil, DirectoryUtil.
 ```yaml
 dependencies:
-  flustars: ^0.3.2  
+  flustars: ^0.3.3  
 ```
 
 Dart utils Library [common_utils][common_utils_github]
@@ -107,9 +107,9 @@ yearIsEqual                     : whether it is leap year.
 isLeapYear                      : year is equal.
 
 // example
-DateUtil.formatDateMs(dateMs, format: DataFormats.full); //2019-07-09 16:16:16
+DateUtil.formatDateMs(dateMs, format: DateFormats.full); //2019-07-09 16:16:16
 DateUtil.formatDateStr('2019-07-09 16:16:16', format: "yyyy/M/d HH:mm:ss"); //2019/7/9 16:16:16
-DateUtil.formatDate(DateTime.now(), format: DataFormats.zh_full); //2019年07月09日 16时16分16秒
+DateUtil.formatDate(DateTime.now(), format: DateFormats.zh_full); //2019年07月09日 16时16分16秒
 ```
 
 * EncryptUtil
@@ -293,10 +293,15 @@ Blankj [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)。
 Andres Araujo [timeago](https://github.com/andresaraujo/timeago.dart)。  
 a14n [decimal](https://github.com/a14n/dart-decimal)。
 
+## Apps
+[flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)  
+[Moss App](https://github.com/Sky24n/Moss)
+
 ### [Change Log](CHANGELOG.md)
 v1.2.1 (2020.05.29)  
 1、fix DataFormats -> DateFormats。  
 2、fix TimelineInfo bugs。
+
 
 
 [flustars_github]: https://github.com/Sky24n/flustars

@@ -221,8 +221,7 @@ class TimelineUtil {
     String locale,
     DayFormat dayFormat,
   }) {
-    int _locTimeMs = locTimeMs ??
-        DateTime.parse('2021-01-08 11:00:21').millisecondsSinceEpoch;
+    int _locTimeMs = locTimeMs ?? DateTime.now().millisecondsSinceEpoch;
     String _locale = locale ?? 'en';
     TimelineInfo _info = _timelineInfoMap[_locale] ?? EnInfo();
     DayFormat _dayFormat = dayFormat ?? DayFormat.Common;
