@@ -18,7 +18,7 @@ enum MoneyFormat {
  * @Date: 2018/9/29
  */
 
-///
+/// Money Util.
 class MoneyUtil {
   static const String YUAN = '¥';
   static const String YUAN_ZH = '元';

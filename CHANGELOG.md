@@ -1,3 +1,7 @@
+## 1.2.3
+
+* TODO: fix analysis.
+
 ## 1.2.2
 
 * TODO: RegexUtil add regexPassport, fix TimelineInfo bugs and some updates.

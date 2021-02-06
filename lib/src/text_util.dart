@@ -5,7 +5,7 @@
  * @Date: 2019/7/9
  */
 
-/// TextUtil.
+/// Text Util.
 class TextUtil {
   /// isEmpty
   static bool isEmpty(String text) {

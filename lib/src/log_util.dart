@@ -1,11 +1,11 @@
+import 'dart:developer';
+
 /**
  * @Author: Sky24n
  * @GitHub: https://github.com/Sky24n
- * @Description: Widget Util.
+ * @Description: Log Util.
  * @Date: 2018/9/29
  */
-
-import 'dart:developer';
 
 /// Log Util.
 class LogUtil {
