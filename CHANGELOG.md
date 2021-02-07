@@ -1,3 +1,7 @@
+## 1.2.4
+
+* TODO: fix regex mobileExact.
+
 ## 1.2.3
 
 * TODO: fix analysis.
