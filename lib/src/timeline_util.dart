@@ -186,8 +186,8 @@ Map<String, TimelineInfo> _timelineInfoMap = {
 
 /// add custom configuration.
 void setLocaleInfo(String locale, TimelineInfo timelineInfo) {
-  assert(locale != null, '[locale] must not be null');
-  assert(timelineInfo != null, '[timelineInfo] must not be null');
+  ArgumentError.checkNotNull(locale, '[locale] must not be null');
+  ArgumentError.checkNotNull(timelineInfo, '[timelineInfo] must not be null');
   _timelineInfoMap[locale] = timelineInfo;
 }
 
@@ -199,12 +199,12 @@ class TimelineUtil {
   /// locale: output key.
   static String formatByDateTime(
     DateTime dateTime, {
-    DateTime locDateTime,
-    String locale,
-    DayFormat dayFormat,
+    DateTime? locDateTime,
+    String? locale,
+    DayFormat? dayFormat,
   }) {
     return format(
-      dateTime?.millisecondsSinceEpoch,
+      dateTime.millisecondsSinceEpoch,
       locTimeMs: locDateTime?.millisecondsSinceEpoch,
       locale: locale,
       dayFormat: dayFormat,
@@ -217,9 +217,9 @@ class TimelineUtil {
   /// locale: output key.
   static String format(
     int ms, {
-    int locTimeMs,
-    String locale,
-    DayFormat dayFormat,
+    int? locTimeMs,
+    String? locale,
+    DayFormat? dayFormat,
   }) {
     int _locTimeMs = locTimeMs ?? DateTime.now().millisecondsSinceEpoch;
     String _locale = locale ?? 'en';
@@ -290,7 +290,7 @@ class TimelineUtil {
   /// others (yyyy-MM-dd)
   static String formatA(
     int ms, {
-    int locMs,
+    int? locMs,
     String formatToday = 'HH:mm',
     String format = 'yyyy-MM-dd',
     String languageCode = 'en',

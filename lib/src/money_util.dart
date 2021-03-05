@@ -28,7 +28,6 @@ class MoneyUtil {
   /// 分 转 元, format格式输出.
   static String changeF2Y(int amount,
       {MoneyFormat format = MoneyFormat.NORMAL}) {
-    if (amount == null) return null;
     String moneyTxt;
     double yuan = NumUtil.divide(amount, 100);
     switch (format) {
@@ -58,11 +57,7 @@ class MoneyUtil {
   static String changeFStr2YWithUnit(String amountStr,
       {MoneyFormat format = MoneyFormat.NORMAL,
       MoneyUnit unit = MoneyUnit.NORMAL}) {
-    int amount;
-    if (amountStr != null) {
-      double value = double.tryParse(amountStr);
-      amount = (value == null ? null : value.toInt());
-    }
+    int amount = int.parse(amountStr);
     return changeF2YWithUnit(amount, format: format, unit: unit);
   }
 
@@ -77,8 +72,7 @@ class MoneyUtil {
   /// yuan, format & unit  output.(yuan is int,double,str).
   /// 元, format 与 unit 格式 输出.
   static String changeYWithUnit(Object yuan, MoneyUnit unit,
-      {MoneyFormat format}) {
-    if (yuan == null) return null;
+      {MoneyFormat? format}) {
     String yuanTxt = yuan.toString();
     if (format != null) {
       int amount = changeY2F(yuan);
@@ -90,14 +84,12 @@ class MoneyUtil {
   /// yuan to fen.
   /// 元 转 分，
   static int changeY2F(Object yuan) {
-    if (yuan == null) return null;
     return NumUtil.multiplyDecStr(yuan.toString(), '100').toInt();
   }
 
   /// with unit.
   /// 拼接单位.
   static String withUnit(String moneyTxt, MoneyUnit unit) {
-    if (moneyTxt == null || moneyTxt.isEmpty) return null;
     switch (unit) {
       case MoneyUnit.YUAN:
         moneyTxt = YUAN + moneyTxt;

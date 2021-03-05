@@ -7,12 +7,12 @@ Language: English | [中文简体](https://github.com/Sky24n/common_utils)
 1、Dart project dependencies.
 ```yaml
 dependencies:
-  common_utils: ^1.2.4
+  common_utils: ^2.0.0
 ```
 2、Dart project dependencies, [flustars][flustars_github] is a Flutter common utils library. More SpUtil, ScreenUtil, DirectoryUtil.
 ```yaml
 dependencies:
-  flustars: ^0.3.3  
+  flustars: ^2.0.0  
 ```
 
 Dart utils Library [common_utils][common_utils_github]
@@ -288,7 +288,7 @@ isActive                    : timer is Active.
 
 ### Demo Apk : [flutter_wanandroid](https://github.com/Sky24n/Doc)
 
-### Big Thanks
+### Thanks
 Blankj [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)。  
 Andres Araujo [timeago](https://github.com/andresaraujo/timeago.dart)。  
 a14n [decimal](https://github.com/a14n/dart-decimal)。

@@ -5,10 +5,10 @@ import 'package:common_utils/common_utils.dart';
 void main() {
   LogUtil.e("---------------- DateUtil st ----------------");
   String dateStr = "2019-07-09 16:16:16";
-  DateTime dateTime = DateUtil.getDateTime(dateStr);
+  DateTime? dateTime = DateUtil.getDateTime(dateStr);
   DateTime now = DateTime.now();
-  int dateMs = DateUtil.getDateMsByTimeStr(dateStr);
-  String nowStr1 = DateUtil.formatDateMs(dateMs, format: DateFormats.full);
+  int? dateMs = DateUtil.getDateMsByTimeStr(dateStr);
+  String nowStr1 = DateUtil.formatDateMs(dateMs!, format: DateFormats.full);
   String nowStr2 = DateUtil.formatDateStr(dateStr, format: "yyyy/M/d HH:mm:ss");
   String nowStr3 = DateUtil.formatDate(dateTime, format: DateFormats.zh_full);
   String nowStr4 = DateUtil.formatDate(dateTime, format: 'yyyy年M月d日 HH时mm分ss秒');
@@ -32,16 +32,18 @@ void main() {
 
   LogUtil.e("---------------- JsonUtil st ----------------");
   String intListStr = "[1, 2, 3, 4, 5, 6]";
-  List<int> intList = JsonUtil.getList(intListStr);
+  List<int>? intList = JsonUtil.getList(intListStr);
   LogUtil.e("JsonUtil getList -> intList: $intList");
   String strListStr = "[\"tom\",\"tony\",\"jacky\"]";
-  List<String> strList = JsonUtil.getList(strListStr);
+  List<String>? strList = JsonUtil.getList(strListStr);
   LogUtil.e("JsonUtil getList -> strList: $strList");
 
   String objStr = "{\"name\":\"成都市\"}";
-  City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
+  City? hisCity =
+      JsonUtil.getObj(objStr, (v) => City.fromJson(v as Map<String, dynamic>));
   String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
-  List<City> cityList = JsonUtil.getObjList(listStr, (v) => City.fromJson(v));
+  List<City>? cityList = JsonUtil.getObjList(
+      listStr, (v) => City.fromJson(v as Map<String, dynamic>));
   LogUtil.e(
       'JsonUtil -> hisCity: ${hisCity.toString()} ; cityList: ${cityList.toString()}');
   LogUtil.e("---------------- JsonUtil en ----------------\n");
@@ -69,7 +71,7 @@ void main() {
   LogUtil.e("---------------- NumUtil st ----------------");
   //保留小数点后2位数
   String tempStr = "1.5561111";
-  num value = NumUtil.getNumByValueStr(tempStr, fractionDigits: 2);
+  num? value = NumUtil.getNumByValueStr(tempStr, fractionDigits: 2);
   LogUtil.e("getDoubleByStr: " + '$value'); //result=1.56
   double a = 59.89;
   int b = 10000;
@@ -129,9 +131,9 @@ void main() {
   LogUtil.e("---------------- TimelineUtil en ----------------\n");
 
   LogUtil.e("---------------- TimerUtil st ----------------");
-  TimerUtil timerUtil;
+  TimerUtil? timerUtil;
   //定时任务test
-  timerUtil = TimerUtil(mInterval: 1000);
+  timerUtil = TimerUtil(mInterval: 1000, mTotalTime: 5 * 1000);
   //timerUtil.setInterval(1000);
   timerUtil.setOnTimerTickCallback((int value) {
     LogUtil.e("TimerTick: " + value.toString());

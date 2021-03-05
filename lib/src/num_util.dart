@@ -10,15 +10,15 @@ import 'package:decimal/decimal.dart';
 /// Num Util.
 class NumUtil {
   /// The parameter [fractionDigits] must be an integer satisfying: `0 <= fractionDigits <= 20`.
-  static num getNumByValueStr(String valueStr, {int fractionDigits}) {
-    double value = double.tryParse(valueStr);
+  static num? getNumByValueStr(String valueStr, {int? fractionDigits}) {
+    double? value = double.tryParse(valueStr);
     return fractionDigits == null
         ? value
         : getNumByValueDouble(value, fractionDigits);
   }
 
   /// The parameter [fractionDigits] must be an integer satisfying: `0 <= fractionDigits <= 20`.
-  static num getNumByValueDouble(double value, int fractionDigits) {
+  static num? getNumByValueDouble(double? value, int fractionDigits) {
     if (value == null) return null;
     String valueStr = value.toStringAsFixed(fractionDigits);
     return fractionDigits == 0
@@ -27,17 +27,17 @@ class NumUtil {
   }
 
   /// get int by value str.
-  static int getIntByValueStr(String valueStr, {int defValue = 0}) {
+  static int? getIntByValueStr(String valueStr, {int? defValue = 0}) {
     return int.tryParse(valueStr) ?? defValue;
   }
 
   /// get double by value str.
-  static double getDoubleByValueStr(String valueStr, {double defValue = 0}) {
+  static double? getDoubleByValueStr(String valueStr, {double? defValue = 0}) {
     return double.tryParse(valueStr) ?? defValue;
   }
 
   ///isZero
-  static bool isZero(num value) {
+  static bool isZero(num? value) {
     return value == null || value == 0;
   }
 

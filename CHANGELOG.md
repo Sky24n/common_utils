@@ -1,3 +1,7 @@
+## 2.0.0
+
+* TODO: Migrate to null-safety.
+
 ## 1.2.4
 
 * TODO: fix regex mobileExact.

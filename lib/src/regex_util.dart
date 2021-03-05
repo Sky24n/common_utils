@@ -132,10 +132,10 @@ class RegexUtil {
 
   /// Return whether input matches regex of id card number.
   static bool isIDCard(String input) {
-    if (input != null && input.length == 15) {
+    if (input.length == 15) {
       return isIDCard15(input);
     }
-    if (input != null && input.length == 18) {
+    if (input.length == 18) {
       return isIDCard18Exact(input);
     }
     return false;
@@ -232,7 +232,7 @@ class RegexUtil {
   }
 
   static bool matches(String regex, String input) {
-    if (input == null || input.isEmpty) return false;
+    if (input.isEmpty) return false;
     return RegExp(regex).hasMatch(input);
   }
 }
