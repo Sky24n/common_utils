@@ -94,6 +94,6 @@ class JsonUtil {
     }
     return list?.map((v) {
       return v as T;
-    })?.toList();
+    }).toList();
   }
 }

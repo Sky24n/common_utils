@@ -1,6 +1,6 @@
 name: common_utils
 description: Dart common utils library.Contain DateUtil, EncryptUtil, JsonUtil, LogUtil, MoneyUtil, NumUtil, ObjectUtil, RegexUtil, TextUtil, TimelineUtil, TimerUtil.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/Sky24n/common_utils
 
 environment:

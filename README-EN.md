@@ -7,12 +7,12 @@ Language: English | [中文简体](https://github.com/Sky24n/common_utils)
 1、Dart project dependencies.
 ```yaml
 dependencies:
-  common_utils: ^2.0.0
+  common_utils: ^2.0.1
 ```
 2、Dart project dependencies, [flustars][flustars_github] is a Flutter common utils library. More SpUtil, ScreenUtil, DirectoryUtil.
 ```yaml
 dependencies:
-  flustars: ^2.0.0  
+  flustars: ^2.0.1  
 ```
 
 Dart utils Library [common_utils][common_utils_github]
