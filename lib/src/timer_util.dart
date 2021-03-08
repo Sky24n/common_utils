@@ -12,7 +12,8 @@ typedef void OnTimerTickCallback(int millisUntilFinished);
 
 /// TimerUtil.
 class TimerUtil {
-  TimerUtil({required this.mInterval, required this.mTotalTime});
+  TimerUtil(
+      {this.mInterval = Duration.millisecondsPerSecond, this.mTotalTime = 0});
 
   /// Timer.
   Timer? _mTimer;
@@ -23,11 +24,11 @@ class TimerUtil {
 
   /// Timer interval (unit millisecond，def: 1000 millisecond).
   /// Timer间隔 单位毫秒，默认1000毫秒(1秒).
-  int mInterval = Duration.millisecondsPerSecond;
+  int mInterval;
 
   /// countdown totalTime.
   /// 倒计时总时间
-  int mTotalTime = 0; //单位毫秒
+  int mTotalTime; //单位毫秒
 
   OnTimerTickCallback? _onTimerTickCallback;
 
