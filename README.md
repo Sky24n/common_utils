@@ -297,36 +297,17 @@ GitHub : [Sky24n](https://github.com/Sky24n)
 掘金 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://juejin.im/user/5b9e8a92e51d453df0440422/posts)  
 简书 &nbsp;&nbsp;&nbsp;&nbsp;: [Sky24n](https://www.jianshu.com/u/cbf2ad25d33a)
 
+### Changelog
+Please see the [Changelog](CHANGELOG.md) page to know what's recently changed.
+
 ### Apps
 [flutter_wanandroid](https://github.com/Sky24n/flutter_wanandroid)  
-[Moss App](https://github.com/Sky24n/Moss)
+[Moss](https://github.com/Sky24n/Moss).  
+A GitHub client app developed with Flutter, which supports Android iOS Web.  
+Web ：[Flutter Web](https://sky24n.gitee.io/moss/web/index.html).
 
-### [Change Log](CHANGE_LOG.md)
-v1.2.1 (2020.05.29)  
-1、fix DataFormats -> DateFormats。  
-2、fix TimelineInfo bugs。
-
-v1.2.0 (2020.05.23)  
-1、新增JsonUtil。  
-2、新增EncryptUtil 简单加解密。  
-3、LogUtil 更新。
-```yaml
-String objStr = "{\"name\":\"成都市\"}";
-City hisCity = JsonUtil.getObj(objStr, (v) => City.fromJson(v));
-String listStr = "[{\"name\":\"成都市\"}, {\"name\":\"北京市\"}]";
-List<City> cityList = JsonUtil.getObjList(listStr, (v) => City.fromJson(v));
-
-const String key = '11, 22, 33, 44, 55, 66';
-String userName = 'Sky24n';
-String encode = EncryptUtil.xorBase64Encode(userName, key); // WH1YHgMs
-String decode = EncryptUtil.xorBase64Decode(encode, key); // Sky24n
-
-//超长log查看
-common_utils e  — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —
-common_utils e | 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,
-common_utils e | 7,988,989,990,991,992,993,994,995,996,997,998,999,
-common_utils e  — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —
-```
+|![](https://z3.ax1x.com/2021/04/26/gp1hm6.jpg)|![](https://z3.ax1x.com/2021/04/26/gp1Tte.jpg)|![](https://z3.ax1x.com/2021/04/26/gp17fH.jpg)|
+|:---:|:---:|:---:|
 
 
 [flutter_wanandroid_qr]: https://raw.githubusercontent.com/Sky24n/LDocuments/master/AppImgs/flutter_wanandroid/qrcode.png
