@@ -180,6 +180,7 @@ lessThan                    : < .
 thanOrEqual                 : <= .
 greaterThan                 : > .
 greaterOrEqual              : >= .
+removeTrailingZeros         : double转数字字符串，并移除末尾多余的0.
 ```
 
 * ObjectUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/object_util_page.dart)

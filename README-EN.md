@@ -179,6 +179,7 @@ lessThan                    : < .
 thanOrEqual                 : <= .
 greaterThan                 : > .
 greaterOrEqual              : >= .
+removeTrailingZeros         : get string By value double, and remove redundant trailing zeros.
 ```
 
 * ObjectUtil -> [Example](https://github.com/Sky24n/flutter_wanandroid/blob/master/lib/demos/object_util_page.dart)
