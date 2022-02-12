@@ -81,10 +81,10 @@ class MoneyUtil {
     return withUnit(yuanTxt, unit);
   }
 
-  /// yuan to fen.
+  /// yuan to fen.F
   /// 元 转 分，
   static int changeY2F(Object yuan) {
-    return NumUtil.multiplyDecStr(yuan.toString(), '100').toInt();
+    return NumUtil.multiplyDecStr(yuan.toString(), '100').toBigInt().toInt();
   }
 
   /// with unit.

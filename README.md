@@ -7,7 +7,7 @@ Dart常用工具类库。包含日期，正则，倒计时，时间轴等工具�
 1、如果您是纯Dart项目，可以直接引用本库。
 ```yaml
 dependencies:
-  common_utils: ^2.0.2
+  common_utils: ^2.1.0
 ```
 2、如果您是Flutter项目，请使用Flutter常用工具类库 [flustars][flustars_github]，该库依赖于本项目。[flustars][flustars_github]库为大家提供更多的工具类，例如SpUtil，ScreenUtil, DirectoryUtil等等。
 ```yaml
