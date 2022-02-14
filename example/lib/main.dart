@@ -139,7 +139,7 @@ void main() {
     LogUtil.e("TimerTick: " + value.toString());
   });
   timerUtil.startTimer();
-  if (timerUtil != null) timerUtil.cancel(); //dispose()
+  timerUtil.cancel(); //dispose()
 
   TimerUtil timerCountDown;
   //倒计时test

@@ -18,7 +18,7 @@ class JsonUtil {
   static T? getObj<T>(String? source, T f(Map v)) {
     if (source == null || source.isEmpty) return null;
     try {
-      Map map = json.decode(source);
+      Map map = json.decode(source) as Map;
       return f(map);
     } catch (e) {
       print('JsonUtil convert error, Exception：${e.toString()}');
@@ -32,9 +32,9 @@ class JsonUtil {
     try {
       Map map;
       if (source is String) {
-        map = json.decode(source);
+        map = json.decode(source) as Map;
       } else {
-        map = source;
+        map = source as Map;
       }
       return f(map);
     } catch (e) {
@@ -47,12 +47,12 @@ class JsonUtil {
   static List<T>? getObjList<T>(String? source, T f(Map v)) {
     if (source == null || source.isEmpty) return null;
     try {
-      List list = json.decode(source);
-      return list.map((value) {
+      List list = json.decode(source) as List;
+      return list.map((dynamic value) {
         if (value is String) {
           value = json.decode(value);
         }
-        return f(value);
+        return f(value as Map);
       }).toList();
     } catch (e) {
       print('JsonUtil convert error, Exception：${e.toString()}');
@@ -66,15 +66,15 @@ class JsonUtil {
     try {
       List list;
       if (source is String) {
-        list = json.decode(source);
+        list = json.decode(source) as List;
       } else {
-        list = source;
+        list = source as List;
       }
-      return list.map((value) {
+      return list.map((dynamic value) {
         if (value is String) {
           value = json.decode(value);
         }
-        return f(value);
+        return f(value as Map);
       }).toList();
     } catch (e) {
       print('JsonUtil convert error, Exception：${e.toString()}');
@@ -88,11 +88,11 @@ class JsonUtil {
   static List<T>? getList<T>(dynamic source) {
     List? list;
     if (source is String) {
-      list = json.decode(source);
+      list = json.decode(source) as List;
     } else {
-      list = source;
+      list = source as List;
     }
-    return list?.map((v) {
+    return list.map((dynamic v) {
       return v as T;
     }).toList();
   }
