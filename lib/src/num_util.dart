@@ -160,4 +160,22 @@ class NumUtil {
   static bool greaterOrEqualDecStr(String a, String b) {
     return Decimal.parse(a) >= Decimal.parse(b);
   }
+
+  /// Remove trailing zeros of double number.
+  static String removeTrailingZeros(double number) {
+    if (number == null) {
+      return null;
+    }
+
+    if (number.truncateToDouble() == number) {
+      return number.toStringAsFixed(0);
+    }
+
+    final value = number.toString();
+    int index = value.length;
+
+    while (value[--index] == '0') {}
+
+    return number.toStringAsFixed(index - value.indexOf('.'));
+  }
 }
