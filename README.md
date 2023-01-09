@@ -72,7 +72,7 @@ print("City list: " + (_cityList == null ? "null" : _cityList.toString()));
 /// 格式要求
 /// year -> yyyy/yy   month -> MM/M    day -> dd/d
 /// hour -> HH/H      minute -> mm/m   second -> ss/s
-class DataFormats {
+class DateFormats {
   static String full = "yyyy-MM-dd HH:mm:ss";
   static String y_mo_d_h_m = "yyyy-MM-dd HH:mm";
   static String y_mo_d = "yyyy-MM-dd";
